@@ -1,0 +1,19 @@
+<div class="container">
+  <img (click)="router.navigate(['/about'])" class="self-img z-depth-1" src="../../assets/images/people/ProfessionalPicJonny.png"/>
+  <div class="title">Jonny Deates</div>
+  <div *ngIf="!hasScrolled && waitPeriod">
+    <i *ngFor="let i of [25,50,75]" class="material-icons z-depth-1" style.left="{{i}}%">keyboard_arrow_down</i>
+  </div>
+  <!--<img *ngFor="let project of projects; let i = index" src="{{project.img}}">-->
+  <div class="data">
+    <div class="project center" *ngFor="let project of projects; let i = index" (click)="openModal(project)">
+      <div class="h1">{{project.projectName}}</div>
+      <div class="parallax-container center">
+        <div class="description">{{project.desc}}</div>
+        <div class="parallax">
+          <img src="{{project.img}}">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <img (click)="router.navigate(['/home'])" class="self-img z-depth-1" src="../../assets/images/people/ProfessionalPicJonny.png"/>
+  <div class="title">Jonny Deates</div>
+    <div class="card center hoverable" [style.animation-delay]="1+'s'">
+      <div class="card-content">
+        <div *ngFor="let paragraph of description"> {{paragraph}}</div>
+      </div>
+    </div>
+
+</div>

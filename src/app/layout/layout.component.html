@@ -1,0 +1,26 @@
+<div class="container center parallax-images">
+  <ul id="slide-out" class="sidenav">
+    <li class="center"><h1>Jonny Deates</h1></li>
+    <div class="skills-list-wrapper">
+      <ul class="skills-list">
+        <li *ngFor="let skill of skills" class="skill">{{skill}}</li>
+      </ul>
+    </div>
+    <li><a *ngFor="let link of links" [ngClass]="{active: link.active}"
+           (click)="navigation(links,link.route, link.elementId)"><i class="material-icons">{{link.i}}</i>
+      <div class="custom-underline">{{link.name}}</div>
+    </a></li>
+    <!--<li><a class="dropdown-trigger" data-target="dropdown1"><i class="material-icons">menu</i>TS Projects<i class="material-icons right">arrow_drop_down</i></a></li>-->
+    <li><a *ngFor="let link of linksDd" [ngClass]="{active: link.active}"
+           (click)="navigation(linksDd,link.route, link.elementId)"><i class="material-icons">{{link.i}}</i>
+      <div class="custom-underline">{{link.name}}</div>
+    </a></li>
+  </ul>
+</div>
+
+
+<div class="btn-wrapper z-depth-1">
+  <a *ngIf="isBtnActive" data-target="slide-out"
+     class="sidenav-trigger btn-floating waves-effect waves-light"><i class="material-icons">menu</i></a>
+</div>
+<router-outlet></router-outlet>

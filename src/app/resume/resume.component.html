@@ -1,0 +1,12 @@
+<div class="container">
+  <img (click)="router.navigate(['/home'])" class="self-img z-depth-1"
+       src="../../assets/images/people/ProfessionalPicJonny.png"/>
+  <div class="title">Jonny Deates</div>
+  <div class="card center" *ngFor="let language of languages; let i = index" [id]="'card' + i"
+       [style.animation-delay]="i*0.5+'s'">
+    <div class="image-wrapper"><img [src]="language.img"/></div>
+    <div class="card-content" *ngFor="let paragraph of language.description">
+      <div> {{paragraph.paragraph}}</div>
+    </div>
+  </div>
+</div>

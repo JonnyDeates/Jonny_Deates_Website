@@ -1,0 +1,202 @@
+i {
+  border-radius: 100%;
+  background-color: rgba(100, 100, 100, 80);
+  -webkit-animation: bounce 1s infinite;
+  animation: bounce 1s infinite;
+  position: absolute;
+  margin-right: 16px;
+  top: 85vh;
+  font-size: 25px;
+  z-index: 1000;
+
+}
+.project{
+  animation: 1s ease-out slideInFromLeft forwards;
+  margin-bottom: 20px;
+}
+.project > .h1 {
+  position: relative;
+  font-size: xx-large;
+  color: white;
+  top: 86px;
+  z-index: 2;
+  margin-top: -48px;
+  font-weight: bold;
+  transition-duration: 1s;
+}
+.data {
+  margin-top: 15vh;
+}
+.description {
+  opacity: 0;
+  display: inline;
+  position: absolute;
+  width: 800px;
+  height: 90px;
+  padding: 16px;
+
+  color: #fff;
+  background: #000000dd;
+  border-radius: 20px;
+  left: 0;
+  z-index: 21;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+}
+.description:hover{
+  opacity: 1;
+  cursor: pointer;
+}
+.parallax-container {
+  position: relative;
+  left: 50%;
+  margin-left: -400px;
+}
+
+.parallax-container .parallax {
+  background-color: #00acc1;
+  z-index: 1;
+  overflow: inherit;
+  border-radius: 20px;
+  width: 800px;
+  height: 90px;
+  padding: 16px;
+  margin-bottom: 10px;
+  position: relative;
+  text-align: center;
+  color: rgba(0, 0, 0, 20%);
+  font-size: xx-large;
+  cursor: pointer;
+}
+
+.parallax-container .parallax:hover {
+  display: block;
+  text-align: center;
+  background-image: none;
+  color: rgba(255, 255, 255, 0);
+  opacity: 1;
+  z-index: 1;
+  transition: 1s;
+}
+
+.parallax-container .parallax > span {
+  z-index: 1;
+  opacity: 0;
+  transition: 3s;
+  position: relative;
+  display: flex;
+  padding: 0;
+  bottom: 50px;
+  font-size: large;
+}
+
+.parallax-container .parallax:hover > span {
+  opacity: 1;
+  color: white;
+  background-color: #29292970;
+}
+
+.self-img {
+  width: 400px;
+  border-radius: 64px;
+  position: relative;
+  top: 0;
+  left: 50%;
+  margin-left: -200px;
+  max-width: 400px;
+  margin-bottom: -94px;
+  cursor: pointer;
+}
+
+.container {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 65%;
+  height: 120%;
+  width: 100%;
+}
+
+.title {
+  font-weight: 800;
+  color: transparent;
+  font-size: 120px;
+  background: url("/assets/images/backgrounds/yangbg3.png") repeat;
+  background-position: 20% 100%;
+  object-fit: cover;
+  -webkit-background-clip: text;
+  background-size: 960px 540px;
+  position: relative;
+  text-align: center;
+  line-height: 90px;
+  letter-spacing: -8px;
+  text-shadow: rgba(40, 50, 50, 20%) 1px 0px 10px;
+}
+
+.subtitle {
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 10px;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(0px, 0px);
+  }
+
+  20% {
+    transform: translate(0, 20px);
+  }
+}
+
+/* Section - Title */
+/**************************/
+.parallax-container {
+  overflow: hidden;
+  height: fit-content;
+  width: max-content;
+}
+
+/* Section - Parallax */
+/**************************/
+.parallax > img {
+  z-index: 0;
+
+  background-attachment: fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: repeat;
+  background-position: top center;
+}
+
+@media only screen and (max-device-width: 1366px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+@keyframes slideInFromTop {
+  0% {
+    opacity:0;
+    transform: translateY(-100%);
+  }
+  40%{
+    opacity: 0;
+  }
+  80%{
+    transform: translateY(0%);
+  }
+  90%{
+    transform: translateY(1%);
+  }
+  100% {
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
