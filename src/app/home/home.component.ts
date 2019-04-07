@@ -4,7 +4,7 @@ import {appendChild} from "@angular/core/src/render3/node_manipulation";
 import * as firebase from "firebase";
 import {until} from "selenium-webdriver";
 import titleContains = until.titleContains;
-import {Router} from "@angular/router";
+import {JRouter} from '../jrouter.service';
 
 @Component({
   selector: 'app-home',
@@ -12,28 +12,31 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-
-  count: any = 0;
+  count: any;
   hasScrolled: boolean;
   waitPeriod: boolean;
-  projects: any = [
-    {img: '/assets/images/backgrounds/yangbg.png',
-      desc: 'One of the few places I post updates about what current projects, and progress on these projects is underway.',
-      projectName: 'Blog', router: 'blog'},
-    {img: '/assets/images/backgrounds/unity3d.jpg', desc: 'A Unity project that is suppose to be implemented seamlessly into a game package. It provides all the basic stats and essential factors that a game could require.',
-      projectName: 'Unity Skill Sheets', router: 'projects/unitySS'},
-    {img: '/assets/images/backgrounds/pedroquintela.jpg', desc: 'A Client that takes professional photos in the Colorado Area.',
-      projectName: 'Cameron Photography', router: ''},
-    {img: '/assets/images/backgrounds/darkestdungeon.jpg', desc: 'A game that I am developing in browser.',
-      projectName: 'Vampire Village', router: ''},
-    {img: '/assets/images/backgrounds/photoofwedding.jfif', desc: 'A client that takes professional photos in the Georgia Area.',
-      projectName: 'Ansleigh Photography', router: ''},
-    {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: ''},
-    {img: '/assets/images/backgrounds/wheel.jpg', desc: 'A giveaway wheel developed in typescript and html.', projectName: 'Giveaway wheel',
-      router: ''}];
+  projects: any;
 
-  constructor(private router: Router) {
+  constructor(private router: JRouter) {
     this.hasScrolled = false;
+    this.count = 0;
+    this.projects = [
+      {img: '/assets/images/backgrounds/yangbg.png',
+        desc: 'One of the few places I post updates about what current projects, and progress on these projects is underway.',
+        projectName: 'Blog', router: 'blog'},
+      {img: '/assets/images/backgrounds/unity3d.jpg', desc: 'A Unity project that is suppose to be implemented seamlessly into a game package. It provides all the basic stats and essential factors that a game could require.',
+        projectName: 'Unity Skill Sheets', router: 'projects/unitySS'},
+      {img: '/assets/images/backgrounds/pedroquintela.jpg', desc: 'A Client that takes professional photos in the Colorado Area.',
+        projectName: 'Cameron Photography', router: ''},
+      {img: '/assets/images/backgrounds/darkestdungeon.jpg', desc: 'A game that I am developing in browser.',
+        projectName: 'Vampire Village', router: ''},
+      {img: '/assets/images/backgrounds/photoofwedding.jfif', desc: 'A client that takes professional photos in the Georgia Area.',
+        projectName: 'Ansleigh Photography', router: ''},
+      {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: ''},
+      {img: '/assets/images/backgrounds/wheel.jpg', desc: 'A giveaway wheel developed in typescript and html.', projectName: 'Giveaway wheel',
+        router: ''}];
+
+
     window['$'](document).ready(() => {
       window['$']('.parallax').parallax();
       let xPos, yPos;
@@ -50,7 +53,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     window['$'] (document).ready(() => {
       window['$']('.parallax').parallax();
     });
-
+     // location.href = 'https://youtube.com'
   }
 
   ngAfterViewInit() {
@@ -74,7 +77,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }, 10);
   }
   openModal(project) {
-    this.router.navigate([`${project.router}`]);
+    this.router.navigate(project.router);
   }
 }
 

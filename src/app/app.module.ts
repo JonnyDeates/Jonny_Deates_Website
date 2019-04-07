@@ -13,6 +13,7 @@ import {HomeComponent} from './home/home.component';
 import {LayoutComponent} from './layout/layout.component';
 import {FormsModule} from '@angular/forms';
 import * as firebase from 'firebase';
+import {JRouter} from './jrouter.service';
 
 const config = {
   apiKey: 'AIzaSyChSTdDfRuck6HUU2yDY2-ICRBIh9BWJiI',
@@ -40,7 +41,7 @@ firebase.initializeApp(config);
     FormsModule,
     AppRoutingModule
   ],
-  providers:  [],
+  providers:  [JRouter],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

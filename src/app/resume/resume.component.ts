@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {JRouter} from '../jrouter.service';
 
 @Component({
   selector: 'app-resume',
@@ -11,7 +11,7 @@ export class ResumeComponent implements OnInit {
   content: any;
   languages: any;
 
-  constructor(private router: Router) {
+  constructor(private router: JRouter) {
     this.languages = [{
       title: 'JavaScript', description: [
         { // My Experience
