@@ -10,12 +10,13 @@ export class BlogComponent implements OnInit {
   activePosts: { title: string, date: string, content: string, images: string[], embedded: string[] } [] = []; // Active Posts on Page
   pageIndex: number; // The Page we are On
   amtPostsShown: number; // The Amount of Posts Shown on Each Page
-  NumOfPages: number[] = []; // The Amount of Pages to choose from
+  NumOfPages: number[]; // The Amount of Pages to choose from
   database: any;
   Posts: { title: string, date: string, content: string, images: string[], embedded: string[] }[] = []; // All Posts on the Database
 
   constructor() {
     this.amtPostsShown = 5;
+    this.NumOfPages = [];
     this.database = firebase.database();
     this.database.ref('blog').once('value').then((snapshot) => {
       for (let key in snapshot.val()) {

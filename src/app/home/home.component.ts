@@ -1,9 +1,4 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {createElement} from "@angular/core/src/view/element";
-import {appendChild} from "@angular/core/src/render3/node_manipulation";
-import * as firebase from "firebase";
-import {until} from "selenium-webdriver";
-import titleContains = until.titleContains;
 import {JRouter} from '../jrouter.service';
 
 @Component({
