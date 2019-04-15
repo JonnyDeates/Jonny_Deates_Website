@@ -1,53 +1,11 @@
-@keyframes slideInFromLeft {
-  0% {
-    opacity:0;
-    transform: translateY(-100%);
-  }
-  40%{
-    opacity: 0;
-  }
-  80%{
-    transform: translateY(0%);
-  }
-  90%{
-    transform: translateY(1%);
-  }
-  100% {
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-iframe{
-  alignment: center;
-}
-li{
-  background: white;
-  border-radius: 25px
-}
-li.active{
-  background-color: black;
-  border-radius: 25px;
-}
-.body,height{
-  height: 100%;
-}
-.btn{
-  background-color: white !important;
-  color: black;
-  text-transform: none;
-}
 .card {
   padding: 16px;
   opacity: 0;
   border-radius: 16px;
   animation: 1s ease-out slideInFromLeft forwards;
   left: 50%;
-  width: 800px;
-  margin-left: -400px;
+  width: 80%;
+  margin-left: -40%;
 }
 .card:not(#card0){
   margin-top: 96px;
@@ -57,19 +15,8 @@ li.active{
 }
 .card-content > div{
   margin-top: 16px;
-  padding-top: 0px;
+  padding-top: 0;
   font-size: large;
-}
-.card-title{
-  border-radius: 16px;
-  padding-top: 0px;
-  padding-left: 16px;
-  padding-bottom: -32px;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 32px;
-  color: #FFFFFF;
-  background: #5388ab;
-  box-shadow: 0px 2px 4px grey;
 }
 .container {
   position: absolute;
@@ -80,20 +27,6 @@ li.active{
   top: 65%;
   height: 120%;
   width: 100%;
-}
-.header {
-  font-family: 'Open Sans', sans-serif;
-  color: hsl(0, 0%, 100%);
-  text-decoration: none;
-  font-size: 72px;
-  letter-spacing: -3px;
-  line-height: 1;
-  text-shadow: hsl(0, 0%, 00%) 3px 2px 0;
-  position: relative;
-  text-underline: #000000;
-}
-.header-container{
-  margin-top: 100px;
 }
 .image-wrapper {
   width: 100px;
@@ -116,18 +49,6 @@ li.active{
   border-radius: 20px;
   left: 0;
 }
-.image {
-  margin: auto;
-  max-width: 256px;
-  max-height: 256px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.parallax-container{
-  border-bottom-left-radius: 5% !important;
-  border-bottom-right-radius: 5% !important;
-}
 .title {
   font-weight: 800;
   color: transparent;
@@ -141,7 +62,7 @@ li.active{
   text-align: center;
   line-height: 90px;
   letter-spacing: -8px;
-  text-shadow: rgba(40, 50, 50, 20%) 1px 0px 10px;
+  text-shadow: rgba(40, 50, 50, 20%) 1px 0 10px;
 }
 .self-img {
   width: 400px;
@@ -161,4 +82,104 @@ li.active{
   padding-right: 16px;
 }
 
+@media (min-width: 1281px) {
+  .self-img {
+    margin-left: -175px;
+    max-width: 350px;
+  }
+  .title {
+    font-weight: 800;
+    font-size: 88px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .self-img {
+    margin-left: -175px;
+    max-width: 350px;
+  }
+  .title {
+    font-weight: 800;
+    font-size: 88px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .self-img {
+    margin-left: -175px;
+    max-width: 350px;
+  }
+  .title {
+    font-weight: 800;
+    font-size: 88px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .self-img {
+    margin-left: -175px;
+    max-width: 350px;
+  }
+  .title {
+    font-weight: 800;
+    font-size: 88px;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .self-img {
+    margin-left: -150px;
+    max-width: 300px;
+  }
+  .title {
+    font-weight: 800;
+    font-size: 80px;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .self-img {
+    width: 250px;
+    margin-left: -125px;
+    max-width: 250px;
+  }
+  .title {
+    font-weight: 750;
+    font-size: 72px;
+  }
+  .card-content > div{
+    font-size: medium;
+  }
+}
+@media (max-width: 320px) {
+
+  .self-img {
+    margin-left: -100px;
+    max-width: 200px;
+  }
+  .title {
+    font-weight: 700;
+    font-size: 64px;
+  }
+  .card-content > div {
+    font-size: small;
+  }
+}
+@keyframes slideInFromLeft {
+  0% {
+    opacity:0;
+    transform: translateY(-100%);
+  }
+  40%{
+    opacity: 0;
+  }
+  80%{
+    transform: translateY(0%);
+  }
+  90%{
+    transform: translateY(1%);
+  }
+  100% {
+    -webkit-animation-fill-mode:forwards;
+    -moz-animation-fill-mode:forwards;
+    animation-fill-mode:forwards;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 

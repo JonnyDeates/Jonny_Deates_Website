@@ -16,9 +16,9 @@ export class LayoutComponent implements OnInit, AfterViewInit {
   constructor(private router: JRouter) {
     // The Link Navigation created below
     this.links = [{route: '', name: 'Home', i: 'home'}, {route: 'about', name: 'About Me', i: 'account_circle'},
-      {route: 'blog', name: 'Blog', i: 'create'}, {route: 'resume', name: 'Resume', i: 'ondemand_video'},
-      {route: 'tic-tac-toe', name: 'Tic Tac Toe', i: 'grid_on'}, {route: 'giveaway-wheel', name: 'Give Away Wheel', i: 'slow_motion_video'},
-      {route: 'snake', name: 'Snake', i: 'show_chart'}];
+      {route: 'blog', name: 'Blog', i: 'create'}, {route: 'resume', name: 'Resume', i: 'ondemand_video'}];
+      // {route: 'tic-tac-toe', name: 'Tic Tac Toe', i: 'grid_on'}, {route: 'giveaway-wheel', name: 'Give Away Wheel', i: 'slow_motion_video'},
+      // {route: 'snake', name: 'Snake', i: 'show_chart'}];
 
     // S
     this.links.map(link => Object.assign(link, {active: false}));

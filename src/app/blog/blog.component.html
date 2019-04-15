@@ -17,7 +17,7 @@
         <a *ngFor="let i of card.images" target="_blank" [href]="i"><img class="image hoverable" [src]="i"></a>
       </div>
       <div class="center" *ngFor="let embed of card.embedded; let y = index">
-        <div *ngIf="embed.length > 0" [id]="'embedded'+x+y"></div>
+        <div *ngIf="embed.length > 0" class="embedded" [id]="'embedded'+x+y"></div>
       </div>
     </div>
   </div>
@@ -25,7 +25,7 @@
     <li class="waves-effect hoverable" (click)="changeLastPage(false);" *ngIf="pageIndex <= 0 ? null : ' '"><i class="material-icons">fast_rewind</i></li>
     <li class="waves-effect hoverable" (click)="changePage(false);" *ngIf="pageIndex <= 0 ? null : ' '"><i class="material-icons">chevron_left</i></li>
     <li class="waves-effect hoverable" *ngFor="let i of NumOfPages" (click)="pageIndex = i; this.updatePage();"><a [class.dissabled]="pageIndex == i ? null : ' '" [style.backgroundColor]="checkActivePage(i)">{{i+1}}</a></li>
-    <li class="waves-effectR hoverable" (click)="changePage(true);" *ngIf="pageIndex < (Posts.length/amtPostsShown)-1 ? ' ' : null"><i class="material-icons">chevron_right</i></li>
+    <li class="waves-effect hoverable" (click)="changePage(true);" *ngIf="pageIndex < (Posts.length/amtPostsShown)-1 ? ' ' : null"><i class="material-icons">chevron_right</i></li>
     <li class="waves-effect hoverable" (click)="changeLastPage(true);" *ngIf="pageIndex < (Posts.length/amtPostsShown)-1 ? ' ' : null"><i class="material-icons">fast_forward</i></li>
   </ul>
 </div>

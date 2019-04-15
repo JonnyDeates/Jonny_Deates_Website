@@ -15,7 +15,7 @@ const routes: Routes = [  { path: '', component: HomeComponent },
   { path: 'giveaway-wheel', component: GiveawayWheelComponent },
   { path: 'snake', component: SnakeComponent },
   { path: 'tic-tac-toe', component: TicTacToeComponent },
-  //{ path: '', redirectTo: '', pathMatch: 'full'},
+  { path: '', redirectTo: '', pathMatch: 'full'},
   { path: '**', component: HomeComponent }];
 
 @NgModule({
