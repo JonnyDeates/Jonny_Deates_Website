@@ -1,6 +1,6 @@
 {
   "name": "jonny-deates-website",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -15,7 +15,7 @@
     "@angular/cli": "^8.1.1",
     "@angular/common": "~8.1.1",
     "@angular/compiler": "~8.1.1",
-    "@angular/core": "^8.1.1",
+    "@angular/core": "~8.1.1",
     "@angular/forms": "~8.1.1",
     "@angular/platform-browser": "~8.1.1",
     "@angular/platform-browser-dynamic": "~8.1.1",
@@ -28,5 +28,18 @@
     "rxjs": "~6.5.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonnyDeates/Jonny_Deates_Website.git"
+  },
+  "author": "Jonny Deates",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonnyDeates/Jonny_Deates_Website/issues"
+  },
+  "homepage": "https://github.com/JonnyDeates/Jonny_Deates_Website#readme"
 }
