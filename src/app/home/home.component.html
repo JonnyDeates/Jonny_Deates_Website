@@ -7,7 +7,7 @@
   <!--<img *ngFor="let project of projects; let i = index" src="{{project.img}}">-->
   <div class="data">
     <div class="project center" *ngFor="let project of projects; let i = index" (click)="openModal(project)">
-      <div class="h1">{{project.projectName}}</div>
+      <div class="h1" [style.color]="project.color">{{project.projectName}}</div>
       <div class="parallax-container center">
         <div class="description">{{project.desc}}</div>
         <div class="parallax">

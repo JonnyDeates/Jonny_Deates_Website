@@ -18,17 +18,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.projects = [
       {img: '/assets/images/backgrounds/yangbg.png',
         desc: 'One of the few places I post updates about what current projects, and progress on these projects is underway.',
-        projectName: 'Blog', router: 'blog'},
-      {img: '/assets/images/backgrounds/unity3d.jpg', desc: 'A Unity project that is suppose to be implemented seamlessly into a game package. It provides all the basic stats and essential factors that a game could require.',
-        projectName: 'Unity Skill Sheets', router: 'projects/unitySS'},
+        projectName: 'Blog', router: 'blog', color: 'white'},
+      {img: '/assets/images/backgrounds/budget_calendar_snapshot.PNG', desc: 'Calendar is used to maintain and as a tool to benefit someone with their life. It gives the person an easy way to track their progress throughout the month. It is a financial history hub for an individual.',
+        projectName: 'Budget Calendar', router: 'projects', color: 'black'},
       {img: '/assets/images/backgrounds/pedroquintela.jpg', desc: 'A Client that takes professional photos in the Colorado Area.',
-        projectName: 'Cameron Photography', router: ''},
+        projectName: 'Cameron Photography', router: '', color: 'white'},
       {img: '/assets/images/backgrounds/darkestdungeon.jpg', desc: 'A game that I am developing in browser.',
-        projectName: 'Vampire Village', router: ''},
-      {img: '/assets/images/backgrounds/photoofwedding.jfif', desc: 'A client that takes professional photos in the Georgia Area.',
-        projectName: 'Ansleigh Photography', router: ''},
-      {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: ''},
-      {img: '/assets/images/backgrounds/wheel.jpg', desc: 'A giveaway wheel developed in typescript and html.', projectName: 'Giveaway wheel',
+        projectName: 'Vampire Village', router: '', color: 'white'},
+      {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: '', color: 'white'},
+      {img: '/assets/images/backgrounds/wheel.jpg', desc: 'A giveaway wheel developed in typescript and html.', projectName: 'Giveaway wheel', color: 'white',
         router: ''}];
 
 

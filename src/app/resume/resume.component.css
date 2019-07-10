@@ -18,6 +18,26 @@
   padding-top: 0;
   font-size: large;
 }
+.chain_right{
+  height: 64px;
+  padding: 16px;
+  background-color: white;
+  position: absolute;
+  left: 85%;
+  bottom: -80px;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.chain_left{
+  height: 64px;
+  padding: 16px;
+  background-color: white;
+  position: absolute;
+  left: 75%;
+  bottom: -80px;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
 .container {
   position: absolute;
   -webkit-transform: translate(-50%, -50%);
@@ -39,6 +59,84 @@
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: 0 -2px 4px 2px rgba(0, 0, 0, 0.08);
+}
+.language {
+  text-align: center;
+
+
+
+}
+.language > h1 {
+  font-size: 64px;
+  text-transform: uppercase;
+  font-weight: 500;
+  background: linear-gradient(to right,#eaf6ff 10%, #6bacd8 50%, #000000 60%, #eaf6ff);
+  background-size: 200% auto;
+  color: #fff;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: textclip 1.5s linear infinite;
+  animation: textclip 24s linear
+}
+@keyframes textclip {
+  to {
+    background-position:200% center
+  }
+}
+.right-arrow-btn{
+  left: 99.9%;
+  position: absolute;
+  background-color: white;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 8px;
+  bottom: 16px;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  height: fit-content;
+}
+.right-arrow-btn > i{
+  cursor: pointer;
+
+}
+.year-wrapper {
+  position: absolute;
+  left: 150px;
+  height: 48px;
+  top: -48px;
+  width: 100px;
+  display: inline;
+  text-align: center;
+  background-color: white;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0 -2px 4px 2px rgba(0, 0, 0, 0.08);
+}
+.year-wrapper > div {
+  width: max-content;
+  left: 83%;
+  content: 'YoE';
+  position: absolute;
+  font-size: 1.75rem;
+  font-weight: 600;
+  background-color: white;
+  padding: 8px 16px 4px 8px;
+  border-top-right-radius: 20px;
+  box-shadow: 2px -2px 4px 0 rgba(0, 0, 0, 0.08);
+}
+.year-wrapper > h4 {
+  max-width: 100px;
+  position: absolute;
+  background-color: white;
+  font-weight: 800;
+  padding-bottom: 48px;
+  width: 100%;
+  left: 0%;
+  line-height: 1% !important;
 }
 .image-wrapper > img {
   max-width: 100px;
@@ -103,6 +201,9 @@
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
+  .year-wrapper > div {
+    content: "Years of Experience";
+  }
   .self-img {
     margin-left: -175px;
     max-width: 350px;
@@ -113,6 +214,9 @@
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .year-wrapper > div {
+    content: "Years of Experience";
+  }
   .self-img {
     margin-left: -175px;
     max-width: 350px;
@@ -123,6 +227,9 @@
   }
 }
 @media (min-width: 481px) and (max-width: 767px) {
+  .year-wrapper > div {
+    content: "YoE";
+  }
   .self-img {
     margin-left: -150px;
     max-width: 300px;
@@ -131,8 +238,30 @@
     font-weight: 800;
     font-size: 80px;
   }
+
 }
 @media (min-width: 320px) and (max-width: 480px) {
+  .year-wrapper {
+    left: 135px;
+    height: 24px;
+    top: -24px;
+    width: 50px;
+    display: inline;
+  }
+  .year-wrapper > h4 {
+    font-weight: 600;
+    padding-right: 8px;
+    padding-bottom: 24px;
+    font-size: 1.75rem;
+  }
+  .year-wrapper > div{
+    left: 70%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 6px 12px 0 10px;
+    margin-left: 1px;
+    border-top-right-radius: 20px;
+  }
   .self-img {
     width: 250px;
     margin-left: -125px;
@@ -147,7 +276,9 @@
   }
 }
 @media (max-width: 320px) {
-
+  .year-wrapper {
+    display: none;
+  }
   .self-img {
     margin-left: -100px;
     max-width: 200px;

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {TicTacToeComponent} from './tsprojects/tic-tac-toe/tic-tac-toe.component';
 import {BlogComponent} from './blog/blog.component';
+import {ProjectsComponent} from './projects/projects.component';
 import {GiveawayWheelComponent} from './tsprojects/giveaway-wheel/giveaway-wheel.component';
 import {SnakeComponent} from './tsprojects/snake/snake.component';
 import {ResumeComponent} from './resume/resume.component';
@@ -34,6 +35,7 @@ firebase.initializeApp(config);
     SnakeComponent,
     TicTacToeComponent,
     BlogComponent,
+    ProjectsComponent,
     ResumeComponent
   ],
   imports: [

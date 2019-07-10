@@ -1,0 +1,46 @@
+<div class="parallax-container">
+  <div class="parallax"><img src="../../assets/images/backgrounds/yangbg3.png"/>
+    <div class="center-align header-container">
+    </div>
+  </div>
+  <h1>Projects</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div id="myBtnContainer">
+      <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+      <button class="btn" onclick="filterSelection('cars')"> Cars</button>
+      <button class="btn" onclick="filterSelection('animals')"> Animals</button>
+      <button class="btn" onclick="filterSelection('fruits')"> Fruits</button>
+      <button class="btn" onclick="filterSelection('colors')"> Colors</button>
+    </div>
+    <ul class="card hoverable" *ngFor="let project of activePosts; let x = index" [style.animation-delay]="i*0.5+'s'">
+      <li class="filter-wrapper" *ngIf="searchFilter()">
+        <div class="card-title">
+          <span>{{project.title}}</span>
+          <span id="date">{{project.date}}</span>
+          <ul  class="applications-wrapper">
+              <img *ngFor="let application of project.applications" [src]="application"/>
+          </ul>
+          <div class="hRef"></div>
+        </div>
+        <div class="card-content">{{project.content}}</div>
+        <div class="center" *ngFor="let embed of project.embedded; let y = index">
+          <div *ngIf="embed.length > 0" class="embedded" [id]="'embedded'+x+y"></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <ul class="pagination center" *ngIf="NumOfPages.length <= 1 ? null : ' '">
+    <li class="waves-effect hoverable" (click)="changeLastPage(false);" *ngIf="pageIndex <= 0 ? null : ' '"><i
+      class="material-icons">fast_rewind</i></li>
+    <li class="waves-effect hoverable" (click)="changePage(false);" *ngIf="pageIndex <= 0 ? null : ' '"><i
+      class="material-icons">chevron_left</i></li>
+    <li class="waves-effect hoverable" *ngFor="let i of NumOfPages" (click)="pageIndex = i; this.updatePage();"><a
+      [class.dissabled]="pageIndex == i ? null : ' '" [style.backgroundColor]="checkActivePage(i)">{{i+1}}</a></li>
+    <li class="waves-effect hoverable" (click)="changePage(true);"
+        *ngIf="pageIndex < (Posts.length/amtPostsShown)-1 ? ' ' : null"><i class="material-icons">chevron_right</i></li>
+    <li class="waves-effect hoverable" (click)="changeLastPage(true);"
+        *ngIf="pageIndex < (Posts.length/amtPostsShown)-1 ? ' ' : null"><i class="material-icons">fast_forward</i></li>
+  </ul>
+</div>

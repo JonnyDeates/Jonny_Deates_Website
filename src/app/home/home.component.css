@@ -17,7 +17,6 @@ i {
 .project > .h1 {
   position: relative;
   font-size: xx-large;
-  color: white;
   top: 86px;
   z-index: 2;
   margin-top: -48px;
@@ -199,8 +198,8 @@ i {
     font-size: xx-large;
   }
   .self-img {
-    width: 350px;
-    margin-left: -175px;
+    width: 250px;
+    margin-left: -125px;
     max-width: 350px;
     margin-bottom: -94px;
   }
@@ -249,8 +248,8 @@ i {
     font-size: x-large;
   }
   .self-img {
-    width: 350px;
-    margin-left: -175px;
+    width: 250px;
+    margin-left: -125px;
     max-width: 350px;
     margin-bottom: -94px;
   }
@@ -299,8 +298,8 @@ i {
     font-size: large;
   }
   .self-img {
-    width: 350px;
-    margin-left: -175px;
+    width: 200px;
+    margin-left: -100px;
     max-width: 350px;
     margin-bottom: -94px;
   }
@@ -347,8 +346,8 @@ i {
     margin-bottom: 10px;
   }
   .self-img {
-    width: 350px;
-    margin-left: -175px;
+    width: 200px;
+    margin-left: -100px;
     max-width: 350px;
     margin-bottom: -94px;
   }
@@ -395,13 +394,16 @@ i {
     margin-bottom: 10px;
   }
   .self-img {
-    width: 300px;
-    margin-left: -150px;
+    width: 200px;
+    margin-left: -100px;
     max-width: 300px;
     margin-bottom: -94px;
     cursor: pointer;
   }
   .title {
+    left: 50%;
+    margin-left: -200px;
+    max-width: 400px;
     font-weight: 800;
     font-size: 80px;
     line-height: 72px;

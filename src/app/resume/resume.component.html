@@ -2,11 +2,36 @@
   <img (click)="router.navigate('')" class="self-img z-depth-1"
        src="../../assets/images/people/ProfessionalPicJonny.png"/>
   <div class="title">Jonny Deates</div>
-  <div class="card center" *ngFor="let language of languages; let i = index" [id]="'card' + i"
-       [style.animation-delay]="i*0.5+'s'">
-    <div class="image-wrapper"><img [src]="language.img"/></div>
-    <div class="card-content" *ngFor="let paragraph of language.description">
-      <div> {{paragraph.paragraph}}</div>
+  <section class="languages">
+    <!--<div class="language"><h1>Programming Languages</h1></div>-->
+    <div class="card center" *ngFor="let language of languages; let i = index" [id]="'card' + i"
+         [style.animation-delay]="i*0.5+'s'">
+      <div class="image-wrapper"><img [src]="language.img"/></div>
+      <div *ngIf="screenDim.width > 300" class="year-wrapper center"><h4>+{{language.years}}</h4>
+        <div *ngIf="i==0 && screenDim.width > 767">Years of Experience</div>
+        <div *ngIf="i>0 || screenDim.width < 767">YoE</div>
+      </div>
+      <div class="card-content" *ngFor="let paragraph of language.description">
+        <div> {{paragraph}}</div>
+      </div>
+      <div class="right-arrow-btn"><i class="material-icons" (click)="router.navigate([language.route])">forward</i>
+      </div>
+      <div class="chain_right" *ngIf="i%2==0 && languages.length-1 != i"></div>
+      <div class="chain_left" *ngIf="i%2==1 && languages.length-1 != i"></div>
     </div>
-  </div>
+  </section>
+
+  <!--<section class="projects">-->
+    <!--<div class="card center" *ngFor="let project of projects; let i = index" [id]="'pCard' + i"-->
+         <!--[style.animation-delay]="i*0.5+'s'">-->
+      <!--<div class="image-wrapper"><img [src]="project.img"/></div>-->
+      <!--<div class="card-content" *ngFor="let paragraph of project.description">-->
+        <!--<div> {{paragraph}}</div>-->
+      <!--</div>-->
+      <!--<div class="right-arrow-btn"><i class="material-icons" (click)="router.navigate([project.route])">forward</i>-->
+      <!--</div>-->
+      <!--<div class="chain_right" *ngIf="i%2==0 && projects.length-1 != i"></div>-->
+      <!--<div class="chain_left" *ngIf="i%2==1 && projects.length-1 != i"></div>-->
+    <!--</div>-->
+  <!--</section>-->
 </div>
