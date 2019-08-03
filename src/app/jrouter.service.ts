@@ -9,13 +9,13 @@ export class JRouter {
 
   constructor(private router: Router) { }
 
-  navigate = (route:string, callback?: (...n) => any) =>  {
-    if(route.substr(0,5) === 'https') {
-      location.href = route;
+  navigate = (route: string, callback?: (...n) => any) =>  {
+    if (route.substr(0, 5) === 'https') {
+      window.open(route);
     } else {
       document.body.style.backgroundColor = '#eaf6ff';
       this.router.navigate([route]).then(() => {
-        if(callback) {
+        if (callback) {
           callback();
         }
       });

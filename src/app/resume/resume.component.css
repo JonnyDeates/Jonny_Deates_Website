@@ -1,3 +1,18 @@
+.achievements{
+  display: block;
+}
+.achievements > img {
+  flex-shrink: 0;
+  transition: all 1s;
+  z-index: 31;
+  position: absolute;
+  left: 50%;
+  margin-left: 125px;
+}
+.achievements > img:hover {
+
+  transform: scale(2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
 .card {
   padding: 16px;
   opacity: 0;
@@ -55,6 +70,7 @@
   top: -64px;
   left: 24px;
   display: inline;
+  background-color: white;
   border-radius: 20px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -62,9 +78,6 @@
 }
 .language {
   text-align: center;
-
-
-
 }
 .language > h1 {
   font-size: 64px;
@@ -161,15 +174,16 @@
   line-height: 90px;
   letter-spacing: -8px;
   text-shadow: rgba(40, 50, 50, 20%) 1px 0 10px;
+  z-index: 1;
 }
 .self-img {
-  width: 400px;
+  width: 250px;
   border-radius: 64px;
   position: relative;
   top: 0;
   left: 50%;
   margin-left: -200px;
-  max-width: 400px;
+  max-width: 250px;
   margin-bottom: -94px;
   cursor: pointer;
 }
@@ -182,8 +196,7 @@
 
 @media (min-width: 1281px) {
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -125px;
   }
   .title {
     font-weight: 800;
@@ -192,8 +205,7 @@
 }
 @media (min-width: 1025px) and (max-width: 1280px) {
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -125px;
   }
   .title {
     font-weight: 800;
@@ -205,8 +217,8 @@
     content: "Years of Experience";
   }
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
     font-weight: 800;
@@ -218,8 +230,8 @@
     content: "Years of Experience";
   }
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
     font-weight: 800;
@@ -231,8 +243,8 @@
     content: "YoE";
   }
   .self-img {
-    margin-left: -150px;
-    max-width: 300px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
     font-weight: 800;
@@ -263,12 +275,11 @@
     border-top-right-radius: 20px;
   }
   .self-img {
-    width: 250px;
-    margin-left: -125px;
-    max-width: 250px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
-    font-weight: 750;
+    font-weight: 700;
     font-size: 72px;
   }
   .card-content > div{

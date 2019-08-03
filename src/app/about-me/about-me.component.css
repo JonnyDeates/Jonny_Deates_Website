@@ -28,7 +28,7 @@
   width: 100%;
 }
 .self-img {
-  width: 400px;
+  width: 250px;
   border-radius: 64px;
   position: relative;
   top: 0;
@@ -36,6 +36,20 @@
   margin-left: -200px;
   max-width: 400px;
   margin-bottom: -94px;
+  cursor: pointer;
+}
+.socialmedia-wrapper {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: -58px;
+  z-index: 5;
+  background: #ffffff99;
+  padding: 4px;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.socialmedia-wrapper > li{
   cursor: pointer;
 }
 .title {
@@ -49,9 +63,10 @@
   background-size: 960px 540px;
   position: relative;
   text-align: center;
-  line-height: 90px;
+  line-height: 72px;
   letter-spacing: -8px;
   text-shadow: rgba(40, 50, 50, 20%) 1px 0px 10px;
+  margin-top: 16px;
 }
 /*
   ##Device = Desktops
@@ -59,9 +74,13 @@
 */
 
 @media (min-width: 1281px) {
+  .socialmedia-wrapper {
+    left: 50%;
+    margin-left: 121px;
+    top: 22px;
+  }
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -125px;
   }
   .title {
     font-weight: 800;
@@ -79,9 +98,13 @@
 */
 
 @media (min-width: 1025px) and (max-width: 1280px) {
+  .socialmedia-wrapper {
+    left: 50%;
+    margin-left: 121px;
+    top: 22px;
+  }
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -125px;
   }
   .title {
     font-weight: 800;
@@ -100,8 +123,8 @@
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
     font-weight: 800;
@@ -116,8 +139,8 @@
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .self-img {
-    margin-left: -175px;
-    max-width: 350px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
     font-weight: 800;
@@ -132,8 +155,8 @@
 
 @media (min-width: 481px) and (max-width: 767px) {
   .self-img {
-    margin-left: -150px;
-    max-width: 300px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
     font-weight: 800;
@@ -148,12 +171,11 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
   .self-img {
-    width: 250px;
-    margin-left: -125px;
-    max-width: 250px;
+    margin-left: -100px;
+    max-width: 200px;
   }
   .title {
-    font-weight: 750;
+    font-weight: 700;
     font-size: 72px;
   }
   .card-content > div{
@@ -168,8 +190,8 @@
 @media (max-width: 320px) {
 
   .self-img {
-    margin-left: -100px;
     max-width: 200px;
+    margin-left: -100px;
   }
   .title {
     font-weight: 700;

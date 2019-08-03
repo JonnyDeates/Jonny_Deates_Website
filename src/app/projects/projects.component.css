@@ -19,15 +19,26 @@ h1 {
   opacity: 1;
   margin-top: 32px;
   border-radius: 16px;
-  width: 1000px;
+  width: 95%;
+  z-index: 0;
   animation: 1s ease-out slideInFromLeft forwards;
 }
-
+.card > .cover{
+   position: absolute;
+   width: 100%;
+   top:0;
+   height: 100%;
+   left: 0;
+   background-color: white;
+   border-radius: 20px;
+   z-index: 1;
+  align-content: center;
+ }
 .card-content {
   margin-top: 16px;
   padding-top: 0;
   display: inline-flex;
-  width: 830px;
+  width: 77%;
   max-height: 284px;
   max-width: 830px;
 }
@@ -41,20 +52,20 @@ h1 {
   background: #72b7e9;
   box-shadow: 0 2px 4px grey;
   display: inline-flex;
-  max-width: 164px;
+  max-width: 23%;
   height: 300px;
 }
 .card:nth-child(odd) > .filter-wrapper > .card-title  {
   background-color: #3792d4;
   position: relative;
-  right: -836px;
+  right: -77%;
 }
 .card:nth-child(odd) > .filter-wrapper > .card-content {
   position: relative;
-  width: 830px;
-  max-width: 830px;
+  width: 77%;
+  max-width: 77%;
   max-height: 284px;
-  left: -174px;
+  left: -23%;
 }
 
 .embedded {
@@ -78,7 +89,11 @@ h1 {
 .embedded::-webkit-scrollbar-thumb:hover {
   background: #999;
 }
-
+.expandout{
+  -webkit-animation: remove 1s forwards;
+  -o-animation: remove 1s forwards;
+  animation: remove 1s forwards;
+}
 .header {
   font-family: 'Open Sans', sans-serif;
   color: hsl(0, 0%, 100%);
@@ -101,7 +116,7 @@ h1 {
   padding: 0 5px 0 10px;
   border-radius: 0 20px 20px 0;
   top: 230px;
-  left: 162px;
+  left: 23%;
   box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.14), 3px 3px 1px -2px rgba(0,0,0,0.12), 3px 1px 3px 0 rgba(0,0,0,0.2);
   content: '';
   cursor: pointer;
@@ -115,7 +130,7 @@ h1 {
   border-radius: 20px 0 0 20px;
   padding: 0 10px 0 5px;
   background-color: #3792d4;
-  box-shadow: -2px 2px 2px 0 rgba(0,0,0,0.14), -1px 1px 0px -2px rgba(0,0,0,0.12), -2px 1px 3px 0 rgba(0,0,0,0.2);
+  box-shadow: -2px 2px 2px 0 rgba(0,0,0,0.14), -1px 1px 0 -2px rgba(0,0,0,0.12), -2px 1px 3px 0 rgba(0,0,0,0.2);
 }
 .card:nth-child(odd) > .filter-wrapper > .card-title > .hRef:after {
   content: '<';
@@ -125,6 +140,29 @@ h1 {
   height: 100%;
 }
 
+.cover {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+.cover > .img-wrapper  {
+  overflow: hidden;
+  position: relative;
+
+  backface-visibility: hidden;
+
+}
+.cover > .img-wrapper > img {
+  position: relative;
+  height: 115%;
+  width: auto;
+  left: -75%;
+  top: 50%;
+  opacity: 0.88;
+  z-index: 1;
+  transition: all 1s ease-out;
+}
 #date {
   padding-right: 16px;
   display: inline-flex;
@@ -133,26 +171,159 @@ h1 {
   left: 74px;
   font-size: large;
 }
+.pagination > li {
+  cursor: pointer;
+
+}
+.pagination > li > a {
+  border-radius: 100%;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+
+}
 
 @keyframes slideInFromTop {
+   0% {
+     opacity: 0;
+     transform: translateY(-100%);
+   }
+   40% {
+     opacity: 0;
+   }
+   80% {
+     transform: translateY(0%);
+   }
+   90% {
+     transform: translateY(1%);
+   }
+   100% {
+     -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+     animation-fill-mode: forwards;
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+@keyframes expandout {
   0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  40% {
-    opacity: 0;
-  }
-  80% {
-    transform: translateY(0%);
-  }
-  90% {
-    transform: translateY(1%);
+    transform: scale(1, 1);
+    opacity: 1;
   }
   100% {
-    -webkit-animation-fill-mode: forwards;
-    -moz-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+    transform: scale(1.15, 1.15);
+    opacity: 0;
+  }
+}
+@keyframes expandIn {
+  0% {
+    transform: scale(1.15, 1.15);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1, 1);
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+@media (min-width: 1281px) {
+
+}
+
+/*
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .card-title {
+    font-size: 32px;
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+  }
+  .card:nth-child(odd) > .filter-wrapper > .card-title  {
+    background-color: #3792d4;
+    position: relative;
+    right: -77%;
+  }
+  .card:nth-child(odd) > .filter-wrapper > .card-content {
+    position: relative;
+    width: 77%;
+    max-width: 77%;
+    max-height: 284px;
+    left: -23%;
+  }
+
+  .embedded {
+    overflow: auto;
+    padding: 0 16px 0 16px;
+  }
+}
+
+/*
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  .card-title {
+    font-size: 32px;
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+  }
+}
+
+/*
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .card-title {
+    font-size: 32px;
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+  }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .card-title {
+    font-size: 32px;
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+  }
+}
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (max-width: 320px) {
+
+  .card-title {
+    font-size: 24px;
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
   }
 }

@@ -4,11 +4,11 @@ h1 {
 }
 
 .card {
-  opacity: 1;
   padding-bottom: 16px;
   margin-top: 32px;
   border-radius: 16px;
-  animation: 1s ease-out slideInFromLeft forwards;
+  opacity: 0;
+  animation: 1s ease-out slideInFromTop forwards;
 }
 
 .card-content {
@@ -72,7 +72,16 @@ h1 {
 #date {
   padding-right: 16px;
 }
+.pagination > li {
+  cursor: pointer;
 
+}
+.pagination > li > a {
+  border-radius: 100%;
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12), 0 1px 3px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+
+}
 @keyframes slideInFromTop {
   0% {
     opacity: 0;

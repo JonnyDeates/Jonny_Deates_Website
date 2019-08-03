@@ -1,6 +1,9 @@
 <div class="container">
   <img (click)="router.navigate('/about')" class="self-img z-depth-1" src="../../assets/images/people/ProfessionalPicJonny.png"/>
   <div class="title">Jonny Deates</div>
+  <ul class="socialmedia-wrapper">
+    <li *ngFor="let data of socialMediaData"  (click)="onMediaClick(data.route)"> <img [src]="data.img" width="40px" height="40px"/></li>
+  </ul>
   <div *ngIf="!hasScrolled && waitPeriod">
     <i *ngFor="let i of [25,50,75]" class="material-icons z-depth-1" style.left="{{i}}%">keyboard_arrow_down</i>
   </div>

@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   hasScrolled: boolean;
   waitPeriod: boolean;
   projects: any;
+  socialMediaData: any;
 
   constructor(private router: JRouter) {
     this.hasScrolled = false;
@@ -28,7 +29,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
       {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: '', color: 'white'},
       {img: '/assets/images/backgrounds/wheel.jpg', desc: 'A giveaway wheel developed in typescript and html.', projectName: 'Giveaway wheel', color: 'white',
         router: ''}];
-
+    this.socialMediaData = [
+      {route: 'https://twitter.com/jonnydeates', img: '/assets/images/icons/twitter.svg'},
+      {route: 'https://www.linkedin.com/in/jonnydeates/', img: '/assets/images/icons/linkin.svg'},
+      {route: 'https://www.instagram.com/jonnydeates/', img: '/assets/images/icons/instagram.svg'},
+    ];
 
     window['$'](document).ready(() => {
       window['$']('.parallax').parallax();
@@ -60,17 +65,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
       if (!this.hasScrolled) {
         window.onscroll = (e) => {
           this.hasScrolled = true;
-          for (let i = 0; i < document.getElementsByTagName('li').length; i++) {
-            document.getElementsByTagName('li').item(i).style.marginBottom = Math.floor(Math.random() * (12 - 10 + 1) + 10) + 'px';
-          }
         };
       } else {
         clearInterval(interval);
       }
     }, 10);
   }
+  onMediaClick(href) {
+    this.router.navigate(href);
+  }
   openModal(project) {
     this.router.navigate(project.router);
   }
+
+
 }
 

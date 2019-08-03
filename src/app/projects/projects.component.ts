@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
+import {_appIdRandomProviderFactory} from "@angular/core/src/application_tokens";
 
 @Component({
   selector: 'app-blog',
@@ -7,16 +8,16 @@ import * as firebase from 'firebase';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit {
-  activePosts: { title: string, applications: string[], date: string, hRef: string, content: string, images: string[], embedded: string[] }[] = []; // Active Posts on Page
+  activePosts: any[] = []; // Active Posts on Page
   pageIndex: number; // The Page we are On
   amtPostsShown: number; // The Amount of Posts Shown on Each Page
   NumOfPages: number[]; // The Amount of Pages to choose from
   database: any;
   searchBox: string;
-  Posts: { title: string, applications: string[], date: string, hRef: string, content: string, images: string[], embedded: string[] }[] = []; // All Posts on the Database
+  Posts: any[] = []; // All Posts on the Database
 
   constructor() {
-    this.amtPostsShown = 5;
+    this.amtPostsShown = 6;
     this.NumOfPages = [];
     this.searchBox = '';
     this.database = firebase.database();
@@ -28,7 +29,7 @@ export class ProjectsComponent implements OnInit {
           date: this.formatDate(snapshot.val()[key].date),
           content: snapshot.val()[key].content,
           hRef: snapshot.val()[key].hRef,
-          images: snapshot.val()[key].images,
+          img: snapshot.val()[key].img,
           embedded: snapshot.val()[key].embedded
         });
       }
@@ -36,21 +37,16 @@ export class ProjectsComponent implements OnInit {
       setTimeout(() => this.updateEmbedded(), 250);
     });
     this.pageIndex = 0; // The page index is the page we are on.
-
+    window['$'](document).ready(() => {
+      window['$']('.parallax').parallax();
+    });
   }
 
   ngOnInit() {
-    window['$']('.parallax').parallax();
-  }
-
-  searchFilter() {
-    let bool = false;
-    this.activePosts.forEach( post => {
-      bool = post.content.includes(this.searchBox) ? true : bool;
-      bool = post.title.includes(this.searchBox) ? true : bool;
-      bool = post.date.includes(this.searchBox) ? true : bool;
+    window['$'] (document).ready(() => {
+      window['$']('.parallax').parallax();
     });
-    return bool;
+    // location.href = 'https://youtube.com'
   }
   updatePage() {
     this.activePosts = [];
@@ -59,7 +55,8 @@ export class ProjectsComponent implements OnInit {
       this.activePosts.push(this.Posts[i]);
     }
     this.adjustApplications();
-    console.log(this.activePosts, this.Posts)
+    this.adjustImages();
+    this.activePosts.forEach((Post)=> Post.active = false);
     this.checkNumOfPages();
   }
 
@@ -89,6 +86,25 @@ export class ProjectsComponent implements OnInit {
     return (`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`);
   }
 
+  adjustImages(){
+    this.activePosts.forEach( (Post) => {
+      if(Post.img) {
+        if ((Post.img.toLowerCase()).includes('budget calendar')) {
+          Post.img = '/assets/images/backgrounds/budget_calendar_snapshot.PNG';
+        }
+        else if ((Post.img.toLowerCase()).includes('google sheets')) {
+          Post.img = '/assets/images/icons/google_sheets.svg';
+        }
+        else if ((Post.img.toLowerCase()).includes('unity')) {
+          Post.img = '/assets/images/icons/unity.svg';
+        }
+        else {
+          Post.img = '';
+        }
+      }
+    });
+  }
+
   adjustApplications(){
     this.activePosts.forEach( (Post) => {
       Post.applications.forEach((App, index) => {
@@ -101,7 +117,20 @@ export class ProjectsComponent implements OnInit {
       })
     })
   }
+  onCoverClick(project,id){
+    this.activePosts.forEach((Post) =>
+    {
 
+      if(Post.active) {
+        Post.active = false;
+        document.getElementById(id).style.animation = "expandIn 1s forwards"
+        setTimeout(()=>(document.getElementById(id).style.animation = ""), 1000);
+      }
+      Post.active = false;
+    });
+    document.getElementById(id).style.animation = "expandout 1s forwards"
+    setTimeout(()=>(project.active = true), 1000);
+  }
   updateEmbedded() {
     for (let x = 0; x < this.activePosts.length; x++) {
       if (!!this.activePosts[x].embedded) {

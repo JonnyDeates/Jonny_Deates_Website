@@ -7,15 +7,18 @@ import * as firebase from 'firebase';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  activePosts: { title: string, date: string, content: string, images: string[], embedded: string[] } [] = []; // Active Posts on Page
+  activePosts: any[] = []; // Active Posts on Page
   pageIndex: number; // The Page we are On
   amtPostsShown: number; // The Amount of Posts Shown on Each Page
   NumOfPages: number[]; // The Amount of Pages to choose from
   database: any;
+  hasSetEmbeddedIDS: boolean;
   Posts: { title: string, date: string, content: string, images: string[], embedded: string[] }[] = []; // All Posts on the Database
 
   constructor() {
+    this.activePosts = [];
     this.amtPostsShown = 5;
+    this.hasSetEmbeddedIDS = false;
     this.NumOfPages = [];
     this.database = firebase.database();
     this.database.ref('blog').once('value').then((snapshot) => {
@@ -28,7 +31,12 @@ export class BlogComponent implements OnInit {
           embedded: snapshot.val()[key].embedded
         });
       }
-      this.updatePage();
+
+      for (let i = (this.pageIndex * this.amtPostsShown);
+           i < this.Posts.length && i < (this.amtPostsShown + (this.pageIndex * this.amtPostsShown)); i++) {
+        this.activePosts.push(this.Posts[i]);
+      }
+      this.checkNumOfPages();
       setTimeout(() => this.updateEmbedded(), 250);
     });
     this.pageIndex = 0; // The page index is the page we are on.
@@ -47,6 +55,7 @@ export class BlogComponent implements OnInit {
       this.activePosts.push(this.Posts[i]);
     }
     this.checkNumOfPages();
+    this.updateEmbedded();
   }
 
   checkNumOfPages() {
@@ -75,11 +84,16 @@ export class BlogComponent implements OnInit {
     return (`${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`);
   }
 
+
   updateEmbedded() {
     for (let x = 0; x < this.activePosts.length; x++) {
       if (!!this.activePosts[x].embedded) {
         for (let y = 0; y < this.activePosts[x].embedded.length; y++) {
-          document.getElementById('embedded' + x + '' + y).innerHTML = this.activePosts[x].embedded[y];
+          let embeddedID = "embedded"+(x+y);
+          if (!!(document.getElementById(embeddedID))) {
+            document.getElementById(embeddedID).innerHTML = this.activePosts[x].embedded[y];
+          }
+         // console.log(this.activePosts, document.getElementById('test'));
         }
       }
     }

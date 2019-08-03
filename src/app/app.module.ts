@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {TicTacToeComponent} from './tsprojects/tic-tac-toe/tic-tac-toe.component';
@@ -15,6 +14,7 @@ import {LayoutComponent} from './layout/layout.component';
 import {FormsModule} from '@angular/forms';
 import * as firebase from 'firebase';
 import {JRouter} from './jrouter.service';
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 const config = {
   apiKey: 'AIzaSyChSTdDfRuck6HUU2yDY2-ICRBIh9BWJiI',
@@ -43,7 +43,7 @@ firebase.initializeApp(config);
     FormsModule,
     AppRoutingModule
   ],
-  providers:  [JRouter],
+  providers:  [JRouter, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

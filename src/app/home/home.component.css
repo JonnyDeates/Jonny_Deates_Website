@@ -10,22 +10,22 @@ i {
   z-index: 1000;
 
 }
-.project{
-  animation: 1s ease-out slideInFromLeft forwards;
-  margin-bottom: 20px;
+
+.container {
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 65%;
+  height: 120%;
+  width: 100%;
 }
-.project > .h1 {
-  position: relative;
-  font-size: xx-large;
-  top: 86px;
-  z-index: 2;
-  margin-top: -48px;
-  font-weight: bold;
-  transition-duration: 1s;
-}
+
 .data {
   margin-top: 15vh;
 }
+
 .description {
   opacity: 0;
   display: inline;
@@ -33,7 +33,6 @@ i {
   width: 800px;
   height: 90px;
   padding: 16px;
-
   color: #fff;
   background: #000000dd;
   border-radius: 20px;
@@ -42,10 +41,12 @@ i {
   transition: all .5s ease;
   -webkit-transition: all .5s ease;
 }
-.description:hover{
+
+.description:hover {
   opacity: 1;
   cursor: pointer;
 }
+
 .parallax-container {
   position: relative;
   left: 50%;
@@ -63,7 +64,7 @@ i {
   margin-bottom: 10px;
   position: relative;
   text-align: center;
-  color: rgba(0, 0, 0, 20%);
+  color: rgba(0, 0, 0, 20);
   font-size: xx-large;
   cursor: pointer;
 }
@@ -95,27 +96,30 @@ i {
   background-color: #29292970;
 }
 
+.project {
+  animation: 1s ease-out slideInFromLeft forwards;
+  margin-bottom: 20px;
+}
+
+.project > .h1 {
+  position: relative;
+  font-size: xx-large;
+  top: 86px;
+  z-index: 2;
+  margin-top: -48px;
+  font-weight: bold;
+  transition-duration: 1s;
+}
+
 .self-img {
-  width: 400px;
+  margin-left: -100px;
+  max-width: 200px;
+  margin-bottom: -94px;
+  cursor: pointer;
   border-radius: 64px;
   position: relative;
   top: 0;
   left: 50%;
-  margin-left: -200px;
-  max-width: 400px;
-  margin-bottom: -94px;
-  cursor: pointer;
-}
-
-.container {
-  position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 65%;
-  height: 120%;
-  width: 100%;
 }
 
 .title {
@@ -129,9 +133,27 @@ i {
   background-size: 960px 540px;
   position: relative;
   text-align: center;
-  line-height: 90px;
+  line-height: 72px;
   letter-spacing: -8px;
   text-shadow: rgba(40, 50, 50, 20%) 1px 0px 10px;
+  margin-top: 16px;
+}
+
+.socialmedia-wrapper {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: -58px;
+  z-index: 5;
+  background: #ffffff99;
+  padding: 4px;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.socialmedia-wrapper > li {
+  cursor: pointer;
+  margin-bottom: 0;
 }
 
 .subtitle {
@@ -150,7 +172,14 @@ i {
     transform: translate(0, 20px);
   }
 }
-
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+100%{
+  opacity: 1;
+  }
+}
 /* Section - Title */
 /**************************/
 .parallax-container {
@@ -163,7 +192,6 @@ i {
 /**************************/
 .parallax > img {
   z-index: 0;
-
   background-attachment: fixed;
   background-size: cover;
   -moz-background-size: cover;
@@ -171,6 +199,7 @@ i {
   background-repeat: repeat;
   background-position: top center;
 }
+
 /*
   ##Device = Desktops
   ##Screen = 1281px to higher resolution desktops
@@ -185,6 +214,7 @@ i {
     border-radius: 20px;
     font-size: large;
   }
+
   .parallax-container {
     margin-left: -400px;
   }
@@ -197,21 +227,27 @@ i {
     margin-bottom: 10px;
     font-size: xx-large;
   }
+
   .self-img {
-    width: 250px;
+    max-width: 250px;
     margin-left: -125px;
-    max-width: 350px;
-    margin-bottom: -94px;
   }
+
+  .socialmedia-wrapper {
+    left: 50%;
+    margin-left: 121px;
+    top: 22px;
+  }
+
   .title {
     font-weight: 800;
     font-size: 88px;
-    line-height: 72px;
-    margin-top: 16px;
   }
+
   .project {
     margin-bottom: 0;
   }
+
   .project > .h1 {
     font-size: xx-large;
     position: relative;
@@ -235,6 +271,7 @@ i {
     border-radius: 20px;
     font-size: large;
   }
+
   .parallax-container {
     margin-left: -400px;
   }
@@ -247,21 +284,27 @@ i {
     margin-bottom: 10px;
     font-size: x-large;
   }
+
   .self-img {
-    width: 250px;
+    max-width: 250px;
     margin-left: -125px;
-    max-width: 350px;
-    margin-bottom: -94px;
   }
+
+  .socialmedia-wrapper {
+    left: 50%;
+    margin-left: 121px;
+    top: 22px;
+  }
+
   .title {
     font-weight: 800;
     font-size: 88px;
-    line-height: 72px;
-    margin-top: 16px;
   }
+
   .project {
     margin-bottom: 0;
   }
+
   .project > .h1 {
     font-size: xx-large;
     position: relative;
@@ -285,6 +328,7 @@ i {
     border-radius: 20px;
     font-size: medium;
   }
+
   .parallax-container {
     margin-left: -325px;
   }
@@ -297,21 +341,16 @@ i {
     margin-bottom: 10px;
     font-size: large;
   }
-  .self-img {
-    width: 200px;
-    margin-left: -100px;
-    max-width: 350px;
-    margin-bottom: -94px;
-  }
+
   .title {
     font-weight: 800;
     font-size: 88px;
-    line-height: 72px;
-    margin-top: 16px;
   }
+
   .project {
     margin-bottom: 0;
   }
+
   .project > .h1 {
     font-size: xx-large;
     position: relative;
@@ -331,9 +370,8 @@ i {
   .description {
     width: 600px;
     height: 90px;
-    padding: 16px;
-    border-radius: 20px;
   }
+
   .parallax-container {
     margin-left: -300px;
   }
@@ -345,26 +383,19 @@ i {
     padding: 16px;
     margin-bottom: 10px;
   }
-  .self-img {
-    width: 200px;
-    margin-left: -100px;
-    max-width: 350px;
-    margin-bottom: -94px;
-  }
+
   .title {
     font-weight: 800;
     font-size: 88px;
-    line-height: 72px;
-    margin-top: 16px;
   }
+
   .project {
     margin-bottom: 0;
   }
+
   .project > .h1 {
     font-size: xx-large;
-    position: relative;
     top: 60px;
-    display: inline;
     max-width: 600px;
   }
 }
@@ -379,45 +410,33 @@ i {
   .description {
     width: 400px;
     height: 85px;
-    padding: 16px;
-    border-radius: 20px;
   }
+
   .parallax-container {
     margin-left: -200px;
   }
 
   .parallax-container .parallax {
-    border-radius: 20px;
     width: 400px;
     height: 85px;
-    padding: 16px;
     margin-bottom: 10px;
   }
-  .self-img {
-    width: 200px;
-    margin-left: -100px;
-    max-width: 300px;
-    margin-bottom: -94px;
-    cursor: pointer;
-  }
+
   .title {
-    left: 50%;
-    margin-left: -200px;
-    max-width: 400px;
     font-weight: 800;
     font-size: 80px;
-    line-height: 72px;
-    margin-top: 16px;
   }
+
   .project {
-    margin-bottom: 0;
+    margin-bottom: 48px;
   }
+
   .project > .h1 {
     font-size: x-large;
-    position: relative;
     top: 60px;
-    display: inline;
     max-width: 400px;
+    left: 50%;
+    margin-left: -200px;
   }
 }
 
@@ -431,44 +450,36 @@ i {
   .description {
     width: 300px;
     height: 80px;
-    padding: 16px;
-    border-radius: 20px;
   }
+
   .parallax-container {
     margin-left: -150px;
   }
 
   .parallax-container .parallax {
-    border-radius: 20px;
     width: 300px;
     height: 80px;
-    padding: 16px;
     margin-bottom: 10px;
   }
-  .self-img {
-    width: 250px;
-    margin-left: -125px;
-    max-width: 250px;
-    margin-bottom: -94px;
-    cursor: pointer;
-  }
+
   .title {
-    font-weight: 750;
+    font-weight: 700;
     font-size: 72px;
-    line-height: 80px;
-    margin-top: 16px;
   }
+
   .project {
-    margin-bottom: 0;
+    margin-bottom: 32px;
   }
+
   .project > .h1 {
     font-size: x-large;
-    position: relative;
     top: 60px;
-    display: inline;
     max-width: 250px;
+    left: 50%;
+    margin-left: -125px;
   }
 }
+
 /*
   ##Device = Most of the Smartphones Mobiles (Portrait)
   ##Screen = B/w 320px to 479px
@@ -479,46 +490,38 @@ i {
   .data {
     margin-top: 10vh;
   }
+
   .description {
     width: 150px;
     height: 75px;
-    padding: 16px;
-    border-radius: 20px;
     font-size: x-small;
   }
+
   .parallax-container {
     margin-left: -75px;
   }
 
   .parallax-container .parallax {
-    border-radius: 20px;
     width: 150px;
     height: 75px;
-    padding: 16px;
     margin-bottom: 10px;
   }
-  .self-img {
-    width: 200px;
-    margin-left: -100px;
-    max-width: 200px;
-    margin-bottom: -94px;
-    cursor: pointer;
-  }
+
   .title {
     font-weight: 700;
     font-size: 64px;
-    line-height: 72px;
-    margin-top: 16px;
   }
+
   .project {
-    margin-bottom: 0;
+    margin-bottom: 24px;
   }
+
   .project > .h1 {
     font-size: medium;
-    position: relative;
     top: 50px;
-    display: inline;
     max-width: 150px;
+    left: 50%;
+    margin-left: -75px;
   }
 }
 
@@ -527,24 +530,25 @@ i {
     background-attachment: scroll;
   }
 }
+
 @keyframes slideInFromTop {
   0% {
-    opacity:0;
+    opacity: 0;
     transform: translateY(-100%);
   }
-  40%{
+  40% {
     opacity: 0;
   }
-  80%{
+  80% {
     transform: translateY(0%);
   }
-  90%{
+  90% {
     transform: translateY(1%);
   }
   100% {
-    -webkit-animation-fill-mode:forwards;
-    -moz-animation-fill-mode:forwards;
-    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     opacity: 1;
     transform: translateY(0);
   }

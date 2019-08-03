@@ -2,6 +2,9 @@
   <img (click)="router.navigate('')" class="self-img z-depth-1"
        src="../../assets/images/people/ProfessionalPicJonny.png"/>
   <div class="title">Jonny Deates</div>
+  <section class="achievements">
+      <img width="100px" height="100px" src="/assets/images/awards/mtasoftwarddevelopmentfundamentals.png"/>
+  </section>
   <section class="languages">
     <!--<div class="language"><h1>Programming Languages</h1></div>-->
     <div class="card center" *ngFor="let language of languages; let i = index" [id]="'card' + i"
@@ -14,24 +17,10 @@
       <div class="card-content" *ngFor="let paragraph of language.description">
         <div> {{paragraph}}</div>
       </div>
-      <div class="right-arrow-btn"><i class="material-icons" (click)="router.navigate([language.route])">forward</i>
-      </div>
+      <!--<div class="right-arrow-btn"><i class="material-icons" (click)="router.navigate([language.route])">forward</i>-->
+      <!--</div>-->
       <div class="chain_right" *ngIf="i%2==0 && languages.length-1 != i"></div>
       <div class="chain_left" *ngIf="i%2==1 && languages.length-1 != i"></div>
     </div>
   </section>
-
-  <!--<section class="projects">-->
-    <!--<div class="card center" *ngFor="let project of projects; let i = index" [id]="'pCard' + i"-->
-         <!--[style.animation-delay]="i*0.5+'s'">-->
-      <!--<div class="image-wrapper"><img [src]="project.img"/></div>-->
-      <!--<div class="card-content" *ngFor="let paragraph of project.description">-->
-        <!--<div> {{paragraph}}</div>-->
-      <!--</div>-->
-      <!--<div class="right-arrow-btn"><i class="material-icons" (click)="router.navigate([project.route])">forward</i>-->
-      <!--</div>-->
-      <!--<div class="chain_right" *ngIf="i%2==0 && projects.length-1 != i"></div>-->
-      <!--<div class="chain_left" *ngIf="i%2==1 && projects.length-1 != i"></div>-->
-    <!--</div>-->
-  <!--</section>-->
 </div>
