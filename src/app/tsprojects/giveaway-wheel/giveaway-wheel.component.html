@@ -7,51 +7,51 @@
 <div class="dialC center">
   <img src="/assets/spinnerdial.png" width="20px" height="20px" class="dial">
 </div>
-<div class="row center">
+<div class="center">
   <a id="spinbtn" class="waves-effect black waves-light btn-large" (click)="spinWheel()"><i class="material-icons left">rotate_left</i>Spin!</a>
 </div>
 <div class="row center">
-        <div id="namesTab">
-          <label>Contestant
-            <input type="text" (keyup.enter)="addContestant()" [(ngModel)]="contestant">
-          </label>
-          <a class="btn waves-effect waves-light right" (click)="addContestant()" style="background-color:#000000;"><i
-            class="material-icons">add</i></a>
-          <div>
-            <span>Contestant Name</span>
-            <span>Remove</span>
-          </div>
-          <div *ngFor="let name of names" class="contestant-wrapper center">
-            <span>{{name}}</span>
-            <a (click)="removeSelectedContestant(name)" class="btn black material-icons" style="cursor:pointer;">X</a>
-          </div>
-        </div>
-        <div id="colorsTab">
-          <div class="row">
-            <div class="input-field col s10">
-              <span>Color</span>
-              <input type="color" [(ngModel)]="color">
-              <input type="DOMString" [(ngModel)]="color" (keyup.enter)="addColor();">
-            </div>
-            <div class="col s2">
-              <a class="btn waves-effect waves-light right" style="background-color:#000000;" (click)="addColor()"><i
-                class="material-icons">add</i></a>
-            </div>
-          </div>
-          <table>
-            <thead>
-            <tr>
-              <th>Color</th>
-              <th>Remove</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let color of colors">
-              <td>{{color}}</td>
-              <td><a (click)="removeSelectedColor(color)" class="btn black material-icons" style="cursor:pointer;">X</a>
-              </td>
-            </tr>
-            </tbody>
-          </table>
-        </div>
+  <div class="tabButtons">
+    <div *ngFor="let tab of tabs; let i = index" (click)="changeTab(tab, i)">{{tab}}</div>
+  </div>
+  <div id="contestantsTab">
+    <span>Contestant: </span>
+    <input type="text" (keyup.enter)="addContestant()" [(ngModel)]="contestant">
+    <a class="btn waves-effect waves-light right" (click)="addContestant()" style="background-color:#000000;"><i
+      class="material-icons">add</i></a>
+    <div class="namesTabTable">
+      <h6>Contestants</h6>
+      <div *ngFor="let contestant of contestants">
+        <div class="name">{{contestant.name}}</div>
+        <a (click)="removeSelectedContestant(contestant.name)">X</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="colorsTab" class="disabled">
+    <div class="row">
+      <div class="input-field col s10">
+        <span>Color</span>
+        <input type="color" [(ngModel)]="color">
+        <input type="DOMString" [(ngModel)]="color" (keyup.enter)="addColor();">
+      </div>
+      <div class="col s2">
+        <a class="btn waves-effect waves-light right" style="background-color:#000000;" (click)="addColor()"><i
+          class="material-icons">add</i></a>
+      </div>
+      <ul class="colorselect-dropdown"> {{colorSelector}}
+        <li *ngFor="let pattern of colorPatterns; let i = index;" [style.margin-top]="i*44+'px'" (click)="selectPattern(pattern)">{{pattern}}</li>
+      </ul>
+    </div>
+    <div class="colorsTabTable">
+      <h6>Colors</h6>
+      <div *ngFor="let color of colors" [style.background-color]="color">
+        <div>{{color}}</div>
+        <a (click)="removeSelectedColor(color)">X</a>
+      </div>
+    </div>
+  </div>
+  <div id="settingsTab" class="disabled">
+  
+  </div>
 </div>

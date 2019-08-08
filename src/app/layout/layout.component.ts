@@ -34,7 +34,7 @@ export class LayoutComponent implements OnInit, AfterViewInit {
 
   setActive = (links) => {
     // Sets the Target to the pathname without the backslash
-    const target = links.find((link) => link.route === window.location.pathname.substring(1));
+    const target = links.find((link) => link.route === window.location.hash.substring(2));
 
     // Sets each links active value to false
     links.map(link => Object.assign(link, {active: false}));

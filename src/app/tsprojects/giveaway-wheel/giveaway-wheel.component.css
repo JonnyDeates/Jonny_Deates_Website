@@ -1,40 +1,147 @@
-#cnvs{
+p#cnvs{
     padding: 100px;
 }
 #spinBtn {
     padding: 1px;
 }
-#namesTab {
-   overflow-y: scroll;
-  height: 500px;
+.colorselect-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  background-color: white;
+  border: 1px lightgray solid;
+  border-radius: 20px;
+  padding: 16px 0;
+  color: darkgray;
+}
+.colorselect-dropdown > li{
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+.colorselect-dropdown:hover li {
+  display: block;
+}
+.disabled {
+  display: none;
+}
+.tabButtons{
+  position: absolute;
+  left: 50%;
+  z-index: 1;
+  margin-top: -36px;
+  font-size: x-large;
+  background-color: #ebfeff;
+  margin-left: -250px;
+  max-width: 500px;
+  width: 500px;
+  border-radius: 20px 20px 0 0;
+}
+.tabButtons > div{
+  display: inline-flex;
+  padding: 0 8px;
+  max-width: 150px;
+  cursor: pointer;
+  border-right: black 1px dashed;
+}
+.tabButtons > div:hover{
+  background-color: #dbeeef;
+}
+.tabButtons > div:first-child{
+   border-radius: 10px 0 0 10px;
+}
+.tabButtons > div:last-child{
+  border-right: black 0 solid;
+  border-radius: 0 10px 10px 0;
+}
+.tabButtons > .active{
+  animation: pulse 4s infinite ease;
+}
+#contestantsTab, #colorsTab, #settingsTab{
+  height: 800px;
   max-width: 600px;
-  background-color: greenyellow;
+  background-color: #ebfeff;
   border-radius: 30px;
   padding: 16px;
+  position: relative;
+  left: 50%;
+  margin: 64px 0 0 -300px;
+}
+#contestantsTab > input {
+  display: inline-flex;
+  width: 60%;
+}
+#contestantsTab > .namesTabTable, #colorsTab > .colorsTabTable {
+  border-radius: 20px;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 700px;
+  background-color: white;
+  max-width: 500px;
+  left: 50%;
+  position: relative;
+  margin-left: -250px;
+}
+#contestantsTab > .namesTabTable > div, #colorsTab > .colorsTabTable > div{
+  background-color: #ebfeff;
+  min-height: 69px;
+  border-top: 1px lightgray solid;
+}
+
+#contestantsTab > .namesTabTable > div:nth-child(odd) {
+  background-color: #ddeff0;
+
+}
+#contestantsTab > .namesTabTable > div > a, #colorsTab > .colorsTabTable > div > a {
+  display: flex;
+  position: relative;
+  left: 400px;
+  width: fit-content;
+  margin: -37px 0 -28px 0;
+  padding: 0 8px 8px 8px;
+  background-color: rgba(0, 0, 0, 0.51);
+  border-radius: 0 0 20px 20px;
+  cursor: pointer;
+  color: white;
+}
+#contestantsTab > .namesTabTable > div:nth-child(odd) >a{
+  left: 450px;
+}
+#contestantsTab > .namesTabTable > div > div, #colorsTab > .colorsTabTable > div > div{
+  display: inline-flex;
+  padding: 8px 0;
+}
+#contestantsTab > span {
+  font-size: x-large;
 }
 /* width */
-#namesTab::-webkit-scrollbar {
+#contestantsTab > .namesTabTable::-webkit-scrollbar {
   width: 10px;
   margin-right: 16px;
 }
 
 /* Track */
-#namesTab::-webkit-scrollbar-track {
+#contestantsTab > .namesTabTable::-webkit-scrollbar-track {
   box-shadow: inset 0 0 0px grey;
   border-radius: 0px;
 }
 
 /* Handle */
-#namesTab::-webkit-scrollbar-thumb {
+#contestantsTab > .namesTabTable::-webkit-scrollbar-thumb {
   background: #0400ff50;
   border-radius: 10px;
 }
 
 /* Handle on hover */
-#namesTab::-webkit-scrollbar-thumb:hover {
+#contestantsTab > .namesTabTable::-webkit-scrollbar-thumb:hover {
   background: #b30000;
 }
-#namesTab > label {
+#contestantsTab > label {
   display: inline-flex;
 }
 .btn {
@@ -73,3 +180,4 @@
   border-radius: 20px 20px 0 0;
 }
 @keyframes spin { 100% {-webkit-transform: rotate(360deg)} }
+@keyframes pulse { 0%, 100% {transform: scale(1)} 50% {font-size: 27px} }

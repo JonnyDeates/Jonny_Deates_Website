@@ -36,6 +36,7 @@ export class BlogComponent implements OnInit {
            i < this.Posts.length && i < (this.amtPostsShown + (this.pageIndex * this.amtPostsShown)); i++) {
         this.activePosts.push(this.Posts[i]);
       }
+
       this.checkNumOfPages();
       setTimeout(() => this.updateEmbedded(), 250);
     });
