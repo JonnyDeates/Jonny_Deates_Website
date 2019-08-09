@@ -13,7 +13,7 @@ export class GiveawayWheelComponent implements AfterViewInit {
   ctx: CanvasRenderingContext2D;
 
   // Hex Tester
-  hexTest = /[0-9A-Fa-f]{6}/g;
+  hexTest:string;
 
   // Contestants
   contestants: any;
@@ -23,30 +23,45 @@ export class GiveawayWheelComponent implements AfterViewInit {
   colorSelector: any;
   colorPatterns: any;
   contestant: string;
-  fontSize: number;
-  spinTime: number;
+  dialOrientation: any;
 
   // Tabs
   tabs: any;
-
+  settingInputs: any;
 
   // Wheel
-  wheelRotation = {dialLocation: 0, rate: 1.1, timer: 0, counter: 0, totalRot: 0, rotation: 0};
-  winner = '';
+  wheelRotation: any;
+  winner: string;
   colors: any[];
-  cssAnimation = document.createElement('style');
+  cssAnimation: any;
   spinBtn: any;
 
   // Constructor
   constructor(private router: Router) {
     this.contestants = [];
     this.colors = [];
-    this.color = '';
-    this.colorSelector = 'Color Selection';
+    this.color = '#';
+    this.colorSelector = 'Pattern Selection';
     this.colorPatterns = ['abcd', 'ababcdcd', 'aabccd', 'abbcdd', 'abcb', 'abababcdcdcd', 'random', 'totalRandom'];
-    this.fontSize = 0;
-    this.spinTime = 100;
+    this.cssAnimation =  document.createElement('style');
+    this.dialOrientation = [['O', 'X', 'O'], ['O', 'R', 'O'], ['O', 'O', 'O']];
+    this.hexTest = /[0-9A-Fa-f]{6}/g;
+    this.settingInputs = {
+      bgColor: '#00b140',
+      acColor: '#ffffff',
+      fontColor: '#000000',
+      wheelWidth: '80%',
+      wheelHeight: '90%',
+      fontSize: 48,
+      spinTime: 100,
+      spinRate: 1.1,
+      dialWidth: '50px',
+      dialHeight: '50px',
+      dialLocation: 0
+    }
     this.tabs = ['Contestants', 'Colors', 'Settings'];
+    this.wheelRotation = {dialLocation: 0, rate: 1.1, timer: 0, counter: 0, totalRot: 0, rotation: 0};
+    this.winner = '';
     // sessionStorage.setItem('contestants', JSON.stringify([{name: 'Jonny', sAngle: 0, eAngle: 0, sColor: '#FFDAB9'},
     //   {name: 'Tom', sAngle: 0, eAngle: 0, sColor: '#E6E6FA'},
     //   {name: 'ter', sAngle: 0, eAngle: 0, sColor: '#E6E6FA'},
@@ -73,33 +88,91 @@ export class GiveawayWheelComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     setTimeout(() => window['$']('ul.tabs').tabs(), 100); // Will Be removed
-    document.body.style.backgroundColor = '#00b140'; // Green Screen Color
+    document.body.style.backgroundColor = this.settingInputs.bgColor; // Green Screen Color
     this.canvas = <HTMLCanvasElement> document.getElementById('cnvs'); // Gets the Canvas Element
     this.ctx = this.canvas.getContext('2d'); // Context is 2d for the canvas
     this.refreshWheel(); // Calls the function Refresh Wheel
+    const sliceColorPicker = document.getElementById('sliceColor');
+    sliceColorPicker.addEventListener('change', () => this.addColor());
+
+    const bgColorPicker = document.getElementById('bgColor');
+    bgColorPicker.addEventListener('change', () => this.setPageColors());
+
+    const acColorPicker = document.getElementById('acColor');
+    acColorPicker.addEventListener('change', () => this.setPageColors());
+
+    const fontColorPicker = document.getElementById('fontColor');
+    fontColorPicker.addEventListener('change', () => this.setPageColors());
   }
 
-  // Resets the Colors
-  resetColors() {
-    let colorsUsed = this.colorSelection(this.colorSelector);
+  // Adds Color
+  addColor() {
+    if (this.color.trim() === '' || this.testForHex()) {
+      alert('Could not add Color, lacking information, needs to be in hex format');
+    } else {
+      this.colors.push(this.color);
+      this.color = '';
+      this.refreshWheel();
+    }
+    sessionStorage.setItem('colors', JSON.stringify(this.colors));
+    //this.colors = JSON.parse(localStorage.getItem('colors'));
+  }
 
-    this.contestants.forEach((contestant) => {
-      if (colorsUsed.length === 0) {
-        colorsUsed = this.colorSelection(this.colorSelector);
-      }
-      if (!!(contestant.cColor)) {
-        contestant.sColor = contestant.cColor;
+  // Adds Contestant
+  addContestant() {
+    if (this.contestant.trim() === '') {
+      alert('Could not add Contestant, lacking information');
+    } else {
+      this.contestants.push({name: this.contestant, sAngle: 0, eAngle: 0, sColor: '#E6E6FA'});
+      this.contestant = '';
+    }
+    sessionStorage.setItem('contestants', JSON.stringify(this.contestants)); // Saves the contestants to the User's Session
+    // this.contestants = JSON.parse(sessionStorage.getItem('contestants'));
+    this.refreshWheel();
+  }
+
+  // Checks Contestant Winner
+  checkWinner() {
+    this.wheelRotation.dialLocation = 270; // checks the location of the Dial based in degrees around the circle goes counter-clockwise (due to different contexts)
+    this.wheelRotation.rotation = this.wheelRotation.totalRot % 360; // Gets the mod of the total rotation and sets rotation to that
+    this.contestants.forEach((contestant) => { // Iterates through each Contestant
+      let leftBound = ((180 * contestant.sAngle) / (Math.PI) + this.wheelRotation.rotation) % 360, // This gets the left bound angle of the contestant converts to Degrees and then adds the current rotation to that, then gets the mod of that
+        rightBound = ((180 * contestant.eAngle) / (Math.PI) + this.wheelRotation.rotation) % 360; // Does the same of the above bond angle except with the ending bound
+      if (leftBound < rightBound) { // Checks to see if the left bound is greater than the right bound
+        if (this.wheelRotation.dialLocation >= leftBound && this.wheelRotation.dialLocation <= rightBound) { //Checks to see if the dial is inbetween the bounds
+          this.winner = contestant.name; // Sets the winner
+        }
       } else {
-        contestant.sColor = colorsUsed.splice(0, 1);
+        if (this.wheelRotation.dialLocation <= leftBound && this.wheelRotation.dialLocation <= rightBound) {  // Checks to see if the bounds looping around has the dial between it
+          this.winner = contestant.name; // Sets the winner
+        }
       }
-
     });
+
   }
 
+  // Recieved from https://www.sitepoint.com/javascript-generate-lighter-darker-color/, allows for easy changing of hex format to be increase or decreased based on a percent value
+  colorLum(hex, lum) {
+    // validate hex string
+    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+    if (hex.length < 6) {
+      hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+    }
+    lum = lum || 0;
+    // convert to decimal and change luminosity
+    var rgb = "#", c, i;
+    for (i = 0; i < 3; i++) {
+      c = parseInt(hex.substr(i * 2, 2), 16);
+      c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+      rgb += ("00" + c).substr(c.length);
+    }
+    return rgb;
+  }
+
+  // Selects the color based on what the current pattern selected is
   colorSelection(selector) {
     let colorsUsed = [];
-    // ['', '', '', '', 'abcadebcdb', '', 'random', '']
-    if (this.colors.length > 1) {
+    if (this.colors.length > 1) { // Checks to make sure that there is more than 1 color
       if (selector.includes('abababcdcdcd')) { // Creates the pattern shown by adding to itself the color mutliple times.
         for (let i = 0; i < this.colors.length; i += 2) { // Moves 2 at a time so it loops through two colors from ab to cd
           colorsUsed.push(this.colors[i]);
@@ -133,47 +206,48 @@ export class GiveawayWheelComponent implements AfterViewInit {
           colorsUsed.push((!!(this.colors[i + 1]) ? this.colors[i + 1] : this.colors[i - 1]));
         }
       } else if (this.colors.length > 2 && selector.includes('abcb')) {
-          for (let i = 0; i < this.colors.length; i += 3) {
-            colorsUsed.push(this.colors[i]);
-            colorsUsed.push((!!(this.colors[i + 1]) ? this.colors[i + 1] : this.colors[i - 1]));
-            colorsUsed.push((!!(this.colors[i + 2]) ? this.colors[i + 2] : this.colors[i - 2]));
-            colorsUsed.push((!!(this.colors[i + 1]) ? this.colors[i + 1] : this.colors[i - 1]));
-          }
+        for (let i = 0; i < this.colors.length; i += 3) {
+          colorsUsed.push(this.colors[i]);
+          colorsUsed.push((!!(this.colors[i + 1]) ? this.colors[i + 1] : this.colors[i - 1]));
+          colorsUsed.push((!!(this.colors[i + 2]) ? this.colors[i + 2] : this.colors[i - 2]));
+          colorsUsed.push((!!(this.colors[i + 1]) ? this.colors[i + 1] : this.colors[i - 1]));
+        }
       } else if (selector.includes('random')) {
-        colorsUsed = this.colorSelection(this.colorPatterns[Math.floor(Math.random()*this.colorPatterns.length)])
+        let choice = this.colorPatterns[Math.floor(Math.random() * this.colorPatterns.length)]
+
+        for (let i = 0; i < this.colors.length; (selector.includes('abcb') ? i += 3 : (i += 2))) {
+          colorsUsed = this.colorSelection(choice);
+        }
       }
       else if (selector.includes('totalRandom')) {
         for (let i = 0; i < this.colors.length; i++) {
-          colorsUsed.push(this.colors[Math.floor(Math.random()*this.colors.length)]);
+          colorsUsed.push(this.colors[Math.floor(Math.random() * this.colors.length)]);
         }
       }
-      else {
+      else { // Sets to default color scheme if none are selected abcd...
         for (const color of this.colors) {
           colorsUsed.push(color);
         }
       }
-    } else {
+    } else { // Sets to default color scheme if the length of colors is less than what is needed to make a pattern.
       for (const color of this.colors) {
         colorsUsed.push(color);
       }
     }
-    return colorsUsed;
+    return colorsUsed; // Returns an array of Colors to be used.
   }
 
   changeTab(tab, i) {
-    // Sets both variables to document Items
+    // Sets all variables to document Items
     let btnAr = document.getElementsByClassName('tabButtons').item(0),
       tabAr = [document.getElementById('contestantsTab'), document.getElementById('colorsTab'), document.getElementById('settingsTab')];
 
-    // Resets the current active tab
-    for (let x = 0; x < btnAr.children.length; x++) {
+    for (let x = 0; x < btnAr.children.length; x++) { // Resets the current active tab
       btnAr.children.item(x).className = '';
       tabAr.forEach((child) => child.className = 'disabled');
     }
-    // Sets the current Tab
-    btnAr.children.item(i).className = 'active';
-    // Sets the current shown tab based on tab clicked.
-    tabAr[tabAr.indexOf(tabAr.find((child) => child.id.toLowerCase().includes(tab.toLowerCase())))].className = '';
+    btnAr.children.item(i).className = 'active';  // Sets the current Tab
+    tabAr[tabAr.indexOf(tabAr.find((child) => child.id.toLowerCase().includes(tab.toLowerCase())))].className = ''; // Sets the current shown tab based on tab clicked.
   }
 
   // Converts from Degrees to Radians
@@ -235,23 +309,10 @@ export class GiveawayWheelComponent implements AfterViewInit {
   refreshWheel() {
     const angleSpacing = 360 / this.contestants.length; // Creates the variable angleSpacing which represents the amount angle that each contestant will take up on the circle
     this.resetColors(); // Calls the function reset Colors
-
+    this.setPageColors();
     for (let i = 0; i < this.contestants.length; i++) {
       this.drawSegment(this.canvas, this.ctx, angleSpacing, i);
     }
-  }
-
-  // Adds Contestant
-  addContestant() {
-    if (this.contestant.trim() === '') {
-      alert('Could not add Contestant, lacking information');
-    } else {
-      this.contestants.push({name: this.contestant, sAngle: 0, eAngle: 0, sColor: '#E6E6FA'});
-      this.contestant = '';
-    }
-    sessionStorage.setItem('contestants', JSON.stringify(this.contestants)); // Saves the contestants to the User's Session
-    // this.contestants = JSON.parse(sessionStorage.getItem('contestants'));
-    this.refreshWheel();
   }
 
   // Removes the Selected Contestant
@@ -263,18 +324,6 @@ export class GiveawayWheelComponent implements AfterViewInit {
     this.refreshWheel();
   }
 
-  // Adds Color
-  addColor() {
-    if (this.color.trim() === '' || this.testForHex()) {
-      alert('Could not add Color, lacking information, needs to be in hex format');
-    } else {
-      this.colors.push(this.color);
-      this.color = '';
-      this.refreshWheel();
-    }
-    sessionStorage.setItem('colors', JSON.stringify(this.colors));
-    //this.colors = JSON.parse(localStorage.getItem('colors'));
-  }
 
   // Removes the Selected Color
   removeSelectedColor(name) {
@@ -285,9 +334,122 @@ export class GiveawayWheelComponent implements AfterViewInit {
     this.refreshWheel();
   }
 
+  // Resets the Colors
+  resetColors() {
+    let colorsUsed = this.colorSelection(this.colorSelector);
+
+    this.contestants.forEach((contestant) => {
+      if (!!(contestant.cColor)) { // Checks to see if the contestant has their own Color Field
+        contestant.sColor = contestant.cColor; // Sets it to that Color Field
+      } else {
+        if (colorsUsed.length === 0) { // Checks to see if the array is empty
+          colorsUsed = this.colorSelection(this.colorSelector); // Resets the Array
+        }
+        contestant.sColor = colorsUsed.splice(0, 1); // Removes 1 color at a time from colorsUsed and sets it to the contestants Slice Color
+      }
+
+    });
+  }
+
+  // Rotation of the Wheel
+  rotateWheel(id, rTimer) { // Rate of Rotation at any given second
+    this.wheelRotation.counter += 0.1;// Counter for the interval
+    let reverseTimer = rTimer - this.wheelRotation.counter;
+    if (this.wheelRotation.counter > rTimer) { // Checks to see if it should stop spinning
+      clearInterval(id); // Removes The Interval
+      document.getElementById('cnvs').appendChild(this.cssAnimation);
+      setTimeout(() => {
+        this.spinBtn[0].classList.remove('disabled');
+      }, this.settingInputs.spinTime); // Removes the field of disabled to the Spin Button
+      this.checkWinner(); // Calls the check winner function
+    } else {
+      this.wheelRotation.totalRot += this.wheelRotation.rate;
+      if (reverseTimer < rTimer / 5.5) {
+        this.wheelRotation.rate = (((reverseTimer) * .00390625) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      }
+      if (reverseTimer < rTimer / 5) {
+        this.wheelRotation.rate = ((reverseTimer * .0078125) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      }
+      if (reverseTimer < rTimer / 4.5) {
+        this.wheelRotation.rate = ((reverseTimer * .015625) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      }
+      else if (reverseTimer < rTimer / 4) {
+        this.wheelRotation.rate = ((reverseTimer * .03125) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      }
+      else if (reverseTimer < rTimer / 3.5) {
+        this.wheelRotation.rate = ((Math.random() * reverseTimer * .0625) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      }
+      else if (reverseTimer < rTimer / 3) {
+        this.wheelRotation.rate = ((Math.random() * reverseTimer * .125) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      }
+      else if (reverseTimer < rTimer / 2.5) {
+        this.wheelRotation.rate = ((Math.random() * reverseTimer * .25) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      }
+      else if (reverseTimer < rTimer / 2) {
+        this.wheelRotation.rate = ((Math.random() * reverseTimer * .5) / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate))
+      } else {
+        this.wheelRotation.rate = ((Math.random() * reverseTimer) + reverseTimer / (this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate * this.settingInputs.spinRate));
+      }
+
+      document.getElementById('cnvs').style.transform = `rotate(${this.wheelRotation.totalRot}deg)`; // Rotates the canvas by the
+    }
+  }
+
   selectPattern(pattern) {
     this.colorSelector = pattern;
     this.refreshWheel();
+  }
+
+  setPageColors() {
+    document.body.style.backgroundColor = this.settingInputs.bgColor; // Sets the Background Color
+    document.getElementById('contestantsTab').style.backgroundColor = this.settingInputs.acColor; // Set the Contestants Tab's Color
+    document.getElementById('contestantsTab').style.color = this.settingInputs.fontColor; // Set the Contestants Tab's Font Color
+    document.getElementById('contestantsTabTable').style.backgroundColor = this.colorLum(this.settingInputs.acColor, 0.2); // Sets the Contestants Tab Color to be 20% lighter
+    document.getElementById('contestantsTabTable').style.color = this.settingInputs.fontColor; // Sets the Contestants Tab Color to be 20% lighter
+    document.getElementById('colorsTab').style.backgroundColor = this.settingInputs.acColor; // Sets the colors tab's color
+    document.getElementById('colorsTab').style.color = this.settingInputs.fontColor; // Sets the colors tab's color
+    document.getElementById('colorsTabTable').style.backgroundColor = this.colorLum(this.settingInputs.acColor, 0.2); // Sets the Color's Tab's Table
+    document.getElementById('settingsTab').style.backgroundColor = this.settingInputs.acColor; // Sets the Settings Table
+    document.getElementById('settingsTab').style.color = this.settingInputs.fontColor; // Sets the Settings Table
+    document.getElementById('tabButtons').style.backgroundColor = this.settingInputs.acColor; // Sets the tab buttons
+    document.getElementById('tabButtons').style.color = this.settingInputs.fontColor; // Sets the tab buttons
+
+    for (let x = 0; x < document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div').length; x += 4) { // Sets the individual rows of the Contestants Table
+      document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div')[x].style.backgroundColor = this.settingInputs.acColor;
+    }
+    for (let x = 2; x < document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div').length; x += 4) { // Sets the odd Rows of the Contestants table to be 10% darker.
+      document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div')[x].style.backgroundColor = this.colorLum(this.settingInputs.acColor, -0.1);
+    }
+  }
+
+  setDialOrientation(x, y, col) {
+    if (col.includes('X')) {
+      return;
+    } else if (col.includes('R')) {
+      let x2 = Math.floor(Math.random() * this.dialOrientation.length);
+      let y2 = Math.floor(Math.random() * this.dialOrientation.length);
+      this.setDialOrientation(x2, y2, this.dialOrientation[x2, y2]);
+    } else {
+      let dialLocationValues = [[225, 270, 315], [180, null, 0], [135, 90, 45]];
+      this.wheelRotation.dialLocation = dialLocationValues[x][y];
+      for (let i = 0; i < this.dialOrientation.length; i++) {
+        for (let j = 0; j < this.dialOrientation[i].length; j++) {
+          if (!this.dialOrientation[i][j].includes('R'))
+            this.dialOrientation[i][j] = 'O'
+        }
+      }
+      this.dialOrientation[x][y] = 'X'
+    }
+
+  }
+
+  // Spin Function
+  spinWheel() {
+    this.wheelRotation.counter = 0;
+    this.wheelRotation.rate = this.settingInputs.spinRate;
+    this.spinBtn[0].classList.add('disabled'); // Adds the field of disabled to the Spin Button
+    this.wheelRotation.timer = (10 * this.settingInputs.spinTime); // The total timer, each 10 is a second, each digit increase is a 10 degree turn. 36 = 3.6 seconds and a complete 360 degree rotation if the rate is at 1.
+    const intervalId = setInterval(() => this.rotateWheel(intervalId, this.wheelRotation.timer), 1);
   }
 
   // Testing the Color value to see if it is in the Hex format
@@ -299,62 +461,5 @@ export class GiveawayWheelComponent implements AfterViewInit {
       return false;
     }
     return true;
-  }
-
-  // Checks Contestant Winner
-  checkWinner() {
-    this.wheelRotation.dialLocation = 270; // checks the location of the Dial based in degrees around the circle goes counter-clockwise (due to different contexts)
-    this.wheelRotation.rotation = this.wheelRotation.totalRot % 360; // Gets the mod of the total rotation and sets rotation to that
-    this.contestants.forEach((contestant) => { // Iterates through each Contestant
-      let leftBound = ((180 * contestant.sAngle) / (Math.PI) + this.wheelRotation.rotation) % 360, // This gets the left bound angle of the contestant converts to Degrees and then adds the current rotation to that, then gets the mod of that
-        rightBound = ((180 * contestant.eAngle) / (Math.PI) + this.wheelRotation.rotation) % 360; // Does the same of the above bond angle except with the ending bound
-      if (leftBound < rightBound) { // Checks to see if the left bound is greater than the right bound
-        if (this.wheelRotation.dialLocation >= leftBound && this.wheelRotation.dialLocation <= rightBound) { //Checks to see if the dial is inbetween the bounds
-          this.winner = contestant.name; // Sets the winner
-        }
-      } else {
-        if (this.wheelRotation.dialLocation <= leftBound && this.wheelRotation.dialLocation <= rightBound) {  // Checks to see if the bounds looping around has the dial between it
-          this.winner = contestant.name; // Sets the winner
-        }
-      }
-    });
-
-  }
-
-
-  // Rotation of the Wheel
-  rotateWheel(id, rTimer) { // Rate of Rotation at any given second
-    this.wheelRotation.counter += 0.1;// Counter for the interval
-    if (this.wheelRotation.counter > rTimer) { // Checks to see if it should stop spinning
-      clearInterval(id); // Removes The Interval
-      document.getElementById('cnvs').appendChild(this.cssAnimation);
-      setTimeout(() => {
-        this.spinBtn[0].classList.remove('disabled');
-      }, this.spinTime); // Removes the field of disabled to the Spin Button
-      console.log('called')
-      this.checkWinner(); // Calls the check winner function
-
-
-    } else {
-      this.wheelRotation.totalRot += this.wheelRotation.rate;
-      if (this.wheelRotation.counter >= rTimer / 2) {
-        if (this.wheelRotation.rate > 0) {
-          this.wheelRotation.rate += (((this.wheelRotation.counter) * this.wheelRotation.rate) / (rTimer * this.wheelRotation.rate * this.wheelRotation.rate));
-        }
-        console.log(this.wheelRotation.rate, rTimer, (this.wheelRotation.rate * this.wheelRotation.counter), (rTimer * this.wheelRotation.rate));
-      }
-      document.getElementById('cnvs').style.transform = `rotate(${this.wheelRotation.totalRot}deg)`; // Rotates the canvas by the
-    }
-  }
-
-  // Spin Function
-  spinWheel() {
-    //            document.getElementById('cnvs').style.transform = `rotate(${this.rotation}deg)`;
-    //        this.winner = this.checkWinner();
-    this.wheelRotation.counter = 0;
-    this.wheelRotation.rate = 1.1;
-    this.spinBtn[0].classList.add('disabled'); // Adds the field of disabled to the Spin Button
-    this.wheelRotation.timer = (10 * this.spinTime); // The total timer, each 10 is a second, each digit increase is a 10 degree turn. 36 = 3.6 seconds and a complete 360 degree rotation if the rate is at 1.
-    const intervalId = setInterval(() => this.rotateWheel(intervalId, this.wheelRotation.timer), 1);
   }
 }
