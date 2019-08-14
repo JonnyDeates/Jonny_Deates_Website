@@ -13,7 +13,7 @@ export class GiveawayWheelComponent implements AfterViewInit {
   ctx: CanvasRenderingContext2D;
 
   // Hex Tester
-  hexTest:string;
+  hexTest = /[0-9A-Fa-f]{6}/g;
 
   // Contestants
   contestants: any;
@@ -34,7 +34,6 @@ export class GiveawayWheelComponent implements AfterViewInit {
   winner: string;
   colors: any[];
   cssAnimation: any;
-  spinBtn: any;
 
   // Constructor
   constructor(private router: Router) {
@@ -43,20 +42,18 @@ export class GiveawayWheelComponent implements AfterViewInit {
     this.color = '#';
     this.colorSelector = 'Pattern Selection';
     this.colorPatterns = ['abcd', 'ababcdcd', 'aabccd', 'abbcdd', 'abcb', 'abababcdcdcd', 'random', 'totalRandom'];
-    this.cssAnimation =  document.createElement('style');
-    this.dialOrientation = [['O', 'X', 'O'], ['O', 'R', 'O'], ['O', 'O', 'O']];
-    this.hexTest = /[0-9A-Fa-f]{6}/g;
+    this.cssAnimation = document.createElement('style');
+    this.dialOrientation = [['O', 'O', 'O'], ['O', 'R', 'X'], ['O', 'O', 'O']];
+
     this.settingInputs = {
       bgColor: '#00b140',
       acColor: '#ffffff',
       fontColor: '#000000',
-      wheelWidth: '80%',
-      wheelHeight: '90%',
+      wheelSize: 720,
       fontSize: 48,
       spinTime: 100,
       spinRate: 1.1,
-      dialWidth: '50px',
-      dialHeight: '50px',
+      dialSize: 50,
       dialLocation: 0
     }
     this.tabs = ['Contestants', 'Colors', 'Settings'];
@@ -81,9 +78,9 @@ export class GiveawayWheelComponent implements AfterViewInit {
     } else {
       this.colors = JSON.parse(sessionStorage.getItem('colors'));
     }
+
     this.resetColors();
     this.cssAnimation.type = 'text/css';
-    this.spinBtn = document.getElementsByClassName('btn-large');
   }
 
   ngAfterViewInit() {
@@ -91,6 +88,7 @@ export class GiveawayWheelComponent implements AfterViewInit {
     document.body.style.backgroundColor = this.settingInputs.bgColor; // Green Screen Color
     this.canvas = <HTMLCanvasElement> document.getElementById('cnvs'); // Gets the Canvas Element
     this.ctx = this.canvas.getContext('2d'); // Context is 2d for the canvas
+    this.changeOrientation();
     this.refreshWheel(); // Calls the function Refresh Wheel
     const sliceColorPicker = document.getElementById('sliceColor');
     sliceColorPicker.addEventListener('change', () => this.addColor());
@@ -103,6 +101,12 @@ export class GiveawayWheelComponent implements AfterViewInit {
 
     const fontColorPicker = document.getElementById('fontColor');
     fontColorPicker.addEventListener('change', () => this.setPageColors());
+
+    const wheelSize = document.getElementById('wheelSize');
+    wheelSize.addEventListener('change', () => this.setWheelSize());
+
+    const dialSize = document.getElementById('dialSize');
+    dialSize.addEventListener('change', () => this.setDialSize());
   }
 
   // Adds Color
@@ -133,7 +137,6 @@ export class GiveawayWheelComponent implements AfterViewInit {
 
   // Checks Contestant Winner
   checkWinner() {
-    this.wheelRotation.dialLocation = 270; // checks the location of the Dial based in degrees around the circle goes counter-clockwise (due to different contexts)
     this.wheelRotation.rotation = this.wheelRotation.totalRot % 360; // Gets the mod of the total rotation and sets rotation to that
     this.contestants.forEach((contestant) => { // Iterates through each Contestant
       let leftBound = ((180 * contestant.sAngle) / (Math.PI) + this.wheelRotation.rotation) % 360, // This gets the left bound angle of the contestant converts to Degrees and then adds the current rotation to that, then gets the mod of that
@@ -237,6 +240,36 @@ export class GiveawayWheelComponent implements AfterViewInit {
     return colorsUsed; // Returns an array of Colors to be used.
   }
 
+  changeOrientation() {
+    let dial = document.getElementById('dial').style; // Gets the Dial
+    if (this.wheelRotation.dialLocation === 0) { // Sets the dial location for the first position 000 00X 000
+      dial.top = this.settingInputs.wheelSize / 2 + 16 + 'px';
+      dial.marginLeft = (this.settingInputs.wheelSize - this.settingInputs.dialSize) / 2 + 'px';
+    } else if (this.wheelRotation.dialLocation === 45) { // Sets the dial location for the second position 000 000 00X
+      dial.top = (this.settingInputs.wheelSize) * 3 / 4 + this.settingInputs.dialSize + 16 + 'px';
+      dial.marginLeft = ((this.settingInputs.wheelSize / 2) - this.settingInputs.dialSize * 2) + 'px';
+    } else if (this.wheelRotation.dialLocation === 90) { // Sets the dial location for the third position 000 000 0X0
+      dial.top = this.settingInputs.wheelSize + 10 + 'px';
+    } else if (this.wheelRotation.dialLocation === 135) { // Sets the dial location for the fourth position 000 000 X00
+      dial.top = (this.settingInputs.wheelSize) * 3 / 4 + this.settingInputs.dialSize + 16 + 'px';
+      dial.marginLeft = "-" + ((this.settingInputs.wheelSize / 2) - this.settingInputs.dialSize) + 'px';
+    } else if (this.wheelRotation.dialLocation === 180) { // Sets the dial location for the fifth position 000 X00 000
+      dial.top = this.settingInputs.wheelSize / 2 + 16 + 'px';
+      dial.marginLeft = "-" + (this.settingInputs.wheelSize + this.settingInputs.dialSize) / 2 + 'px';
+    } else if (this.wheelRotation.dialLocation === 225) { // Sets the dial location for the sixth position X00 000 000
+      dial.top = (this.settingInputs.wheelSize) * 1 / 4 - this.settingInputs.dialSize + 16 + 'px';
+      dial.marginLeft = "-" + ((this.settingInputs.wheelSize / 2) - this.settingInputs.dialSize) + 'px';
+    } else if (this.wheelRotation.dialLocation === 270) { // Sets the dial location for the seventh position 0X0 000 000
+      dial.top = '16px';
+      dial.marginLeft = this.settingInputs.dialSize / 2 + "px";
+    } else if (this.wheelRotation.dialLocation === 315) { // Sets the dial location for the eigth position 00X 000 000
+      dial.top = (this.settingInputs.wheelSize) * 1 / 4 - this.settingInputs.dialSize + 16 + 'px';
+      dial.marginLeft = ((this.settingInputs.wheelSize / 2) - this.settingInputs.dialSize * 2) + 'px';
+    }
+    dial.transform = 'rotate(' + this.wheelRotation.dialLocation + 'deg)'; // Rotates the dial to whatever is selected as the location
+
+  }
+
   changeTab(tab, i) {
     // Sets all variables to document Items
     let btnAr = document.getElementsByClassName('tabButtons').item(0),
@@ -298,8 +331,14 @@ export class GiveawayWheelComponent implements AfterViewInit {
     context.moveTo(cenX, cenY); // Moves to the center
     context.arc(cenX, cenY, rad, this.contestants[i].sAngle, this.contestants[i].eAngle, false); // Makes an arc
     context.closePath(); // Ends the path
-    context.fillStyle = this.contestants[i].sColor; // Finds the color of the slice
-    context.fill(); // Fills the color
+    context.lineWidth = 5
+    if (!!(this.settingInputs.customImage)) {
+      context.strokeStyle = 'gray';
+      context.stroke()
+    } else {
+      context.fillStyle = this.contestants[i].sColor; // Finds the color of the slice
+      context.fill(); // Fills the color
+    }
     context.restore(); // This method restores the most recently saved canvas state by popping the top entry in the drawing state stack
 
     this.drawSegmentLabel(canvas, context, i, cenX, cenY); // Calls the function draw Segment Label,
@@ -359,7 +398,7 @@ export class GiveawayWheelComponent implements AfterViewInit {
       clearInterval(id); // Removes The Interval
       document.getElementById('cnvs').appendChild(this.cssAnimation);
       setTimeout(() => {
-        this.spinBtn[0].classList.remove('disabled');
+       document.getElementById('spinbtn').classList.remove('disabled');
       }, this.settingInputs.spinTime); // Removes the field of disabled to the Spin Button
       this.checkWinner(); // Calls the check winner function
     } else {
@@ -399,29 +438,6 @@ export class GiveawayWheelComponent implements AfterViewInit {
     this.colorSelector = pattern;
     this.refreshWheel();
   }
-
-  setPageColors() {
-    document.body.style.backgroundColor = this.settingInputs.bgColor; // Sets the Background Color
-    document.getElementById('contestantsTab').style.backgroundColor = this.settingInputs.acColor; // Set the Contestants Tab's Color
-    document.getElementById('contestantsTab').style.color = this.settingInputs.fontColor; // Set the Contestants Tab's Font Color
-    document.getElementById('contestantsTabTable').style.backgroundColor = this.colorLum(this.settingInputs.acColor, 0.2); // Sets the Contestants Tab Color to be 20% lighter
-    document.getElementById('contestantsTabTable').style.color = this.settingInputs.fontColor; // Sets the Contestants Tab Color to be 20% lighter
-    document.getElementById('colorsTab').style.backgroundColor = this.settingInputs.acColor; // Sets the colors tab's color
-    document.getElementById('colorsTab').style.color = this.settingInputs.fontColor; // Sets the colors tab's color
-    document.getElementById('colorsTabTable').style.backgroundColor = this.colorLum(this.settingInputs.acColor, 0.2); // Sets the Color's Tab's Table
-    document.getElementById('settingsTab').style.backgroundColor = this.settingInputs.acColor; // Sets the Settings Table
-    document.getElementById('settingsTab').style.color = this.settingInputs.fontColor; // Sets the Settings Table
-    document.getElementById('tabButtons').style.backgroundColor = this.settingInputs.acColor; // Sets the tab buttons
-    document.getElementById('tabButtons').style.color = this.settingInputs.fontColor; // Sets the tab buttons
-
-    for (let x = 0; x < document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div').length; x += 4) { // Sets the individual rows of the Contestants Table
-      document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div')[x].style.backgroundColor = this.settingInputs.acColor;
-    }
-    for (let x = 2; x < document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div').length; x += 4) { // Sets the odd Rows of the Contestants table to be 10% darker.
-      document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div')[x].style.backgroundColor = this.colorLum(this.settingInputs.acColor, -0.1);
-    }
-  }
-
   setDialOrientation(x, y, col) {
     if (col.includes('X')) {
       return;
@@ -439,15 +455,55 @@ export class GiveawayWheelComponent implements AfterViewInit {
         }
       }
       this.dialOrientation[x][y] = 'X'
+      this.changeOrientation();
     }
 
   }
+  setDialSize() {
+    let dial = document.getElementById('dial').style;
+    dial.width = this.settingInputs.dialSize;
+    dial.height = this.settingInputs.dialSize;
+    this.changeOrientation();
+  }
+  setPageColors() {
+    document.body.style.backgroundColor = this.settingInputs.bgColor; // Sets the Background Color
+    document.getElementById('contestantsTab').style.backgroundColor = this.settingInputs.acColor; // Set the Contestants Tab's Color
+    document.getElementById('contestantsTab').style.color = this.settingInputs.fontColor; // Set the Contestants Tab's Font Color
+    document.getElementById('contestantsTabTable').style.backgroundColor = this.colorLum(this.settingInputs.acColor, 0.2); // Sets the Contestants Tab Color to be 20% lighter
+    document.getElementById('contestantsTabTable').style.color = this.settingInputs.fontColor; // Sets the Contestants Tab Color to be 20% lighter
+    document.getElementById('colorsTab').style.backgroundColor = this.settingInputs.acColor; // Sets the colors tab's color
+    document.getElementById('colorsTab').style.color = this.settingInputs.fontColor; // Sets the colors tab's color
+    document.getElementById('colorsTabTable').style.backgroundColor = this.colorLum(this.settingInputs.acColor, 0.2); // Sets the Color's Tab's Table
+    document.getElementById('spinbtn').style.backgroundColor = this.colorLum(this.settingInputs.acColor, -0.2); // Sets the Color of the Spin Button
+    document.getElementById('spinbtn').style.color = this.settingInputs.fontColor; // Sets the font color of the spin button
+    document.getElementById('settingsTab').style.backgroundColor = this.settingInputs.acColor; // Sets the Settings Table
+    document.getElementById('settingsTab').style.color = this.settingInputs.fontColor; // Sets the Settings Table
+    for(let doc of document.getElementsByClassName('tabHeader')) {doc.style.borderBottom =  this.colorLum(this.settingInputs.acColor, 0.2) + '1px dashed'}; // Sets the Settings Table
+    document.getElementById('tabButtons').style.backgroundColor = this.settingInputs.acColor; // Sets the tab buttons
+    document.getElementById('tabButtons').style.color = this.settingInputs.fontColor; // Sets the tab buttons
+
+    for (let x = 0; x < document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div').length; x += 4) { // Sets the individual rows of the Contestants Table
+      document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div')[x].style.backgroundColor = this.settingInputs.acColor;
+    }
+    for (let x = 2; x < document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div').length; x += 4) { // Sets the odd Rows of the Contestants table to be 10% darker.
+      document.getElementsByClassName('namesTabTable').item(0).getElementsByTagName('div')[x].style.backgroundColor = this.colorLum(this.settingInputs.acColor, -0.1);
+    }
+  }
+
+  setWheelSize(){
+    this.canvas.width = this.settingInputs.wheelSize;
+    this.canvas.style.marginLeft = -1*this.settingInputs.wheelSize/2+'px';
+    this.canvas.height = this.settingInputs.wheelSize;
+    this.refreshWheel();
+    this.changeOrientation();
+  }
+
 
   // Spin Function
   spinWheel() {
     this.wheelRotation.counter = 0;
-    this.wheelRotation.rate = this.settingInputs.spinRate;
-    this.spinBtn[0].classList.add('disabled'); // Adds the field of disabled to the Spin Button
+    this.wheelRotation.rate = JSON.parse(JSON.stringify(this.settingInputs.spinRate));
+    document.getElementById('spinbtn').classList.add('disabled'); // Adds the field of disabled to the Spin Button
     this.wheelRotation.timer = (10 * this.settingInputs.spinTime); // The total timer, each 10 is a second, each digit increase is a 10 degree turn. 36 = 3.6 seconds and a complete 360 degree rotation if the rate is at 1.
     const intervalId = setInterval(() => this.rotateWheel(intervalId, this.wheelRotation.timer), 1);
   }
