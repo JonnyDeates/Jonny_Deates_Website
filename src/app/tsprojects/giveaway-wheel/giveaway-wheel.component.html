@@ -1,9 +1,9 @@
-<div class="wheel-wrapper">
+<div id="wheelWrapper">
   <canvas id="cnvs" height="720" width="720"></canvas>
-  <div id="dial"></div>
+  <div id="dial"><img src="/assets/images/dial/dial.png" [width]="settingInputs.dialSize" [height]="settingInputs.dialSize"></div>
 </div>
-<div class="row">
-  <span>Winner: {{winner}}</span>
+<div id="winnerModal" class="disabled" (click)="disableModal()">
+  <div>{{winnerModal.winnerText}} {{winnerModal.winner}}</div>
 </div>
 <div id="spinbtn" (click)="spinWheel()">SPIN!</div>
 <div class="row center">
@@ -48,6 +48,7 @@
       <div>Background: <input id="bgColor" type="color" [(ngModel)]="settingInputs.bgColor"></div>
       <div>Accent: <input id="acColor" type="color" [(ngModel)]="settingInputs.acColor"></div>
       <div>Font: <input id="fontColor" type="color" [(ngModel)]="settingInputs.fontColor"></div>
+      <div>Spin Button: <input id="sBColor" type="color" [(ngModel)]="settingInputs.sBColor"></div>
     </div>
     <div class="tabHeader"> Wheel
       <div>Size: <input id="wheelSize" type="number" [(ngModel)]="settingInputs.wheelSize">px
@@ -56,20 +57,22 @@
       <div>Time: <input type="number" [(ngModel)]="settingInputs.spinTime">s</div>
     </div>
     <div class="tabHeader">Dial
-      <div>Size: <input id="dialSize" type="number" [(ngModel)]="settingInputs.dialSize">px</div>
+      <!--<div>Size: <input id="dialSize" type="number" [(ngModel)]="settingInputs.dialSize">px</div>-->
       <div>Orientation:
         <div id="settingsTabOTable" *ngFor="let row of dialOrientation; let x = index"><span
           *ngFor="let col of row; let y = index" (click)="setDialOrientation(x,y, col)">{{col}}</span></div>
       </div>
     </div>
     <div class="tabHeader">Winner Slide
-      <div>Background:
-        <ul class="winnerbg-dropdown">
-          <li></li>
-        </ul>
-        px
-      </div>
-      <div>Font Color: </div>
+      <div>Background Wrapper Color:  <input id="mWColor" type="color" [(ngModel)]="settingInputs.mWColor"></div>
+      <div>Background Color:  <input id="mColor" type="color" [(ngModel)]="settingInputs.mColor"></div>
+      <div>Font: <input id="mFColor" type="color" [(ngModel)]="settingInputs.mFColor"></div>
+      <!--<div>Background:-->
+        <!--<ul class="winnerbg-dropdown">-->
+          <!--<li></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+      <div>Winner Text: <input id='winnerInput' type="text" [(ngModel)]="winnerModal.winnerText"></div>
     </div>
   </div>
 </div>
