@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {TicTacToeComponent} from './tsprojects/tic-tac-toe/tic-tac-toe.component';
 import {BlogComponent} from './blog/blog.component';
 import {ProjectsComponent} from './projects/projects.component';
-import {GiveawayWheelComponent} from './tsprojects/giveaway-wheel/giveaway-wheel.component';
 import {SnakeComponent} from './tsprojects/snake/snake.component';
 import {ResumeComponent} from './resume/resume.component';
 import {AboutMeComponent} from './about-me/about-me.component';
@@ -15,6 +13,7 @@ import {FormsModule} from '@angular/forms';
 import * as firebase from 'firebase';
 import {JRouter} from './jrouter.service';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {AppRoutingModule} from "./app-routing.module";
 
 const config = {
   apiKey: 'AIzaSyChSTdDfRuck6HUU2yDY2-ICRBIh9BWJiI',
@@ -30,7 +29,6 @@ firebase.initializeApp(config);
     LayoutComponent,
     // Pages of Website Below
     AboutMeComponent,
-    GiveawayWheelComponent,
     HomeComponent,
     SnakeComponent,
     TicTacToeComponent,
