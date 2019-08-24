@@ -91,11 +91,12 @@ export class ProjectsComponent implements OnInit {
       if(Post.img) {
         if ((Post.img.toLowerCase()).includes('budget calendar')) {
           Post.img = '/assets/images/backgrounds/budget_calendar_snapshot.PNG';
-        }
-        else if ((Post.img.toLowerCase()).includes('google sheets')) {
+        } else if ((Post.img.toLowerCase()).includes('give away wheel')) {
+      Post.img = '/assets/images/backgrounds/giveawaywheel.png';
+      Post.margin = '-260'
+        } else if ((Post.img.toLowerCase()).includes('google sheets')) {
           Post.img = '/assets/images/icons/google_sheets.svg';
-        }
-        else if ((Post.img.toLowerCase()).includes('unity')) {
+        } else if ((Post.img.toLowerCase()).includes('unity')) {
           Post.img = '/assets/images/icons/unity.svg';
         }
         else {

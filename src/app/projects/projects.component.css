@@ -149,7 +149,9 @@ h1 {
 .cover > .img-wrapper  {
   overflow: hidden;
   position: relative;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
   backface-visibility: hidden;
 
 }
@@ -157,9 +159,11 @@ h1 {
   position: relative;
   height: 115%;
   width: auto;
-  left: -75%;
-  top: 50%;
+  flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
   opacity: 0.88;
+
   z-index: 1;
   transition: all 1s ease-out;
 }

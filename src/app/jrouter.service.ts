@@ -10,7 +10,7 @@ export class JRouter {
   constructor(private router: Router) { }
 
   navigate = (route: string, callback?: (...n) => any) =>  {
-    if (route.substr(0, 5) === 'https') {
+    if (route.substr(0, 4) === 'http') {
       window.open(route);
     } else {
       document.body.style.backgroundColor = '#eaf6ff';

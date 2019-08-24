@@ -27,8 +27,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       {img: '/assets/images/backgrounds/darkestdungeon.jpg', desc: 'A game that I am developing in browser.',
         projectName: 'Vampire Village', router: '', color: 'white'},
       {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: '', color: 'white'},
-      {img: '/assets/images/backgrounds/wheel.jpg', desc: 'A giveaway wheel developed in typescript and html.', projectName: 'Giveaway wheel', color: 'white',
-        router: ''}];
+      {img: '/assets/images/backgrounds/giveawaywheel.png', desc: 'A giveaway wheel developed in typescript and html. It features full customizeablitity, allowing the content creator to adjust it too their needs. It is a single page website, that uses ads as it\'s main source of income.' , projectName: 'Giveaway wheel', color: 'black',
+        router: 'http://giveawaywheel.net/#/'}];
     this.socialMediaData = [
       {route: 'https://twitter.com/jonnydeates', img: '/assets/images/icons/twitter.svg'},
       {route: 'https://www.linkedin.com/in/jonnydeates/', img: '/assets/images/icons/linkin.svg'},

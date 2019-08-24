@@ -18,7 +18,7 @@
     <ul class="card hoverable" *ngFor="let project of activePosts; let x = index" [style.animation-delay]="x*0.5+'s'">
       <div class="cover" *ngIf="project.active !== true" (click)="onCoverClick(project, 'coverId'+x)" [id]="'coverId'+x">
         <div class="img-wrapper" >
-          <img src="{{project.img}}">
+          <img [style.marginTop]="project.margin +'px'" src="{{project.img}}">
         </div>
       </div>
       <li class="filter-wrapper">
