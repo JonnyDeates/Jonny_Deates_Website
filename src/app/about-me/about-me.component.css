@@ -1,3 +1,24 @@
+#donate {
+  line-height: 0;
+  color: #00000077;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 21px 12px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  position: absolute;
+  margin-left: -158px;
+  top: -11px;
+  border-radius: 20px;
+  left: 50%;
+  font-size: large;
+  background-color: #ffffff99;
+  -webkit-animation: pulse2 4s infinite;
+  -o-animation: pulse2 4s infinite;
+  animation: pulse2 4s infinite;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
 .card {
   opacity: 0;
   border-radius: 16px;
@@ -122,6 +143,13 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  #donate {
+    margin-left: -135px;
+    top: -11px;
+    border-radius: 20px;
+    left: 50%;
+    font-size: medium;
+  }
   .self-img {
     margin-left: -100px;
     max-width: 200px;
@@ -138,6 +166,10 @@
 */
 
 @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #donate {
+    margin-left: -135px;
+    font-size: medium;
+  }
   .self-img {
     margin-left: -100px;
     max-width: 200px;
@@ -154,6 +186,10 @@
 */
 
 @media (min-width: 481px) and (max-width: 767px) {
+  #donate {
+    margin-left: -135px;
+    font-size: medium;
+  }
   .self-img {
     margin-left: -100px;
     max-width: 200px;
@@ -170,6 +206,10 @@
 */
 
 @media (min-width: 320px) and (max-width: 480px) {
+  #donate {
+    margin-left: -135px;
+    font-size: medium;
+  }
   .self-img {
     margin-left: -100px;
     max-width: 200px;
@@ -188,7 +228,10 @@
 */
 
 @media (max-width: 320px) {
-
+  #donate {
+    margin-left: -135px;
+    font-size: medium;
+  }
   .self-img {
     max-width: 200px;
     margin-left: -100px;
@@ -201,7 +244,9 @@
     font-size: small;
   }
 }
-
+@keyframes pulse2 {
+  0% , 100% {transform: scale(1) rotateZ(315deg)} 50% {transform: scale(0.95) rotateZ(315deg)}
+}
 @keyframes slideInFromLeft {
   0% {
     opacity:0;
