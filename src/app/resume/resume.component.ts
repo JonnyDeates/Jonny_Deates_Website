@@ -14,9 +14,15 @@ export class ResumeComponent implements OnInit {
   languages: any;
   screenDim: {width: number, height: number};
   database: any;
+  socialMediaData: any;
 
   constructor(private router: JRouter) {
     this.languages = [ ];
+    this.socialMediaData = [
+      {route: 'https://twitter.com/jonnydeates', img: '/assets/images/icons/twitter.svg'},
+      {route: 'https://www.linkedin.com/in/jonnydeates/', img: '/assets/images/icons/linkin.svg'},
+      {route: 'https://www.instagram.com/jonnydeates/', img: '/assets/images/icons/instagram.svg'},
+    ];
     this.database = firebase.database();
     this.database.ref('resume').once('value').then((snapshot) => {
       for (let key in snapshot.val()) {

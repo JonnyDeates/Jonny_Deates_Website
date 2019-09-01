@@ -187,6 +187,20 @@
   margin-bottom: -94px;
   cursor: pointer;
 }
+.socialmedia-wrapper {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: -58px;
+  z-index: 5;
+  background: #ffffff99;
+  padding: 4px;
+  border-radius: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.socialmedia-wrapper > li{
+  cursor: pointer;
+}
 #card0{
   margin-top: 15vh;
 }
@@ -195,6 +209,11 @@
 }
 
 @media (min-width: 1281px) {
+  .socialmedia-wrapper {
+    left: 50%;
+    margin-left: 121px;
+    top: 22px;
+  }
   .self-img {
     margin-left: -125px;
   }

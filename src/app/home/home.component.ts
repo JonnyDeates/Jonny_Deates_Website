@@ -24,8 +24,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
         projectName: 'Budget Calendar', router: 'projects', color: 'black'},
       {img: '/assets/images/backgrounds/pedroquintela.jpg', desc: 'A Client that takes professional photos in the Colorado Area.',
         projectName: 'Cameron Photography', router: '', color: 'white'},
-      {img: '/assets/images/backgrounds/darkestdungeon.jpg', desc: 'A game that I am developing in browser.',
-        projectName: 'Vampire Village', router: '', color: 'white'},
+      {img: '/assets/images/backgrounds/retrosnakeplus.PNG', desc: 'A game that is my own rendition of the classic snake game. Developed fully on the front-end as a challenge to myself, and my capabalities as a typescript programmer.',
+        projectName: 'Retro Snake Plus', router: 'http://retrosnakeplus.com', color: 'white'},
       {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: '', color: 'white'},
       {img: '/assets/images/backgrounds/giveawaywheel.png', desc: 'A giveaway wheel developed in typescript and html. It features full customizeablitity, allowing the content creator to adjust it too their needs. It is a single page website, that uses ads as it\'s main source of income.' , projectName: 'Giveaway wheel', color: 'black',
         router: 'http://giveawaywheel.net/#/'}];

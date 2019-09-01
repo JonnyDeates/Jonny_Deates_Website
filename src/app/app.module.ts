@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import {TicTacToeComponent} from './tsprojects/tic-tac-toe/tic-tac-toe.component';
 import {BlogComponent} from './blog/blog.component';
 import {ProjectsComponent} from './projects/projects.component';
-import {SnakeComponent} from './tsprojects/snake/snake.component';
 import {ResumeComponent} from './resume/resume.component';
 import {AboutMeComponent} from './about-me/about-me.component';
 import {HomeComponent} from './home/home.component';
@@ -30,7 +29,6 @@ firebase.initializeApp(config);
     // Pages of Website Below
     AboutMeComponent,
     HomeComponent,
-    SnakeComponent,
     TicTacToeComponent,
     BlogComponent,
     ProjectsComponent,

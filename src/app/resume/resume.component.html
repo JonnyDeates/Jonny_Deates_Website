@@ -2,6 +2,9 @@
   <img (click)="router.navigate('')" class="self-img z-depth-1"
        src="../../assets/images/people/ProfessionalPicJonny.png"/>
   <div class="title">Jonny Deates</div>
+  <ul class="socialmedia-wrapper">
+    <li *ngFor="let data of socialMediaData"  (click)="onMediaClick(data.route)"> <img [src]="data.img" width="40px" height="40px"/></li>
+  </ul>
   <section class="achievements">
       <img width="100px" height="100px" src="/assets/images/awards/mtasoftwarddevelopmentfundamentals.png"/>
   </section>
