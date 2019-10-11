@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {routerNgProbeToken} from '@angular/router/src/router_module';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class JRouter {
 

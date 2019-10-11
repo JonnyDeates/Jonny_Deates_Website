@@ -1,5 +1,5 @@
 <div class="container">
-  <img (click)="router.navigate('')" class="self-img z-depth-1" src="../../assets/images/people/ProfessionalPicJonny.png"/>
+  <img (click)="router.navigate('')" class="self-img z-depth-1" [src]="selfImg.img" [alt]="selfImg.alt"/>
   <div id="donate" (click)="router.navigate('https://www.paypal.me/jonnydeates')">Donate</div>
   <ul class="socialmedia-wrapper">
     <li *ngFor="let data of socialMediaData"  (click)="onMediaClick(data.route)"> <img [src]="data.img" width="40px" height="40px"/></li>

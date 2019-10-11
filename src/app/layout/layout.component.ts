@@ -26,7 +26,6 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     this.links.map(link => Object.assign(link, {active: false}));
   }
 
-
   // Calls the router function, navigates to the route, and then on the callback sets the Active Link.
   navigation = (route) => {
     this.router.navigate(route, () => {this.setActive(this.links)});

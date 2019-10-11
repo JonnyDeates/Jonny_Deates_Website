@@ -1,0 +1,49 @@
+{
+  "languages": [
+    {
+      "title": "JSON",
+      "description": [
+        "Here"
+      ],
+      "years": "5",
+      "img": "/assets/images/logo/javascript.png",
+      "route": "404"
+    },
+    {
+      "title": "JSON",
+      "description": [
+        "Here"
+      ],
+      "years": "5",
+      "img": "/assets/images/logo/javascript.png",
+      "route": "404"
+    },
+    {
+      "title": "JSON",
+      "description": [
+        "Here"
+      ],
+      "years": "5",
+      "img": "/assets/images/logo/javascript.png",
+      "route": "404"
+    },
+    {
+      "title": "JSON",
+      "description": [
+        "Here"
+      ],
+      "years": "5",
+      "img": "/assets/images/logo/javascript.png",
+      "route": "404"
+    },
+    {
+      "title": "JSON",
+      "description": [
+        "Here"
+      ],
+      "years": "5",
+      "img": "/assets/images/logo/javascript.png",
+      "route": "404"
+    }
+  ]
+}

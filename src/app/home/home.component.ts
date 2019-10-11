@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {JRouter} from '../jrouter.service';
+import STORE from "../STORE";
 
 @Component({
   selector: 'app-home',
@@ -12,28 +13,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   waitPeriod: boolean;
   projects: any;
   socialMediaData: any;
+  selfImg: {img: string, alt: string};
 
   constructor(private router: JRouter) {
     this.hasScrolled = false;
     this.count = 0;
-    this.projects = [
-      {img: '/assets/images/backgrounds/yangbg.png',
-        desc: 'One of the few places I post updates about what current projects, and progress on these projects is underway.',
-        projectName: 'Blog', router: 'blog', color: 'white'},
-      {img: '/assets/images/backgrounds/budget_calendar_snapshot.PNG', desc: 'Calendar is used to maintain and as a tool to benefit someone with their life. It gives the person an easy way to track their progress throughout the month. It is a financial history hub for an individual.',
-        projectName: 'Budget Calendar', router: 'projects', color: 'black'},
-      {img: '/assets/images/backgrounds/pedroquintela.jpg', desc: 'A Client that takes professional photos in the Colorado Area.',
-        projectName: 'Cameron Photography', router: '', color: 'white'},
-      {img: '/assets/images/backgrounds/retrosnakeplus.PNG', desc: 'A game that is my own rendition of the classic snake game. Developed fully on the front-end as a challenge to myself, and my capabalities as a typescript programmer.',
-        projectName: 'Retro Snake Plus', router: 'http://retrosnakeplus.com', color: 'white'},
-      {img: '/assets/images/backgrounds/todolist.jpg', desc: 'A todo list app developed in XML.', projectName: 'Todo List', router: '', color: 'white'},
-      {img: '/assets/images/backgrounds/giveawaywheel.png', desc: 'A giveaway wheel developed in typescript and html. It features full customizeablitity, allowing the content creator to adjust it too their needs. It is a single page website, that uses ads as it\'s main source of income.' , projectName: 'Giveaway wheel', color: 'black',
-        router: 'http://giveawaywheel.net/#/'}];
-    this.socialMediaData = [
-      {route: 'https://twitter.com/jonnydeates', img: '/assets/images/icons/twitter.svg'},
-      {route: 'https://www.linkedin.com/in/jonnydeates/', img: '/assets/images/icons/linkin.svg'},
-      {route: 'https://www.instagram.com/jonnydeates/', img: '/assets/images/icons/instagram.svg'},
-    ];
+    this.projects = STORE.getProjectData(false);
+    this.socialMediaData = STORE.getSocialMedia()
+    this.selfImg = STORE.getSelfImgs()[0];
 
     window['$'](document).ready(() => {
       window['$']('.parallax').parallax();

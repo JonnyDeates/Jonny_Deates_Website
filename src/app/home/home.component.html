@@ -1,5 +1,5 @@
 <div class="container">
-  <img (click)="router.navigate('/about')" class="self-img z-depth-1" src="../../assets/images/people/ProfessionalPicJonny.png"/>
+  <img (click)="router.navigate('/about')" class="self-img z-depth-1" [src]="selfImg.img" [alt]="selfImg.alt"/>
   <div class="title">Jonny Deates</div>
   <div id="donate" (click)="router.navigate('https://www.paypal.me/jonnydeates')">Donate</div>
   <ul class="socialmedia-wrapper">
@@ -11,9 +11,9 @@
   <!--<img *ngFor="let project of projects; let i = index" src="{{project.img}}">-->
   <div class="data">
     <div class="project center" *ngFor="let project of projects; let i = index" (click)="openModal(project)">
-      <div class="h1" [style.color]="project.color">{{project.projectName}}</div>
+      <div class="h1" [style.color]="project.color">{{project.title}}</div>
       <div class="parallax-container center">
-        <div class="description">{{project.desc}}</div>
+        <div class="description">{{project.shortDesc}}</div>
         <div class="parallax">
           <img src="{{project.img}}">
         </div>

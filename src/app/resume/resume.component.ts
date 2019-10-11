@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {JRouter} from '../jrouter.service';
-import * as firebase from 'firebase';
+import STORE from "../STORE";
+//import STORE from '../STORE';
+// import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-resume',
@@ -15,26 +17,12 @@ export class ResumeComponent implements OnInit {
   screenDim: {width: number, height: number};
   database: any;
   socialMediaData: any;
+  selfImg: {img: string, alt: string};
 
   constructor(private router: JRouter) {
-    this.languages = [ ];
-    this.socialMediaData = [
-      {route: 'https://twitter.com/jonnydeates', img: '/assets/images/icons/twitter.svg'},
-      {route: 'https://www.linkedin.com/in/jonnydeates/', img: '/assets/images/icons/linkin.svg'},
-      {route: 'https://www.instagram.com/jonnydeates/', img: '/assets/images/icons/instagram.svg'},
-    ];
-    this.database = firebase.database();
-    this.database.ref('resume').once('value').then((snapshot) => {
-      for (let key in snapshot.val()) {
-        this.languages.splice(0, 0, {
-          title: snapshot.val()[key].title,
-          description: snapshot.val()[key].description,
-          years: snapshot.val()[key].years,
-          img: snapshot.val()[key].img,
-          route: snapshot.val()[key].route
-        });
-      }
-    });
+    this.socialMediaData = STORE.getSocialMedia()
+    this.languages = STORE.getLanguages();
+    this.selfImg = STORE.getSelfImgs()[0];
     window['$'](document).ready(() => {
       let xPos, yPos;
       window['$'](document).mousemove((e) => {
@@ -44,10 +32,11 @@ export class ResumeComponent implements OnInit {
       });
     });
   }
-
-
   ngOnInit() {
     this.screenDim = {width: window.innerWidth, height: window.innerHeight};
+  }
+  onMediaClick(href) {
+    this.router.navigate(href);
   }
 
 }

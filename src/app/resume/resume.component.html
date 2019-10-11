@@ -1,6 +1,6 @@
 <div class="container">
   <img (click)="router.navigate('')" class="self-img z-depth-1"
-       src="../../assets/images/people/ProfessionalPicJonny.png"/>
+       [src]="selfImg.img" [alt]="selfImg.alt"/>
   <div class="title">Jonny Deates</div>
   <ul class="socialmedia-wrapper">
     <li *ngFor="let data of socialMediaData"  (click)="onMediaClick(data.route)"> <img [src]="data.img" width="40px" height="40px"/></li>
@@ -20,10 +20,12 @@
       <div class="card-content" *ngFor="let paragraph of language.description">
         <div> {{paragraph}}</div>
       </div>
+
       <!--<div class="right-arrow-btn"><i class="material-icons" (click)="router.navigate([language.route])">forward</i>-->
       <!--</div>-->
       <div class="chain_right" *ngIf="i%2==0 && languages.length-1 != i"></div>
       <div class="chain_left" *ngIf="i%2==1 && languages.length-1 != i"></div>
     </div>
   </section>
+  <div  (click)="onCoverClick('yes')">HERE</div>
 </div>
