@@ -1,21 +1,20 @@
-<div class="container center parallax-images">
-  <ul id="slide-out" class="sidenav">
-    <li class="center"><h1>Jonny Deates</h1></li>
-    <div class="skills-list-wrapper">
-      <ul class="skills-list">
-        <li *ngFor="let skill of skills" class="skill">{{skill}}</li>
+<div class="side-nav-wrapper" (click)="toggleWrapper()" [ngClass]="{toggle: sideNav}">
+  <div class="side-nav">
+    <div class="center" (click)="navigation('home')"><h1>Jonny Deates</h1></div>
+    <div class="skills-list">
+      <ul>
+        <li *ngFor="let skill of skills">{{skill}}</li>
       </ul>
     </div>
-    <li><a *ngFor="let link of links" [ngClass]="{active: link.active}"
-           (click)="navigation(link.route)"><i class="material-icons">{{link.i}}</i>
-      <div class="custom-underline">{{link.name}}</div>
-    </a></li>
-  </ul>
+    <div class="link" *ngFor="let link of links" [ngClass]="{'active-link': link.active}" (click)="navigation(link.route)">
+        <i class="material-icons">{{link.i}}</i>
+        <div class="custom-underline">{{link.name}}</div>
+    </div>
+  </div>
 </div>
 
 
-<div class="btn-wrapper z-depth-1">
-  <a  data-target="slide-out" (click)="setActive(links)"
-     class="sidenav-trigger btn-floating waves-effect waves-light"><i class="material-icons">menu</i></a>
+<div class="btn-wrapper">
+  <a (click)="setActive(links); toggleWrapper();"><i class="material-icons">menu</i></a>
 </div>
 <router-outlet></router-outlet>

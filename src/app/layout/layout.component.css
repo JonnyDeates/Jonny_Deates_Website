@@ -4,37 +4,52 @@ i{
 li {
   cursor: pointer;
 }
-.active{
+h1 {
+  cursor: pointer;
+}
+.active-link{
   animation: pulse;
   animation-duration: 2.5s;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
 }
-.skill {
-  font-size: large;
+.btn-wrapper {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+  z-index: 1000;
 }
-.skills-list-wrapper {
-  font-weight: 600;
+.btn-wrapper a{
+  position: fixed;
+  margin: 16px;
+  z-index: 1000;
+  border-radius: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  cursor: pointer;
+  display: inline-block;
   overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  transition: .3s ease-out;
+  width: 40px;
   height: 40px;
-  padding: 0 32px;
+  line-height: 40px;
+  padding: 6px 8px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
 }
-.skills-list {
+.center {
   text-align: center;
-  list-style: none;
-  -webkit-animation-name: change;
-  -webkit-animation-duration: 20s;
-  -webkit-animation-iteration-count: infinite;
-  animation-name: change;
-  animation-duration: 20s;
-  animation-iteration-count: infinite;
 }
 .custom-underline:before {
   content: '';
   position: absolute;
   width: 100%;
   height: 3px;
-  bottom: 0;
+  margin-top: 40px;
   left: 0;
   border-radius: 4px;
   background-color: #000;
@@ -49,23 +64,65 @@ li {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
-.sidenav-trigger{
+.link {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+.link i {
+  padding-right: 16px;
+}
+.skills-list {
+  font-weight: 600;
+  overflow: hidden;
+  height: 40px;
+  padding: 0 32px;
+}
+.skills-list ul{
+  text-align: center;
+  list-style: none;
+  -webkit-animation-name: change;
+  -webkit-animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: change;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+.skills-list ul li{
+  font-size: large;
+}
+.side-nav {
   position: fixed;
-  margin: 16px;
-  top: 0;
+  width: 300px;
   left: 0;
-  background-color: white;
-  z-index: 9999;
+  top: 0;
+  margin: 0;
+  height: 100%;
+  padding-bottom: 60px;
+  background-color: #fff;
+  z-index: 999;
+  overflow-y: auto;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.side-nav-wrapper {
+  background-color: #00000066;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 998;
+}
+.toggle {
+  display: none;
 }
 
-#logo{
-  max-width: 150px;
-  align-content: center;
-}
 @keyframes pulse {
-  0% {transform: scale(1);}
-  50% {transform: scale(1.1);}
-  100% {transform: scale(1);}
+  0% {font-size: large;}
+  50% {font-size: larger}
+  100% {font-size: large}
 }
 @keyframes change {
   0%, 100% {

@@ -9,11 +9,12 @@ import {JRouter} from '../jrouter.service';
 export class LayoutComponent implements OnInit, AfterViewInit {
 
   links: any;
-
+  sideNav: boolean;
   // List of Some of the applications and languagues that I know well.
   skills: string[] = ['TypeScript', 'HTML5', 'JavaScript', 'C#', 'Angular 2', 'NodeJs', 'Java', 'CSS', 'Unity3d', 'Photoshop'];
 
   constructor(private router: JRouter) {
+    this.sideNav = true;
     // The Link Navigation created below
     this.links = [{route: '', name: 'Home', i: 'home'}, {route: 'about', name: 'About Me', i: 'account_circle'},
       {route: 'blog', name: 'Blog', i: 'create'}, {route: 'resume', name: 'Resume', i: 'ondemand_video'} ,
@@ -22,7 +23,6 @@ export class LayoutComponent implements OnInit, AfterViewInit {
       // {route: 'tic-tac-toe', name: 'Tic Tac Toe', i: 'grid_on'}, {route: 'giveaway-wheel', name: 'Give Away Wheel', i: 'slow_motion_video'},
       // {route: 'snake', name: 'Snake', i: 'show_chart'}];
 
-    // S
     this.links.map(link => Object.assign(link, {active: false}));
   }
 
@@ -41,10 +41,10 @@ export class LayoutComponent implements OnInit, AfterViewInit {
     Object.assign((!!target) ? target : '', {active: true});
   }
 
+  toggleWrapper = () => {
+    this.sideNav = !(this.sideNav);
+  }
   ngOnInit() {
-    window['$'] (document).ready(() => {
-      window['$'] ('.sidenav').sidenav();
-    });
   }
 
   ngAfterViewInit() {
