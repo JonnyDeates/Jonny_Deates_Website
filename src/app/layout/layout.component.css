@@ -47,10 +47,11 @@ h1 {
 .custom-underline:before {
   content: '';
   position: absolute;
-  width: 100%;
+  text-align: center;
+  width: 95%;
   height: 3px;
-  margin-top: 40px;
-  left: 0;
+  margin-top: 30px;
+  left: .5rem;
   border-radius: 4px;
   background-color: #000;
   visibility: hidden;
@@ -68,7 +69,7 @@ h1 {
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding: 20px 0px;
+  padding: 10px 0;
 }
 .link i {
   padding-right: 16px;

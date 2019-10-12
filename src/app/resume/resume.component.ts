@@ -22,6 +22,7 @@ export class ResumeComponent implements OnInit {
   constructor(private router: JRouter) {
     this.socialMediaData = STORE.getSocialMedia()
     this.languages = STORE.getLanguages();
+    this.languages.sort((a, b) => (a.years > b.years) ? 1 : -1).reverse();
     this.selfImg = STORE.getSelfImgs()[0];
     window['$'](document).ready(() => {
       let xPos, yPos;
