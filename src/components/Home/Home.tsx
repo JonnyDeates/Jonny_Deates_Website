@@ -1,5 +1,5 @@
 import React from 'react';
-import './Body.css';
+import './Home.css';
 import tsLogo from '../../assets/logos/typescript.png'
 import jsLogo from '../../assets/logos/javascript.png'
 import rLogo from '../../assets/logos/reactjs.png'
@@ -12,7 +12,7 @@ interface Props {
     introduction: string;
 }
 
-class Body extends React.Component<Props, {}> {
+class Home extends React.Component<Props, {}> {
     render() {
         return (
             <>
@@ -60,4 +60,4 @@ class Body extends React.Component<Props, {}> {
     }
 }
 
-export default Body;
+export default Home;

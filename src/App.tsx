@@ -3,7 +3,7 @@ import {Route, Switch} from 'react-router-dom'
 import TopNav from './components/TopNav/TopNav'
 import Chibi from './components/Chibi/Chibi'
 import './App.css';
-import Body from "./components/Body/Body";
+import Home from "./components/Home/Home";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -34,7 +34,7 @@ const App: React.FC = () => {
                 <Route exact path={'/'} component={() => <Header height={'80vh'} parallaxSpeed={0.3}/>}/>
             </Switch>
             <Switch>
-                <Route exact path={'/'} component={Body}/>
+                <Route exact path={'/'} component={Home}/>
                 <Route path={'/projects'} component={ProjectList}/>
                 <Route path={'/contact'} component={Contact}/>
             </Switch>
