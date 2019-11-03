@@ -9,6 +9,7 @@ import Card from "./Card/Card";
 
 class Contact extends React.Component<{}> {
     render() {
+        const minWidth = window.innerWidth < 767;
         const programming = [{
             image: lInLogo,
             name: "Linked In",
@@ -50,10 +51,10 @@ class Contact extends React.Component<{}> {
             <>
                 <h1 className="body-header">Programming Inquiries</h1>
                 {programming.map((obj, i) => <Card key={'programming' + i} name={obj.name} descr={obj.descr}
-                                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0)}/>)}
+                                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}
                 <h1 className="body-header">Social Media</h1>
                 {socialMedia.map((obj, i) => <Card key={'socialMedia' + i} name={obj.name} descr={obj.descr}
-                                                   image={obj.image} link={obj.link} flipped={(i % 2 !== 0)}/>)}
+                                                   image={obj.image} link={obj.link} flipped={(i % 2 !== 0 || minWidth)}/>)}
             </>
         );
     }

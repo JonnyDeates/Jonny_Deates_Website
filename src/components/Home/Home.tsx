@@ -7,6 +7,7 @@ import pLogo from '../../assets/logos/python.png'
 import mLogo from '../../assets/logos/minimalism.png'
 import tLogo from '../../assets/logos/thinkful.jpg'
 import Introduction from "../Introduction/Introduction";
+import Language from "./Language/Language";
 
 interface Props {
     introduction: string;
@@ -14,47 +15,42 @@ interface Props {
 
 class Home extends React.Component<Props, {}> {
     render() {
+        const minWidth = window.innerWidth < 767;
+        const section1 = [{
+            images: [{link: 'https://www.typescriptlang.org/', src: tsLogo, name: "Typescript"},
+                {link: 'https://reactjs.org/', src: rLogo, name: "Reactjs"},
+                {link: 'https://www.javascript.com/', src: jsLogo, name: "Javascript"},
+                {link: 'https://www.python.org/', src: pLogo, name: "Python"}],
+            header: "Develop how you want it.",
+            descr: " I am very flexible with what languages I can use, especially with javascript. I have a lot of \n" +
+                "experience under my belt, started programming at the age of 12 and my desire for more has yet to stop."
+        },
+            {
+                images: [{link: '', src: mLogo, name: "Minimalism"}],
+                header: "Minimalistic Design",
+                descr: "My specialty is minimalism! Love creating intuitive, modern designs that have all \n" +
+                    "sorts of hidden animations within!"
+            }
+        ];
+        const section2 = [
+            {
+                images: [{link: 'https://www.thinkful.com', src: tLogo, name: "Thinkful"}],
+                header: "Thinkful - Engineering Immersion",
+                descr: "I am currently enrolled in a fast-tracked, full time program of online classes, mentorship, \n" +
+                    "and career coaching."
+            }
+        ];
         return (
             <>
                 <div className="App-body">
                     <Introduction introduction={'Hello!'}/>
                 </div>
                 <h1 className="body-header">Where I Shine</h1>
-                <div className="App-body">
-                    <div className='logos'>
-                        <img src={tsLogo} alt='Typescript' width='100px' height='100px'/>
-                        <span>{" "}</span>
-                        <img src={rLogo} alt='Reactjs' width='100px' height='100px'/>
-                        <div>{" "}</div>
-                        <img src={jsLogo} alt='Javascript' width='100px' height='100px'/>
-                        <span>{" "}</span>
-                        <img src={pLogo} alt='Python' width='100px' height='100px'/>
-                    </div>
-                    <div>
-                        <h2>Develop how you want it.</h2>
-                        <p> I am very flexible with what languages I can use, especially with javascript. I have a lot of experience under my belt, started programming at the age of 12 and my desire for more has yet to stop.</p>
-                    </div>
-                </div>
-                <div className="App-body">
-                    <div>
-                        <h2>Minimalistic Design</h2>
-                        <p>My specialty is minimalism! Love creating intuitive, modern designs that have all sorts of hidden animations within! </p>
-                    </div>
-                    <div className='logos'>
-                        <img src={mLogo} alt='Minimalism' width='100px' height='100px'/>
-                    </div>
-
-                </div>
+                {section1.map((obj, i) => <Language key={'section1'+i} images={obj.images} header={obj.header} descr={obj.descr}
+                                                    flipped={(i % 2 === 0) || minWidth}/>)}
                 <h1 className="body-header">Where I'm Currently</h1>
-                <div className="App-body">
-                    <div className='logos'>
-                        <img src={tLogo} alt='Thinkful' width='100px' height='100px'/>
-                    </div>
-                    <div>
-                        <h2>Thinkful - Engineering Immersion</h2>
-                        <p>I am currently enrolled in a fast-tracked, full time program of online classes, mentorship, and career coaching. </p>
-                    </div>
-                </div>
+                {section2.map((obj,i) => <Language key={'section2'+i} images={obj.images} header={obj.header} descr={obj.descr}
+                                               flipped={(i % 2 === 0) || minWidth}/>)}
             </>
         );
     }

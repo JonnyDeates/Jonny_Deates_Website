@@ -1,0 +1,45 @@
+.App-contact{
+    background-color: aliceblue;
+    min-height: 50vh;
+    max-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.App-contact > div{
+    max-width: 33vw;
+}
+.logos > img{
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+}
+@media (max-width: 480px) {
+    .App-contact{
+        display: inline-block;
+    }
+    .App-contact > div{
+        max-width: 90vw;
+    }
+    .App-contact > .logos > img{
+        margin-top: 3rem;
+        border-radius: 15px;
+        cursor: pointer;
+        max-width: 75px;
+        max-height: 75px;
+    }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    .App-contact{
+        display: inline-block;
+    }
+    .App-contact > div{
+        max-width: 80vw;
+    }
+    .App-contact > .logos > img{
+        margin-top: 5rem;
+        border-radius: 25px;
+        max-width: 100px;
+        max-height: 100px;
+    }
+}

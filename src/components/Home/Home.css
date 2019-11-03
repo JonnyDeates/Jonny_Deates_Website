@@ -23,26 +23,31 @@
 }
 
 @media (max-width: 480px) {
+    .App-body{
+        display: inline-block;
+    }
     .App-body > div{
         max-width: 90vw;
     }
-    .logos > img{
-        border-radius: 10px;
-        background-color: white;
+    .App-body > .logos > img{
+        margin-top: 3rem;
+        border-radius: 15px;
         cursor: pointer;
-        max-width: 50px;
-        max-height: 50px;
+        max-width: 70px;
+        max-height: 70px;
     }
 }
 @media (min-width: 481px) and (max-width: 767px) {
+    .App-body{
+        display: inline-block;
+    }
     .App-body > div{
         max-width: 80vw;
     }
-    .logos > img{
-        border-radius: 10px;
-        background-color: white;
-        cursor: pointer;
-        max-width: 75px;
-        max-height: 75px;
+    .App-body > .logos > img{
+        margin-top: 5rem;
+        border-radius: 25px;
+        max-width: 80px;
+        max-height: 80px;
     }
 }

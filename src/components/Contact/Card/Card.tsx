@@ -29,7 +29,7 @@ class Card extends React.Component<Props, {}> {
             {image}
         </>);
         return (
-            <div className="App-body">
+            <div className="App-contact">
                 {body}
             </div>
         );
