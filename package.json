@@ -40,5 +40,13 @@
   "main": "index.js",
   "devDependencies": {},
   "author": "Jonny Deates",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonnyDeates/Jonny_Deates_Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JonnyDeates/Jonny_Deates_Website/issues"
+  },
+  "homepage": "https://github.com/JonnyDeates/Jonny_Deates_Website#readme"
 }
