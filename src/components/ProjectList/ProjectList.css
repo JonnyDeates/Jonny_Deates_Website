@@ -1,0 +1,8 @@
+.projectList {
+    background-color: aliceblue;
+}
+.projectList > p {
+    padding-left: 20vw;
+    padding-right: 20vw;
+    padding-bottom: 5rem;
+}

@@ -1,0 +1,48 @@
+
+.App-body{
+    background-color: aliceblue;
+    min-height: 50vh;
+    max-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.App-body > div{
+    max-width: 33vw;
+}
+.logos > img{
+    border-radius: 25px;
+    background-color: white;
+    cursor: pointer;
+}
+.body-header {
+    background-color: aliceblue;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    padding-top: 5rem;
+}
+
+@media (max-width: 480px) {
+    .App-body > div{
+        max-width: 90vw;
+    }
+    .logos > img{
+        border-radius: 10px;
+        background-color: white;
+        cursor: pointer;
+        max-width: 50px;
+        max-height: 50px;
+    }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+    .App-body > div{
+        max-width: 80vw;
+    }
+    .logos > img{
+        border-radius: 10px;
+        background-color: white;
+        cursor: pointer;
+        max-width: 75px;
+        max-height: 75px;
+    }
+}

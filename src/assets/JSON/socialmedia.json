@@ -1,7 +1,0 @@
-{
-  "socialmedia": [
-    {"route": "https://twitter.com/jonnydeates", "img": "/assets/images/icons/twitter.svg"},
-    {"route": "https://www.linkedin.com/in/jonnydeates/", "img": "/assets/images/icons/linkin.svg"},
-    {"route": "https://www.instagram.com/jonnydeates/", "img": "/assets/images/icons/instagram.svg"}
-  ]
-}
