@@ -12,10 +12,10 @@ class ProjectList extends React.Component<{}> {
             subTitle: "Web Design / Reactjs",
             link: 'https://giveawaywheel.net',
             color: '#99e0ff',
-            descr: "A website I design / maintained tailored to content creators, and those who would like a quick way of hosting a fair \n" +
-                "giveaway with small to medium amount of contestants. The site if free to use, and has full functionality, and is in \n" +
-                "of getting advertisements added. The future of the project is to add more polish and more customizable options for the \n " +
-                "wheel."
+            descr: "A website dedicated to my own take on the Pomodoro Technique. The Timer has a wide range of customizability and \n" +
+                "can be tailored to an individuals needs. I also made sure to include a simple todo list, with a checklist, for a user \n" +
+                "to keep track of goals they are current planning on finishing while using the Timer. The future of the project is to \n" +
+                "add more options and customizable presets for users."
         },
             {
                 image: giveawayWheel,

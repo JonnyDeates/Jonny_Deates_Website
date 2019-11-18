@@ -35,9 +35,9 @@ const App: React.FC = () => {
                     <Route exact path={'/'} component={() => <Header height={'80vh'} parallaxSpeed={1.1}/>}/>
                 </Switch>
                 <Switch>
-                <Route exact path='/'><Home introduction={'Hello!'} /></Route>
-                <Route  path='/projects'><ProjectList/> </Route>
-                <Route  path='/contact'><Contact/> </Route>
+                    <Route exact path='/'><Home introduction={'Hello!'}/></Route>
+                    <Route path='/projects'><ProjectList/> </Route>
+                    <Route path='/contact'><Contact/> </Route>
                 </Switch>
                 <Footer/>
             </div>
