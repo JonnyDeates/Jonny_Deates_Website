@@ -10,7 +10,7 @@ class ProjectList extends React.Component<{}> {
             image: koiTimer,
             title: "The Koi Timer",
             subTitle: "Web Design / Reactjs",
-            link: 'https://giveawaywheel.net',
+            link: 'https://koitimer.com',
             color: '#99e0ff',
             descr: "A website dedicated to my own take on the Pomodoro Technique. The Timer has a wide range of customizability and \n" +
                 "can be tailored to an individuals needs. I also made sure to include a simple todo list, with a checklist, for a user \n" +
