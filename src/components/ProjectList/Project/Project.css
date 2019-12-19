@@ -11,7 +11,7 @@
 .project > div {
     max-width: 70vw;
 }
-.project > div > a{
+.project-submit{
     padding: 12px 16px;
     background-color: #ffffffcc;
     font-size: medium;
@@ -22,6 +22,10 @@
     position: relative;
     top: 2rem;
     box-shadow: 3px 4px 5px 2px rgba(255, 255, 255, 0.1), 1px 2px 2px 1px rgba(200, 200, 200, 0.3);
+}
+.project-submit:hover {
+    background-color: #ffffff99;
+    font-size: large;
 }
 .project > div > a:hover{
     background-color: #ffffffee;

@@ -1,12 +1,24 @@
 import React from 'react';
 import giveawayWheel from '../../assets/projects/giveawaywheel.png'
 import koiTimer from '../../assets/projects/koitimer.png'
+import koiGoalKeeper from '../../assets/projects/koigoalkeeper.png'
 import Project from "./Project/Project";
 import "./ProjectList.css"
 
 class ProjectList extends React.Component<{}> {
     render() {
         const projects = [{
+            image: koiGoalKeeper,
+            title: "The Koi Goal Keeper",
+            subTitle: "App & Web Design / Reactjs / NodeJs / SQL",
+            link: 'https://koigoalkeeper.com',
+            color: '#ffe3ba',
+            descr: "A full stack application created for the easy posting, updating, and archiving of personal goals of individuals and \n" +
+                "inspired by the own need for something as such. The site minimizes the Users need to select timing and heavily focuses on \n" +
+                "the substance being the goals. Each goal can be checked off, edited, transfered, and deleted. The website uses a sql database to store all of the data with a middleman \n" +
+                "api that I also developed. The site includes full security for the user, and proper encryption of the persons data."
+        },
+            {
             image: koiTimer,
             title: "The Koi Timer",
             subTitle: "Web Design / Reactjs",

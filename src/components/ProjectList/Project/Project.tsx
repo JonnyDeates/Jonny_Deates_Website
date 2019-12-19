@@ -20,7 +20,7 @@ class Project extends React.Component<Props, {}> {
                     <h4>{this.props.subTitle}</h4>
                     <p>{this.props.descr}</p>
                 </div>
-                <a href={this.props.link}>View {this.props.title}</a>
+                <div className='project-submit' onClick={()=>window.open(this.props.link)}>View {this.props.title}</div>
                 </div>
             </div>
         );
