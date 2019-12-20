@@ -12,10 +12,11 @@ class TopNav extends React.Component<Props, {}> {
     render() {
         return (
             <div className='nav'>
-                {this.props.links.map((link, index) => <Link key={index} to={link.to}
-                                                             className={(link.to === this.props.currentActive.pathname)
-                                                                 ? 'active' : ''}>
-                    <div onClick={()=> window.scrollTo(0, 0)}>{link.name}</div></Link>)}
+                {this.props.links.map((link, index) => <div onClick={() =>
+                    window.scrollTo(0, 0)}><Link key={index}
+                                                 to={link.to}
+                                                 className={(link.to === this.props.currentActive.pathname)
+                                                     ? 'active' : ''}>{link.name}</Link></div>)}
             </div>
         );
     }

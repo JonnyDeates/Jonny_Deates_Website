@@ -18,7 +18,8 @@
     cursor: pointer;
     max-width: 70px;
     max-height: 70px;
-
+    width:100px;
+    height:100px;
 }
 
 .body-header {

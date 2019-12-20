@@ -8,7 +8,7 @@
     background-color: #ffffff;
 }
 
-.nav > a {
+.nav > div > a {
     font-size: x-large;
     padding: 8px 10px;
     margin: 0 4px;
@@ -27,7 +27,7 @@
         background-color: unset;
         justify-content: flex-end;
     }
-    .nav > a {
+    .nav > div > a {
         padding: 8px 16px;
         border-bottom-left-radius: 25px;
         border-bottom-right-radius: 25px;

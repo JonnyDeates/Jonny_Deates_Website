@@ -18,8 +18,7 @@ class Language extends React.Component<Props, {}> {
         };
         let image = (
             <div className='logos'>
-                {this.props.images.map((img, i) => <img key={img.name+i} src={img.src} alt={img.name} onClick={()=> link(img.link)}
-                                                  width='100px' height='100px'/>)}
+                {this.props.images.map((img, i) => <img key={img.name+i} src={img.src} alt={img.name} onClick={()=> link(img.link)}/>)}
             </div>);
         let body = (this.props.flipped) ? (<>
             {image}
