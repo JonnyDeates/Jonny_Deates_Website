@@ -48,9 +48,9 @@ class ProjectList extends React.Component<{}> {
                 link: 'https://giveawaywheel.net',
                 githubLink: 'https://github.com/JonnyDeates/GiveawayWheel',
                 color: '#82ffad',
-                descr: "A website I design / maintained tailored to content creators, and those who would like a quick way of hosting a fair \n" +
-                    "giveaway with small to medium amount of contestants. The site if free to use, and has full functionality, and is in \n" +
-                    "of getting advertisements added. The future of the project is to add more polish and more customizable options for the \n " +
+                descr: "A website I design tailored to content creators, and those who would like a quick way of hosting a fair \n" +
+                    "giveaway with a small to medium amount of contestants. The site if free to use, and has full functionality, and is in \n" +
+                    "the process of getting advertisements added. The future of the project is to add more polish and more customizable options for the \n " +
                     "wheel."
             },
         ];

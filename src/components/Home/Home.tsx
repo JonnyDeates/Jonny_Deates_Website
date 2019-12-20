@@ -32,13 +32,18 @@ class Home extends React.Component<Props, {}> {
                     "sorts of hidden animations within!"
             }
         ];
-        const section2 = [
-            {
+        const section2 = [{
                 images: [{link: 'https://www.thinkful.com', src: tLogo, name: "Thinkful"}],
                 header: "Thinkful - Engineering Immersion",
                 descr: "I am currently enrolled in a fast-tracked, full time program of online classes, mentorship, \n" +
-                    "and career coaching."
-            }
+                    "and career coaching. This Data Science Bootcamp I believe is my fast track to really understand \n" +
+                    "the intricacies of a work environment and the importance of team building. I am very glad that I enrolled "
+        },//{
+        //     images: [{link: 'https://www.thinkful.com', src: tLogo, name: "Thinkful"}],
+        //     header: "Livelilyhood",
+        //     descr: "I am currently enrolled in a fast-tracked, full time program of online classes, mentorship, \n" +
+        //         "and career coaching."
+        // }
         ];
         return (
             <>
