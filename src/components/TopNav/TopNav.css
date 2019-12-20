@@ -3,7 +3,8 @@
     display: flex;
     position: fixed;
     width: 100vw;
-    padding: 0;
+    padding: 8px 0px;
+
     z-index: 3;
     background-color: #ffffff;
 }
@@ -26,6 +27,7 @@
     .nav {
         background-color: unset;
         justify-content: flex-end;
+        padding: 0;
     }
     .nav > div > a {
         padding: 8px 16px;
