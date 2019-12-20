@@ -14,22 +14,22 @@ class Card extends React.Component<Props, {}> {
         let caption = (this.props.link.length ===  0) ?(<p>{this.props.name}</p>) : <></>;
         let image = (
             <div className='logos'>
-                <img src={this.props.image} alt={this.props.name} onClick={link} width='100px' height='100px'/>
+                <img src={this.props.image} alt={this.props.name} onClick={link}/>
                 {caption}
             </div>);
         let body = (this.props.flipped) ? (<>
             {image}
-            <div>
+            <div className='card-descr'>
                 <p>{this.props.descr}</p>
             </div>
         </>) : (<>
-            <div>
+            <div className='card-descr'>
                 <p>{this.props.descr}</p>
             </div>
             {image}
         </>);
         return (
-            <div className="App-contact">
+            <div className="card">
                 {body}
             </div>
         );

@@ -1,45 +1,62 @@
-.App-contact{
+.card {
     background-color: aliceblue;
     min-height: 50vh;
     max-height: 50vh;
-    display: flex;
+    display: inline-block;
     align-items: center;
     justify-content: space-evenly;
 }
-.App-contact > div{
-    max-width: 33vw;
+
+.card > div {
+    max-width: 80vw;
 }
-.logos > img{
+.card > .logos > img {
+    margin-top: 5rem;
     border-radius: 25px;
+    width: 100px;
+    height: 100px;
     background-color: white;
     cursor: pointer;
 }
-@media (max-width: 480px) {
-    .App-contact{
-        display: inline-block;
-    }
-    .App-contact > div{
-        max-width: 90vw;
-    }
-    .App-contact > .logos > img{
-        margin-top: 3rem;
-        border-radius: 15px;
-        cursor: pointer;
-        max-width: 75px;
-        max-height: 75px;
-    }
+.card > .logos > img {
+    width: 125px !important;
+    height: 125px !important;
+    max-height: 100px !important;
+    max-width: 100px !important;
 }
-@media (min-width: 481px) and (max-width: 767px) {
-    .App-contact{
-        display: inline-block;
+
+.card-descr {
+    text-align: justify;
+}
+
+/*@media (max-width: 480px) {*/
+/*    .card{*/
+/*        display: inline-block;*/
+/*    }*/
+/*    .card > div{*/
+/*        max-width: 90vw;*/
+/*    }*/
+/*    .card > .logos > img{*/
+/*        margin-top: 3rem;*/
+/*        border-radius: 15px;*/
+/*        cursor: pointer;*/
+/*        max-width: 75px;*/
+/*        max-height: 75px;*/
+/*    }*/
+/*}*/
+@media (min-width: 767px) {
+    .card {
+        display: flex;
     }
-    .App-contact > div{
-        max-width: 80vw;
+    .card > div {
+        max-width: 33vw;
     }
-    .App-contact > .logos > img{
-        margin-top: 5rem;
-        border-radius: 25px;
-        max-width: 100px;
-        max-height: 100px;
+
+    .card > .logos > img {
+        max-width: 125px !important;
+        max-height: 125px !important;
+        margin-top: 0;
     }
+
+
 }

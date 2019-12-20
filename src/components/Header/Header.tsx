@@ -21,10 +21,10 @@ class Header extends React.Component<Props, {}> {
                 image: bg2, amount: this.props.parallaxSpeed * -.8, expanded: true
             }]}
                             style={{minHeight: this.props.height, maxHeight: this.props.height}}>
-                <div className='h-title'>
+                <header className='header-title'>
                     <h1>I'm Jonny Deates</h1>
                     <h4>a front end-developer</h4>
-                </div>
+                </header>
             </ParallaxBanner>
         );
     }
