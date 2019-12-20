@@ -58,8 +58,12 @@ class ProjectList extends React.Component<{}> {
             <div className="projectList">
                 <h1 className="body-header">My Work</h1>
                 <p className="project-descr">Below is a list of recent projects that I have contributed help with, or
-                    developed on my own fully.
-                    If you would like to keep up with my current projects then follow me over on twitter.</p>
+                    developed on my own. Each project is represented with its symbol and a list of areas in web
+                    development that I had to utilize. Below that is a short digest of the project, and then two links:
+                    one to the site, and one to the code written. I am dedicated to following through on my work, and to
+                    keeping them updated.  If you would like to keep up with my current projects then follow me over on {' '}
+                    <span onClick={()=> window.open('https://twitter.com/jonnydeates')}>twitter.</span>
+                </p>
                 {projects.map((obj, i) => <Project key={'project' + i} title={obj.title} subTitle={obj.subTitle}
                                                    descr={obj.descr} image={obj.image} link={obj.link}
                                                    color={obj.color} githubLink={obj.githubLink}/>)}

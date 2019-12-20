@@ -9,3 +9,7 @@
 .project-descr {
     text-align: justify;
 }
+.project-descr > span {
+    color: #00000077;
+    cursor: pointer;
+}

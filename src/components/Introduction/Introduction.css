@@ -11,6 +11,8 @@
 }
 .introduction > img{
     margin-top: 2rem;
+    width:150px;
+    height:150px;
 }
 @media (min-width: 480px) {
     .introduction{

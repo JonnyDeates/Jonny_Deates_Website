@@ -13,7 +13,8 @@ class Language extends React.Component<Props, {}> {
 
     render() {
         let link = (link: string)=> {
-            window.open(link)
+            if(link.trim().length > 0)
+                window.open(link)
         };
         let image = (
             <div className='logos'>

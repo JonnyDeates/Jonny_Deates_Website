@@ -26,8 +26,8 @@ class Contact extends React.Component<{}> {
             },
             {
                 image: eLogo,
-                name: "jonnydeates@gmail.com",
-                link: '',
+                name: "Gmail",
+                link: 'mailto:jonnydeates<contato@gmail.com>',
                 descr: "If you want to hire me, or would like to discuss a project you think I would be great to be \n" +
                     " contracted too, then shoot me an email!"
             }
