@@ -1,20 +1,26 @@
-
 .App-body{
-    background-color: aliceblue;
-    min-height: 50vh;
-    max-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    display: inline-block;
+
 }
 .App-body > div{
-    max-width: 33vw;
+    max-width: 90vw;
+
+}
+.App-body > div > p {
+    text-align: justify;
+}
+.logos {
+    text-align: center;
 }
 .logos > img{
-    border-radius: 25px;
-    background-color: white;
+    margin-top: 3rem;
+    border-radius: 15px;
     cursor: pointer;
+    max-width: 70px;
+    max-height: 70px;
+
 }
+
 .body-header {
     background-color: aliceblue;
     margin-block-start: unset;
@@ -22,32 +28,44 @@
     padding-top: 5rem;
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
     .App-body{
-        display: inline-block;
+        background-color: aliceblue;
+        min-height: 50vh;
+        max-height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: left;
     }
     .App-body > div{
-        max-width: 90vw;
+        max-width: 33vw;
     }
-    .App-body > .logos > img{
-        margin-top: 3rem;
-        border-radius: 15px;
-        cursor: pointer;
-        max-width: 70px;
-        max-height: 70px;
-    }
-}
-@media (min-width: 481px) and (max-width: 767px) {
-    .App-body{
-        display: inline-block;
-    }
-    .App-body > div{
-        max-width: 80vw;
-    }
-    .App-body > .logos > img{
-        margin-top: 5rem;
+    .logos > img{
         border-radius: 25px;
-        max-width: 80px;
-        max-height: 80px;
+        background-color: white;
+        cursor: pointer;
     }
 }
+
+@media (min-width: 620px) {
+    .App-body {}
+    .logos > img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+/*@media (min-width: 481px) and (max-width: 767px) {*/
+/*    .App-body{*/
+/*        display: inline-block;*/
+/*    }*/
+/*    .App-body > div{*/
+/*        max-width: 80vw;*/
+/*    }*/
+/*    .App-body > .logos > img{*/
+/*        margin-top: 5rem;*/
+/*        border-radius: 25px;*/
+/*        max-width: 80px;*/
+/*        max-height: 80px;*/
+/*    }*/

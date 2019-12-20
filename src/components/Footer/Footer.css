@@ -6,10 +6,11 @@
     justify-content: space-evenly;
     background-color: #7bc9ff;
 }
-.footer > a {
+.footer-links {
     font-size: large;
     text-decoration: unset;
     color: #00000077;
+    cursor: pointer;
 }
 .footer-wrapper{
     background-color: #7bc9ff;

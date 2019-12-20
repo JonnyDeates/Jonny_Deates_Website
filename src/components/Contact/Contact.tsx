@@ -12,9 +12,9 @@ class Contact extends React.Component<{}> {
         const minWidth = window.innerWidth < 767;
         const programming = [{
             image: lInLogo,
-            name: "Linked In",
+            name: "LinkedIn",
             link: 'https://www.linkedin.com/in/jonnydeates/',
-            descr: "I am an active user of Linked In, if you are a recruiter or a start-up, reach out there! I would be \n" +
+            descr: "I am an active user of LinkedIn, if you are a recruiter or a start-up, reach out there! I would be \n" +
                 "more than glad to have a discussion and perhaps I would be a valuable member of your team!"
         },
             {

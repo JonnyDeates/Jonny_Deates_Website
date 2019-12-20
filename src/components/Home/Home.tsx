@@ -42,9 +42,7 @@ class Home extends React.Component<Props, {}> {
         ];
         return (
             <>
-                <div className="App-body">
-                    <Introduction introduction={'Hello!'}/>
-                </div>
+                <Introduction introduction={'Hello!'}/>
                 <h1 className="body-header">Where I Shine</h1>
                 {section1.map((obj, i) => <Language key={'section1'+i} images={obj.images} header={obj.header} descr={obj.descr}
                                                     flipped={(i % 2 === 0) || minWidth}/>)}

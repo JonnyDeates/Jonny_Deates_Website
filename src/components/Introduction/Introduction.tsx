@@ -11,8 +11,8 @@ class Introduction extends React.Component<Props, {}> {
 
     render() {
         return (
-            <div>
-                <img src={logo} alt='Yin Yang Yexin' width='150px' height='150px'/>
+            <div className='introduction'>
+                <img  src={logo} alt='Yin Yang Yexin' width='150px' height='150px'/>
                 <h2>{this.props.introduction}</h2>
                 <p>{this.descr}</p>
             </div>

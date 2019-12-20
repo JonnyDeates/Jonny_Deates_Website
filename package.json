@@ -1,7 +1,7 @@
 {
   "name": "jonnydeatesportfolio",
-  "homepage": "",
-  "version": "2.1.0",
+  "homepage": "https://github.com/JonnyDeates/Jonny_Deates_Website#readme",
+  "version": "2.2.0",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.19",

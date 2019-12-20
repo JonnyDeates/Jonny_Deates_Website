@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 interface Image {
     link: string, src: string, name: string
 }
