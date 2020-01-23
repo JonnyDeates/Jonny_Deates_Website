@@ -2,6 +2,7 @@ import React from 'react';
 import giveawayWheel from '../../assets/projects/giveawaywheel.png'
 import koiTimer from '../../assets/projects/koitimer.png'
 import koiGoalKeeper from '../../assets/projects/koigoalkeeper.png'
+import dearBeer from '../../assets/projects/dearbeer.png'
 import Project from "./Project/Project";
 import "./ProjectList.css"
 
@@ -18,6 +19,17 @@ interface Projects {
 class ProjectList extends React.Component<{}> {
     render() {
         const projects: Projects[] = [{
+            image: dearBeer,
+            title: "DearBeer",
+            subTitle: "Project Management / Reactjs / NodeJs / SQL",
+            link: 'https://dearbeer.now.sh',
+            githubLink: 'https://github.com/thinkful-ei-heron/Group4-Capstone-3', //Change This
+            color: '#99bdff',
+            descr: "An App developed to be able to track the beers a user has been drinking. Also used to locate bars \n " +
+                "and breweries within your town. The app also tracks the places that you once had a beer at, and shows you the map \n" +
+                "of places that you've drank at. I was the team manager on the application, delegating tasks, ensuring deadlines were met, \n" +
+                "and ensuring the product has high standards."
+        },{
             image: koiGoalKeeper,
             title: "The Koi Goal Keeper",
             subTitle: "App & Web Design / Reactjs / NodeJs / SQL",

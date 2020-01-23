@@ -1,7 +1,7 @@
 {
   "name": "jonnydeatesportfolio",
   "homepage": "",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.19",
