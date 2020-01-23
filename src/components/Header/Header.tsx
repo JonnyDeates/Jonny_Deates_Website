@@ -11,21 +11,7 @@ interface Props {
 
 class Header extends React.Component<Props, {}> {
     render() {
-        return (
-
-            <ParallaxBanner className="header" layers={[{
-                children: <></>,
-                image: bg, amount: this.props.parallaxSpeed * .8, expanded: true,
-            }, {
-                children: <></>,
-                image: bg2, amount: this.props.parallaxSpeed * -.8, expanded: true
-            }]}
-                            style={{minHeight: this.props.height, maxHeight: this.props.height}}>
-                <header className='header-title'>
-                    <h1>I'm Jonny Deates</h1>
-                    <h4>a front end-developer</h4>
-                </header>
-            </ParallaxBanner>
+        return (<header className='header-title'>Parrallaxing Banner</header>
         );
     }
 }

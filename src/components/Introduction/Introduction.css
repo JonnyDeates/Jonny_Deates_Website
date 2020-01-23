@@ -2,6 +2,7 @@
     display: inline-block;
     text-align: center;
     max-width: 90vw;
+    height: 50vh;
 }
 .introduction > p {
     text-align: justify;
@@ -11,6 +12,7 @@
 }
 .introduction > img{
     margin-top: 2rem;
+    background-color: lightgray;
     width:150px;
     height:150px;
 }

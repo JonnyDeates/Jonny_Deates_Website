@@ -11,20 +11,19 @@ class Card extends React.Component<Props, {}> {
 
     render() {
         let link = this.props.link !== '' ? () => (window.open(this.props.link)) : ()=> {};
-        let caption = (this.props.link.length ===  0) ?(<p>{this.props.name}</p>) : <></>;
+        let caption = (this.props.link.length ===  0) ?(<h1>{this.props.name}</h1>) : <></>;
         let image = (
             <div className='logos'>
-                <img src={this.props.image} alt={this.props.name} onClick={link}/>
                 {caption}
             </div>);
         let body = (this.props.flipped) ? (<>
             {image}
             <div className='card-descr'>
-                <p>{this.props.descr}</p>
+                <h1>{this.props.descr}</h1>
             </div>
         </>) : (<>
             <div className='card-descr'>
-                <p>{this.props.descr}</p>
+                <h1>{this.props.descr}</h1>
             </div>
             {image}
         </>);

@@ -74,9 +74,8 @@ class Chibi extends React.Component<Props, {}> {
     render() {
         return (
             <div className='chibi-frame'>
-                <Link to={'/'}>
-                {(this.props.isWaving) ? <img className='chibi' alt='Jonnys Chibi Waving' src={this.randomWavingOutfit()} /> :
-                    <img className='chibi' alt='Jonnys Chibi' src={this.randomOutfit()}/>}</Link>
+                {(this.props.isWaving) ? <img className='chibi' src={''} /> :
+                    <img className='chibi'  src={''}/>}
             </div>
         );
     }

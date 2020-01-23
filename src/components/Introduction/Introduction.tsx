@@ -14,9 +14,8 @@ them! Currently developing out an full-stack application with a partner, and I c
     render() {
         return (
             <div className='introduction'>
-                <img src={logo} alt='Yin Yang Yexin'/>
+                <img src={''} />
                 <h2>{this.props.introduction}</h2>
-                <p>{this.descr}</p>
             </div>
         );
     }

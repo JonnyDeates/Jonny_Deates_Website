@@ -4,19 +4,24 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: #7bc9ff;
+    background-color: gray(2);
 }
 .footer-links {
     font-size: large;
     text-decoration: unset;
-    color: #00000077;
+    color: white;
     cursor: pointer;
 }
 .footer-wrapper{
-    background-color: #7bc9ff;
+    height: 30vh;
+    color: white;
+    padding: 2rem;
+    font-size: xx-large;
+    background-color: #444748;
+
 }
 .footer-wrapper > p {
     margin-bottom: 0;
     padding-bottom: 16px;
-    color: #00000044;
+    color: white;
 }

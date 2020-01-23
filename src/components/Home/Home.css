@@ -23,10 +23,15 @@
 }
 
 .body-header {
-    background-color: aliceblue;
     margin-block-start: unset;
     margin-block-end: unset;
     padding-top: 5rem;
+    height: 50vh;
+    width: 100vw;
+    background-color: darkgray;
+}
+.cool{
+    background-color: lightgray;
 }
 
 @media (min-width: 480px) {
