@@ -4,13 +4,18 @@
 }
 .App-body > div{
     max-width: 90vw;
-
+    opacity: 0;
 }
 .App-body > div > p {
     text-align: justify;
+
+}
+.body-header {
+    opacity: 0;
 }
 .logos {
     text-align: center;
+    opacity: 1 !important;
 }
 .logos > img{
     margin-top: 3rem;
@@ -20,6 +25,7 @@
     max-height: 70px;
     width:100px;
     height:100px;
+    opacity: 0;
 }
 
 .body-header {

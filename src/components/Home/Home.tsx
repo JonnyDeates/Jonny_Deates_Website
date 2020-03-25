@@ -9,12 +9,23 @@ import tLogo from '../../assets/logos/thinkful.jpg'
 import gmLogo from '../../assets/logos/growthmindest.jpg'
 import Introduction from "../Introduction/Introduction";
 import Language from "./Language/Language";
+import TrackVisibility from "../utils/TrackVisibility";
 
 interface Props {
     introduction: string;
 }
-
-class Home extends React.Component<Props, {}> {
+interface State {
+    runAnimationHeader1: boolean,
+    runAnimationHeader2: boolean
+}
+class Home extends React.Component<Props, State> {
+    constructor(props: Props){
+        super(props);
+        this.state = {
+            runAnimationHeader1: false,
+            runAnimationHeader2: false,
+        }
+    }
     render() {
         const minWidth = window.innerWidth < 767;
         const section1 = [{
@@ -50,11 +61,15 @@ class Home extends React.Component<Props, {}> {
         ];
         return (
             <>
-                <Introduction introduction={'Hello!'}/>
-                <h1 className="body-header">Where I Shine</h1>
+                <Introduction introduction={'Hia!'}/>
+                <TrackVisibility onVisible={() => this.setState({runAnimationHeader1: true})}>
+                    <h1 className="body-header"  style={{animation: (this.state.runAnimationHeader1) ? `1s fadeIn forwards` : ''}}>Where I Shine</h1>
+                </TrackVisibility>
                 {section1.map((obj, i) => <Language key={'section1'+i} images={obj.images} header={obj.header} descr={obj.descr}
                                                     flipped={(i % 2 === 0) || minWidth}/>)}
-                <h1 className="body-header">Where I'm Currently</h1>
+                <TrackVisibility onVisible={() => this.setState({runAnimationHeader2: true})}>
+                    <h1 className="body-header" style={{animation: (this.state.runAnimationHeader2) ? `1s fadeIn forwards` : ''}}>Where I'm Currently</h1>
+                </TrackVisibility>
                 {section2.map((obj,i) => <Language key={'section2'+i} images={obj.images} header={obj.header} descr={obj.descr}
                                                flipped={(i % 2 === 0) || minWidth}/>)}
             </>

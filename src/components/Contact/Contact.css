@@ -27,6 +27,7 @@
 
 .card-descr {
     text-align: justify;
+    opacity: 0;
 }
 
 /*@media (max-width: 480px) {*/

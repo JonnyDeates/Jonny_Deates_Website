@@ -23,7 +23,7 @@ class Header extends React.Component<Props, {}> {
                             style={{minHeight: this.props.height, maxHeight: this.props.height}}>
                 <header className='header-title'>
                     <h1>I'm Jonny Deates</h1>
-                    <h4>a front end-developer</h4>
+                    <h4>Full-Stack Developer</h4>
                 </header>
             </ParallaxBanner>
         );

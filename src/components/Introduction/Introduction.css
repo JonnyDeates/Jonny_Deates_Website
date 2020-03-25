@@ -5,14 +5,22 @@
 }
 .introduction > p {
     text-align: justify;
+    opacity: 0;
+    animation: 1s 2s fadeIn forwards;
 }
 .introduction > h2 {
     text-align: center;
+    opacity: 0;
+    -webkit-animation: 1s 1.75s fadeIn forwards;
+    -o-animation: 1s 1.75s fadeIn forwards;
+    animation: 1s 1.75s fadeIn forwards;
 }
 .introduction > img{
     margin-top: 2rem;
     width:150px;
     height:150px;
+    opacity: 0;
+
 }
 @media (min-width: 480px) {
     .introduction{

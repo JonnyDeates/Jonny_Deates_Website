@@ -1,6 +1,9 @@
 .projectList {
     background-color: aliceblue;
 }
+.projectList h1 {
+    animation: 1s 1.5s fadeIn forwards;
+}
 .projectList > p {
     padding-left: 10vw;
     padding-right: 10vw;
@@ -8,6 +11,8 @@
 }
 .project-descr {
     text-align: justify;
+    opacity: 0;
+    animation: 1s 2s fadeIn forwards;
 }
 .project-descr > span {
     color: #00000077;

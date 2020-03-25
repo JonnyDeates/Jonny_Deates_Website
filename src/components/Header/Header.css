@@ -16,6 +16,8 @@
     border-radius: 25px;
     padding: 0 10px;
     text-align: center;
+    opacity: 0;
+    animation: 1s 1s fadeIn forwards;
 
 }
 @media (min-width: 480px) {

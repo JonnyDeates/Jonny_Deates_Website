@@ -15,16 +15,42 @@
     max-width: 90vw;
 }
 
+.project-content h2, .project-content h4, .project-content p {
+    opacity: 0;
+}
 
-
-.project > div > img {
+.project img {
     height: 200px;
     width: 200px;
+    opacity: 0;
 }
-.project-content > p {
+.project-content p {
     text-align: justify;
 }
-
+.project-demo {
+    justify-content: space-around;
+    display: block;
+    width: 60vw;
+    margin: 48px auto;
+    padding: 16px 0;
+    border-radius: 45px;
+    background-color: #11111111;
+}
+.project-demo p {
+    margin: 0 0 16px 0 ;
+    
+}
+.project-demo p > input {
+    background-color: #ffffff99;
+    border: none;
+    border-radius: 4px;
+    margin: 0 0 0 0 ;
+    text-align: center;
+    color: #00000077;
+}
+.project-demo:hover {
+    background-color: #44444411;
+}
 .project-submit {
     background-color: #ffffffcc;
     font-size: small;
@@ -35,6 +61,7 @@
     cursor: pointer;
     position: relative;
     box-shadow: 3px 4px 5px 2px rgba(255, 255, 255, 0.1), 1px 2px 2px 1px rgba(200, 200, 200, 0.3);
+    opacity: 0;
 }
 
 .project-link {
@@ -69,7 +96,13 @@
     .project > div {
         max-width: 70vw;
     }
-
+    .project-demo {
+        display: flex;
+    }
+    .project-demo p {
+        margin: 0;
+        display: block;
+    }
     .project-submit {
         top: 2rem;
     }
