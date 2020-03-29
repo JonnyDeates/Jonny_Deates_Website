@@ -11,7 +11,7 @@ interface State {
 class Introduction extends React.Component<Props, State> {
     descr: string = `I'm a front-end developer based in Denver, Colorado. I have a passion for web development and love seeing my projects \n 
 come into fruition. I also really enjoy building projects out in teams, and having those teams support me as I support \n
-them! Currently developing out an full-stack application with a partner, and I can say the progress has been tremendous.`;
+them! Currently developing out a full-stack application with a partner, and I can say the progress has been tremendous.`;
 
     constructor(props: Props) {
         super(props);

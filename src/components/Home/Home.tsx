@@ -61,7 +61,7 @@ class Home extends React.Component<Props, State> {
         ];
         return (
             <>
-                <Introduction introduction={'Hia!'}/>
+                <Introduction introduction={this.props.introduction}/>
                 <TrackVisibility onVisible={() => this.setState({runAnimationHeader1: true})}>
                     <h1 className="body-header"  style={{animation: (this.state.runAnimationHeader1) ? `1s fadeIn forwards` : ''}}>Where I Shine</h1>
                 </TrackVisibility>
