@@ -8,11 +8,11 @@ class Footer extends React.Component<{}> {
         return (
             <div className={'footer-wrapper'}>
                 <div className='footer'>
-                <a href={'https://giveawaysite.net'}>Github</a>
+                <a href={'https://github.com/JonnyDeates'}>Github</a>
                 <a href={'https://www.linkedin.com/in/jonnydeates/'}>Linked-in</a>
                 <a href={'https://twitter.com/jonnydeates'}>Twitter</a>
                 </div>
-                <p>© 2019 Jonny Deates. All rights reserved.</p>
+                <p>© 2020 Jonny Deates. All rights reserved.</p>
 
             </div>
         );

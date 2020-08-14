@@ -12,7 +12,6 @@ interface Props {
 class Header extends React.Component<Props, {}> {
     render() {
         return (
-
             <ParallaxBanner className="header" layers={[{
                 children: <></>,
                 image: bg, amount: this.props.parallaxSpeed * .8, expanded: true,
