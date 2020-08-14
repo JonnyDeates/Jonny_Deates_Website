@@ -4,6 +4,7 @@ import koiTimer from '../../assets/projects/koitimer.png'
 import koiGoalKeeper from '../../assets/projects/koigoalkeeper.png'
 import dearBeer from '../../assets/projects/dearbeer.png'
 import ldshotservices from '../../assets/projects/ldshotservices.png'
+import kpcleaningservices from '../../assets/projects/kpcleaningservices.png'
 import Project from "./Project/Project";
 import "./ProjectList.css"
 
@@ -34,6 +35,18 @@ class ProjectList extends React.Component<{}, State> {
                 'one to the site, and one to the code written. I am dedicated to following through on my work, and to\n' +
                 'keeping them updated.  If you would like to keep up with my current projects then follow me over on ',
             projects: [{
+                image: kpcleaningservices,
+                title: "KP Cleaning Services",
+                subTitle: "Project Management / UX - UI Design / Reactjs",
+                link: 'https://kpcleaningservice.com',
+                githubLink: '',
+                color: '#c5a9ff',
+                descr: "A website designed, maintained, and hosted for a business LLC client. The single page application was developed with amplitude, " +
+                "and met all the desired needs the client had asked for. It was developed in Reactjs, and developed out tools for the client to easily update their site. " +
+                "The tools were made with Reactjs, MongoDB, and Restful Services.",
+                demoName: '',
+                demoPass: ''
+            }, {
                 image: ldshotservices,
                 title: "L D Shot Services",
                 subTitle: "Project Management / UX - UI Design / Reactjs",

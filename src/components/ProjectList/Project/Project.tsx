@@ -60,8 +60,9 @@ class Project extends React.Component<Props, State> {
                         <div className='project-submit' style={{animation: (this.state.runAnimationLink ? `1s .75s ${this.state.currentAnimation} forwards` : '')}}>
                             <p className='project-link'
                                onClick={() => window.open(this.props.link)}>View {this.props.title}</p>
+                            {(this.props.githubLink !== '') ?
                             <p className='project-github' style={{backgroundColor: this.props.color + '55'}}
-                               onClick={() => window.open(this.props.githubLink)}>Github</p>
+                               onClick={() => window.open(this.props.githubLink)}>Github</p> : ''}
 
                         </div>
                     </TrackVisibility>
