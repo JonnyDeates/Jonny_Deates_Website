@@ -14,12 +14,7 @@ interface Props {
     introduction: string;
 }
 
-
 class Home extends React.Component<Props> {
-    constructor(props: Props) {
-        super(props);
-    }
-
     render() {
         const minWidth = window.innerWidth < 767;
         const section1 = {
