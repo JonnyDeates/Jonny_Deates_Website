@@ -4,7 +4,8 @@ import TrackVisibility from "../../utils/TrackVisibility";
 interface Image {
     link: string,
     src: string,
-    name: string
+    name: string,
+    style: {display: string },
 }
 
 interface Props {
@@ -35,7 +36,10 @@ class Language extends React.Component<Props, State> {
         let image = (
             <div className='logos'>
                 {this.props.images.map((img, i) => <img key={img.name + i} src={img.src} alt={img.name}
-                                                        style={{animation: (this.state.runAnimation) ? `1s ${i * .25 + (.25)}s ${!(this.props.flipped) ? 'slideInRight' : 'slideInLeft'} forwards` : ''}}
+                                                        style={{animation: (this.state.runAnimation) ? `1s ${i * .25 + (.25)}s ${!(this.props.flipped) 
+                                                                        ? 'slideInRight' : 'slideInLeft'} forwards`
+                                                                    : '',
+                                                        ...img.style}}
                                                         onClick={() => link(img.link)}/>)}
             </div>);
         let body = (this.props.flipped) ? (<>

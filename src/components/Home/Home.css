@@ -13,6 +13,15 @@
 .body-header {
     opacity: 0;
 }
+.shine {
+margin: 8rem 0;
+}
+.shine > div > .App-body {
+    display: flex;
+}
+.shine > div > .App-body > div:last-child {
+    margin: auto 8px;
+}
 .logos {
     text-align: center;
     opacity: 1 !important;

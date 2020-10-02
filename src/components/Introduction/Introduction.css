@@ -2,11 +2,18 @@
     display: inline-block;
     text-align: center;
     max-width: 90vw;
+    margin: 8rem 0 0 0;
 }
-.introduction > p {
+.introduction > div {
+    margin-top: 8rem;
+}
+.introduction  p {
     text-align: justify;
     opacity: 0;
     animation: 1s 2s fadeIn forwards;
+}
+.introduction h1 {
+    opacity: 0;
 }
 .introduction > h2 {
     text-align: center;
@@ -15,7 +22,7 @@
     -o-animation: 1s 1.75s fadeIn forwards;
     animation: 1s 1.75s fadeIn forwards;
 }
-.introduction > img{
+.introduction img{
     margin-top: 2rem;
     width:150px;
     height:150px;
