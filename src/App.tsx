@@ -27,17 +27,17 @@ const App: React.FC = () => {
                 <Switch>
                     <Route path={'/contact'} component={() => <Chibi isWaving={false}/>}/>
                     <Route path={'/projects'} component={() => <Chibi isWaving={false}/>}/>
-                    <Route exact path={'/'} component={() => <Chibi isWaving={true}/>}/>
+                    <Route path={'/'} component={() => <Chibi isWaving={true}/>}/>
                 </Switch>
                 <Switch>
                     <Route path={'/contact'} component={() => <Header height={'50vh'} parallaxSpeed={1.5}/>}/>
                     <Route path={'/projects'} component={() => <Header height={'50vh'} parallaxSpeed={2}/>}/>
-                    <Route exact path={'/'} component={() => <Header height={'80vh'} parallaxSpeed={1.1}/>}/>
+                    <Route path={'/'} component={() => <Header height={'80vh'} parallaxSpeed={1.1}/>}/>
                 </Switch>
                 <Switch>
-                    <Route exact path='/'><Home introduction={'Hello!'}/></Route>
                     <Route path='/projects'><ProjectList/> </Route>
                     <Route path='/contact'><Contact/> </Route>
+                    <Route path='/'><Home introduction={'Hello!'}/></Route>
                 </Switch>
                 <Footer/>
             </div>
