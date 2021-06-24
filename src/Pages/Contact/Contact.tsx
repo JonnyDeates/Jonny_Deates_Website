@@ -1,10 +1,10 @@
 import React from 'react';
 import './Contact.css';
-import lInLogo from '../../assets/logos/linkedin.svg'
-import gLogo from '../../assets/logos/github.svg'
-import eLogo from '../../assets/logos/gmail.svg'
-import tLogo from '../../assets/logos/twitter.svg'
-import iLogo from '../../assets/logos/instagram.svg'
+import lInLogo from '../../Assets/logos/linkedin.svg'
+import gLogo from '../../Assets/logos/github.svg'
+// import eLogo from '../../Assets/logos/gmail.svg'
+import tLogo from '../../Assets/logos/twitter.svg'
+import iLogo from '../../Assets/logos/instagram.svg'
 import Card from "./Card/Card";
 
 class Contact extends React.Component<{}> {
@@ -24,13 +24,13 @@ class Contact extends React.Component<{}> {
                 descr: "I usually post most of my projects on github. I do like giving out some of the smaller projects\n"+
                     " code for MIT license, or available free of copywrite. Also a place to see what I am currently working on."
             },
-            {
-                image: eLogo,
-                name: "Gmail",
-                link: 'mailto:jonnydeates<contato@gmail.com>',
-                descr: "If you want to hire me, or would like to discuss a project you think I would be great to be \n" +
-                    " contracted too, then shoot me an email!"
-            }
+            // {
+            //     image: eLogo,
+            //     name: "Gmail",
+            //     link: 'mailto:jonnydeates<contato@gmail.com>',
+            //     descr: "If you want to hire me, or would like to discuss a project you think I would be great to be \n" +
+            //         " contracted too, then shoot me an email!"
+            // }
         ];
         const socialMedia = [{
             image: tLogo,
@@ -54,7 +54,7 @@ class Contact extends React.Component<{}> {
                                                    image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}
                 <h1 className="body-header">Social Media</h1>
                 {socialMedia.map((obj, i) => <Card key={'socialMedia' + i} name={obj.name} descr={obj.descr}
-                                                   image={obj.image} link={obj.link} flipped={(i % 2 !== 0 || minWidth)}/>)}
+                                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}
             </>
         );
     }

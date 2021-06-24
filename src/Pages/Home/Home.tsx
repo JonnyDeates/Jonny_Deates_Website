@@ -1,13 +1,13 @@
 import React from 'react';
 import './Home.css';
-import tsLogo from '../../assets/logos/typescript.png'
-import jsLogo from '../../assets/logos/javascript.png'
-import rLogo from '../../assets/logos/reactjs.png'
-import pLogo from '../../assets/logos/python.png'
-import mLogo from '../../assets/logos/minimalism.png'
-import tLogo from '../../assets/logos/thinkful.jpg'
-import gmLogo from '../../assets/logos/growthmindest.jpg'
-import Introduction from "../Introduction/Introduction";
+import tsLogo from '../../Assets/logos/typescript.png'
+import jsLogo from '../../Assets/logos/javascript.png'
+import rLogo from '../../Assets/logos/reactjs.png'
+import pLogo from '../../Assets/logos/python.png'
+import mLogo from '../../Assets/logos/minimalism.png'
+import tLogo from '../../Assets/logos/thinkful.jpg'
+import gmLogo from '../../Assets/logos/growthmindest.jpg'
+import Introduction from "../../Components/Introduction/Introduction";
 import Language from "./Language/Language";
 
 interface Props {
@@ -66,7 +66,7 @@ class Home extends React.Component<Props> {
             header: "Minimalistic Design",
             descr: "My specialty is minimalism! Minimalism allows consumers to focus on what is important without \n" +
                 "the expense of meticulous details.  Personally, I spend a lot of time creating intuitive, modular, \n" +
-                "and modern designs that have depth to them."
+                "and modern designs that have invaluable depth to them."
         }, {
             images: [{
                 link: 'https://www.thinkful.com', src: tLogo, name: "Thinkful",
@@ -75,9 +75,9 @@ class Home extends React.Component<Props> {
                 newAnimation: ''
             }],
             header: "Thinkful - Engineering Immersion",
-            descr: "I am currently enrolled in a fast-tracked, full time program of online classes, mentorship, \n" +
-                "and career coaching. This Data Science Bootcamp I believe is my fast track to really understand \n" +
-                "the intricacies of a work environment and the importance of team building. I am very glad that I enrolled "
+            descr: "I went through a fast-tracked, full time program of online classes, mentorship, \n" +
+                "and career coaching. This Data Science Bootcamp I believe was my fast track to really understand \n" +
+                "the intricacies of a work environment and the importance of team building. I am very glad that I had enrolled."
         }, {
             images: [{
                 link: 'https://www.youtube.com/watch?v=M1CHPnZfFmU', src: gmLogo, name: "Growth Mindset",

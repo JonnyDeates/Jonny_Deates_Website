@@ -1,12 +1,13 @@
 import React from 'react';
 import './Header.css';
 import {ParallaxBanner} from "react-scroll-parallax/cjs";
-import bg from '../../assets/backgrounds/Yin.png';
-import bg2 from '../../assets/backgrounds/Yang.png';
+import bg from '../../Assets/backgrounds/Yin.png';
+import bg2 from '../../Assets/backgrounds/Yang.png';
 
 interface Props {
     height: string,
-    parallaxSpeed: number
+    parallaxSpeed: number,
+    isShown?: boolean
 }
 
 class Header extends React.Component<Props, {}> {
@@ -21,10 +22,10 @@ class Header extends React.Component<Props, {}> {
                 image: bg2, amount: this.props.parallaxSpeed * -.8, expanded: true
             }]}
                             style={{minHeight: this.props.height, maxHeight: this.props.height}}>
-                <header className='header-title'>
-                    <h1>I'm Jonny Deates</h1>
-                    <h4>Full-Stack Developer</h4>
-                </header>
+                {this.props.isShown && <header className='header-title'>
+                        <h1>I'm Jonny Deates</h1>
+                        <h4>Software Engineer</h4>
+                </header>}
             </ParallaxBanner>
         );
     }

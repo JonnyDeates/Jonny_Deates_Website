@@ -11,7 +11,6 @@
     text-decoration: unset;
     color: #00000077;
     cursor: pointer;
-    opacity: 0;
 }
 .footer-wrapper{
     background-color: #7bc9ff;
@@ -21,5 +20,4 @@
     margin-bottom: 0;
     padding-bottom: 16px;
     color: #00000044;
-    opacity: 0;
 }

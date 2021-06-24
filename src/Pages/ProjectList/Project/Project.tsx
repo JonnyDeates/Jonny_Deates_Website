@@ -1,6 +1,6 @@
 import React from 'react';
 import './Project.css';
-import TrackVisibility from "../../utils/TrackVisibility";
+import TrackVisibility from "../../../Components/utils/TrackVisibility";
 
 // import clipboard from '../../../assets/logos/clipboard.png'
 interface Props {

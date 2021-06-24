@@ -1,5 +1,5 @@
 import React from 'react';
-import TrackVisibility from "../../utils/TrackVisibility";
+import TrackVisibility from "../../../Components/utils/TrackVisibility";
 
 interface Props {
     image: string,
