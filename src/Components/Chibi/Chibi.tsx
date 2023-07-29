@@ -1,6 +1,19 @@
 import React from 'react';
 import './Chibi.css';
 import {Link} from "react-router-dom";
+import chibiFlora1G from "../../Assets/chibi/chibi-floral1.gif"
+import chibiFlora2G from "../../Assets/chibi/chibi-floral2.gif"
+import chibiFlora3G from "../../Assets/chibi/chibi-floral3.gif"
+import chibiFlora1 from "../../Assets/chibi/Chibi-floral-1.jpg"
+import chibiFlora2 from "../../Assets/chibi/Chibi-floral-2.jpg"
+import chibiFlora3 from "../../Assets/chibi/Chibi-floral-3.jpg"
+import chibiPattern1G from "../../Assets/chibi/Chibi-pattern1.gif"
+import chibiPattern2G from "../../Assets/chibi/Chibi-pattern2.gif"
+import chibiPattern3G from "../../Assets/chibi/Chibi-pattern3.gif"
+import chibiPattern1 from "../../Assets/chibi/Chibi-pattern-1.jpg"
+import chibiPattern2 from "../../Assets/chibi/Chibi-pattern-2.jpg"
+import chibiPattern3 from "../../Assets/chibi/Chibi-pattern-3.jpg"
+
 interface Props {
     isWaving: boolean;
 }
@@ -19,25 +32,25 @@ class Chibi extends React.Component<Props, {}> {
         let outfit: any;
         switch (rand) {
             case 0:
-                outfit = require('../../Assets/chibi/chibi-floral1.gif');
+                outfit = chibiFlora1G;
                 break;
             case 1:
-                outfit = require('../../Assets/chibi/Chibi-floral2.gif');
+                outfit = chibiFlora2G;
                 break;
             case 2:
-                outfit = require('../../Assets/chibi/Chibi-floral3.gif');
+                outfit = chibiFlora3G
                 break;
             case 3:
-                outfit = require('../../Assets/chibi/Chibi-pattern1.gif');
+                outfit = chibiPattern1G;
                 break;
             case 4:
-                outfit = require('../../Assets/chibi/Chibi-pattern2.gif');
+                outfit = chibiPattern2G;
                 break;
             case 5:
-                outfit = require('../../Assets/chibi/Chibi-pattern3.gif');
+                outfit = chibiPattern3G;
                 break;
             default:
-                outfit = require('../../Assets/chibi/Chibi-pattern1.gif');
+                outfit = chibiFlora1G;
                 break;
         }
         return outfit;
@@ -47,25 +60,25 @@ class Chibi extends React.Component<Props, {}> {
         let outfit: any;
         switch (rand) {
             case 0:
-                outfit = require('../../Assets/chibi/Chibi-floral-1.jpg');
+                outfit = chibiFlora1;
                 break;
             case 1:
-                outfit = require('../../Assets/chibi/Chibi-floral-2.jpg');
+                outfit = chibiFlora2;
                 break;
             case 2:
-                outfit = require('../../Assets/chibi/Chibi-floral-3.jpg');
+                outfit = chibiFlora3;
                 break;
             case 3:
-                outfit = require('../../Assets/chibi/Chibi-pattern-1.jpg');
+                outfit = chibiPattern1;
                 break;
             case 4:
-                outfit = require('../../Assets/chibi/Chibi-pattern-2.jpg');
+                outfit = chibiPattern2;
                 break;
             case 5:
-                outfit = require('../../Assets/chibi/Chibi-pattern-3.jpg');
+                outfit = chibiPattern3
                 break;
             default:
-                outfit = require('../../Assets/chibi/Chibi-pattern-1.jpg');
+                outfit = chibiFlora1
                 break;
         }
         return outfit;

@@ -1,6 +1,6 @@
 import React from 'react';
 import './Header.css';
-import {ParallaxBanner} from "react-scroll-parallax/cjs";
+import {ParallaxBanner} from "react-scroll-parallax";
 import bg from '../../Assets/backgrounds/Yin.png';
 import bg2 from '../../Assets/backgrounds/Yang.png';
 
