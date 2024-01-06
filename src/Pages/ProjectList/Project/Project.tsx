@@ -44,7 +44,8 @@ class Project extends React.Component<Props, State> {
                 <div>
                     <TrackVisibility onVisible={() => this.setState({runAnimationImg: true})}>
                         <img style={{animation: (this.state.runAnimationImg) ? '1s linear expandIn forwards' : ''}}
-                             src={this.props.image} alt={this.props.title}/> </TrackVisibility>
+                             src={this.props.image} alt={this.props.title}/>
+                    </TrackVisibility>
                     <div className='project-content'>
                         <TrackVisibility onVisible={() => this.setState({runAnimationTitle: true})}>
                             <h2 style={{animation: (this.state.runAnimationTitle) ? `1s ${this.state.currentAnimation} forwards` : ''}}>{this.props.title}</h2>
