@@ -40,7 +40,7 @@ class Language extends React.Component<Props, State> {
                                                                         ? 'slideInRight' : 'slideInLeft'} forwards`
                                                                     : '',
                                                         ...img.style}}
-                                                        onClick={() => link(img.link)}/>)}
+                                                        onClick={() => img.link && link(img.link)}/>)}
             </div>);
         let body = (this.props.flipped) ? (<>
             {image}
