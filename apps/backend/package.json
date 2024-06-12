@@ -1,0 +1,32 @@
+{
+  "name": "jonny-deates-portfolio",
+  "version": "3.0.2",
+  "description": "",
+  "scripts": {
+    "cleanBuild": "rm -rf dist && rm -rf build/*",
+    "copyFrontend": "cp ./sitemap/* ./build/ && cp -r ../portfolio/dist/* ./build/",
+    "buildFrontend": "cd ../../ && pnpm build && cd - && pnpm copyFrontend",
+    "monorepo": "pnpm run buildFrontend && tsx watch src/index.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=dist/index.js --external:express --external:cors",
+    "start": "node dist/index.js",
+    "type-check": "tsc"
+   },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "knex": "^2.5.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.7",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "dotenv": "^16.4.5",
+    "esbuild": "^0.21.5",
+    "tsx": "^4.15.2",
+    "typescript": "^5.4.5"
+  }
+}

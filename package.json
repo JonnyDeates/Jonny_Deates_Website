@@ -1,59 +1,29 @@
 {
-  "name": "jonnydeatesportfolio",
-  "homepage": "",
-  "version": "2.8.7",
+  "name": "jonny-deates-portfolio",
+  "description": "Jonny Deates' portfolio.",
+  "version": "3.1.0",
   "private": true,
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^5.3.4",
-    "react-scroll-parallax": "^3.4.2",
-    "typescript": "5.1.6",
-    "vite": "^4.4.7"
-  },
-  "devDependencies": {
-    "@testing-library/dom": "9.3.1",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^14.0.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^29.5.3",
-    "@types/react": "^18.2.17",
-    "@types/react-dom": "^18.2.7",
-    "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react-swc": "^3.3.2",
-    "typescript": "^5.1.6",
-    "vitest": "^0.33.0"
-  },
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "vite dev --port 5002",
-    "build": "vite build",
-    "start": "vite preview",
-    "test": "vitest run"
+    "cleanBuilds": "pnpm -r --parallel --filter ./apps/backend --filter ./apps/portfolio run cleanBuild ",
+    "build": "pnpm -r --parallel --filter ./apps/backend --filter ./apps/portfolio run build ",
+    "dev": "turbo run dev",
+    "frontendDev": "pnpm -r --filter ./apps/portfolio run dev",
+    "monorepo": "pnpm -r --filter ./apps/backend run monorepo",
+    "predeploy": "pnpm run build && pnpm -r --filter ./apps/backend run copyFrontend && docker build . -t jondeates/jon-deates-portfolio:$npm_package_version -t jondeates/jon-deates-portfolio:latest",
+    "deploy": "pnpm run predeploy && docker push jondeates/jon-deates-portfolio:$npm_package_version && docker push jondeates/jon-deates-portfolio:latest"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "description": "This project is a representation of Jonny Deates' career and was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "author": "Jonny Deates",
-  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JonnyDeates/Jonny_Deates_Website.git"
   },
-  "bugs": {
-    "url": "https://github.com/JonnyDeates/Jonny_Deates_Website/issues"
+  "devDependencies": {
+    "turbo": "^2.0.3"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@8.15.3"
 }

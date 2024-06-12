@@ -1,0 +1,41 @@
+{
+  "name": "portfolio",
+  "homepage": "",
+  "version": "3.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
+    "react-scroll-parallax": "^3.4.5",
+    "vite": "^5.2.13"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "10.1.0",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "scripts": {
+    "dev": "vite dev --port 5002",
+    "cleanBuild": "rm -rf dist",
+    "build": "vite build",
+    "start": "vite preview",
+    "test": "vitest run"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "description": "This project is a representation of Jonny Deates' career.",
+  "main": "index.js",
+  "author": "Jonny Deates",
+  "license": "ISC"
+}
