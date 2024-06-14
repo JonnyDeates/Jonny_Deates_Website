@@ -1,0 +1,114 @@
+.App-body{
+    display: inline-block;
+    background-color: rgb(153, 224, 255);
+}
+.App-body > div{
+    max-width: 90vw;
+    opacity: 0;
+}
+.App-body > div > p {
+    text-align: justify;
+
+}
+.body-header {
+    opacity: 0;
+}
+.shine {
+margin: 8rem 0;
+}
+.shine > div > .App-body {
+    display: flex;
+}
+.shine > div > .App-body > div:last-child {
+    margin: auto 8px;
+}
+.TextStuffWrapper {
+    overflow-x: hidden;
+    overflow-y: clip;
+    width: 100vw;
+}
+.TextStuff {
+    display: flex;
+    justify-content: space-evenly;
+    transform: rotate(-4deg);
+    font-size: 5rem;
+    font-weight: bolder;
+    color: #ffffff;
+    text-shadow: 4px 0 0 rgb(153, 224, 255), 0 4px 0 rgb(153, 224, 255), -4px 0 0 rgb(153, 224, 255), 0px -4px 0px rgb(153, 224, 255);
+    font-style: italic;
+    border-bottom: 235px solid rgb(153, 224, 255);
+    margin-bottom: -122px;
+    position: relative;
+    width: 102%;
+    left: -1%;
+}
+.TextStuff > p {
+    margin-bottom: -2.5rem;
+}
+.FrontendStuff {
+    font-size: 3rem;
+    text-wrap: wrap;
+    width: min-content;
+}
+.logos {
+    text-align: center;
+    opacity: 1 !important;
+}
+.logos > img{
+    margin-top: 3rem;
+    border-radius: 15px;
+    cursor: pointer;
+    max-width: 70px;
+    max-height: 70px;
+    width:100px;
+    height:100px;
+    opacity: 0;
+}
+
+.body-header {
+    background-color: aliceblue;
+    margin-block-start: unset;
+    margin-block-end: unset;
+    padding-top: 5rem;
+}
+
+@media (min-width: 480px) {
+    .App-body{
+        min-height: 50vh;
+        max-height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        text-align: left;
+    }
+    .App-body > div{
+        max-width: 33vw;
+    }
+    .logos > img{
+        border-radius: 25px;
+        background-color: white;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 620px) {
+    .App-body {}
+    .logos > img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+}
+
+/*@media (min-width: 481px) and (max-width: 767px) {*/
+/*    .App-body{*/
+/*        display: inline-block;*/
+/*    }*/
+/*    .App-body > div{*/
+/*        max-width: 80vw;*/
+/*    }*/
+/*    .App-body > .logos > img{*/
+/*        margin-top: 5rem;*/
+/*        border-radius: 25px;*/
+/*        max-width: 80px;*/
+/*        max-height: 80px;*/
+/*    }*/

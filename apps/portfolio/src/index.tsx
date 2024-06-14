@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {ParallaxProvider} from "react-scroll-parallax";
 import {RouterProvider} from "react-router-dom";
-import router from "./Pages/router";
+import router from "./pages/router";
 
 
 const container = document.getElementById("root") as HTMLElement;
