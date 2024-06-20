@@ -22,33 +22,21 @@ margin: 8rem 0;
 .shine > div > .App-body > div:last-child {
     margin: auto 8px;
 }
-.TextStuffWrapper {
-    overflow-x: hidden;
-    overflow-y: clip;
-    width: 100vw;
+.WrapperText {
 }
-.TextStuff {
-    display: flex;
-    justify-content: space-evenly;
-    transform: rotate(-4deg);
-    font-size: 5rem;
-    font-weight: bolder;
-    color: #ffffff;
-    text-shadow: 4px 0 0 rgb(153, 224, 255), 0 4px 0 rgb(153, 224, 255), -4px 0 0 rgb(153, 224, 255), 0px -4px 0px rgb(153, 224, 255);
-    font-style: italic;
-    border-bottom: 235px solid rgb(153, 224, 255);
-    margin-bottom: -122px;
-    position: relative;
-    width: 102%;
-    left: -1%;
-}
-.TextStuff > p {
-    margin-bottom: -2.5rem;
-}
-.FrontendStuff {
+
+.FrontendStuff, .FrontendGarbage {
     font-size: 3rem;
     text-wrap: wrap;
-    width: min-content;
+    background-color: rgb(153, 224, 255);
+    margin: 0;
+}
+.FrontendStuff h2, .FrontendGarbage {
+    padding: 1rem;
+    margin: 0;
+}
+.FrontendGarbage {
+    background-color: green;
 }
 .logos {
     text-align: center;
