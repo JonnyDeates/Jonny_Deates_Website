@@ -54,7 +54,13 @@ const SlantedOutlinedHeader = ({
     <div className='SlantedOutlinedHeader' style={slantedOutlineHeaderStyle}>
       {headerList.map((header, index) =>
         <p key={header + index} style={slantedOutlineTextStyle}>
-          {header}
+          {
+            header.split("").map((letter, letterIndex) =>
+              <span style={{animation: `1s ${(headerList.slice(0, index).join('').length * .10) + (letterIndex * .10)}s slideInRight forwards`}}>
+                {letter}
+              </span>
+            )
+          }
         </p>)
       }
     </div>

@@ -1,0 +1,81 @@
+.ImageList {
+    text-align: center;
+    width: 232px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.ImageList img {
+    border-radius: 15px;
+    cursor: pointer;
+    max-width: 100px;
+    max-height: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+}
+
+@keyframes slideInCircle0 {
+    0%, 3%, 97%, 100% {
+        transform: translate(0, 0);
+    }
+    22%, 25%, 28% {
+        transform: translate(0, 116px);
+    }
+    47%, 50%, 53% {
+        transform: translate(116px, 116px);
+    }
+    72%, 75%, 78% {
+        transform: translate(116px, 0);
+    }
+
+}
+
+@keyframes slideInCircle1 {
+    0%, 3%, 97%, 100% {
+        transform: translate(0, 0);
+    }
+    22%, 25%, 28% {
+
+        transform: translate(-116px, 0);
+    }
+    47%, 50%, 53% {
+        transform: translate(-116px, 116px);
+    }
+    72%, 75%, 78% {
+        transform: translate(0, 116px);
+    }
+}
+
+@keyframes slideInCircle2 {
+    0%, 3%, 97%, 100% {
+        transform: translate(0, 0);
+    }
+    22%, 25%, 28% {
+
+        transform: translate(116px, 0);
+    }
+    47%, 50%, 53% {
+        transform: translate(116px, -116px);
+    }
+    72%, 75%, 78% {
+        transform: translate(0, -116px);
+    }
+}
+
+@keyframes slideInCircle3 {
+    0%, 3%, 97%, 100% {
+        transform: translate(0, 0);
+    }
+    22%, 25%, 28% {
+
+        transform: translate(0, -116px);
+    }
+    47%, 50%, 53% {
+        transform: translate(-116px, -116px);
+    }
+    72%, 75%, 78% {
+        transform: translate(-116px, 0);
+    }
+}

@@ -22,8 +22,6 @@ margin: 8rem 0;
 .shine > div > .App-body > div:last-child {
     margin: auto 8px;
 }
-.WrapperText {
-}
 
 .FrontendStuff, .FrontendGarbage {
     font-size: 3rem;
@@ -38,20 +36,7 @@ margin: 8rem 0;
 .FrontendGarbage {
     background-color: green;
 }
-.logos {
-    text-align: center;
-    opacity: 1 !important;
-}
-.logos > img{
-    margin-top: 3rem;
-    border-radius: 15px;
-    cursor: pointer;
-    max-width: 70px;
-    max-height: 70px;
-    width:100px;
-    height:100px;
-    opacity: 0;
-}
+
 
 .body-header {
     background-color: aliceblue;
@@ -72,20 +57,8 @@ margin: 8rem 0;
     .App-body > div{
         max-width: 33vw;
     }
-    .logos > img{
-        border-radius: 25px;
-        background-color: white;
-        cursor: pointer;
-    }
 }
 
-@media (min-width: 620px) {
-    .App-body {}
-    .logos > img {
-        max-width: 100px;
-        max-height: 100px;
-    }
-}
 
 /*@media (min-width: 481px) and (max-width: 767px) {*/
 /*    .App-body{*/

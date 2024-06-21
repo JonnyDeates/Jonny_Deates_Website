@@ -4,7 +4,7 @@ import {SectionType} from "../../data/HomeData";
 import SectionBody from "../SectionBody/SectionBody";
 import ImageList from "../ImageList/ImageList";
 import SlantedOutlinedHeader from "../SlantedOutlinedHeader/SlantedOutlinedHeader";
-
+import "./Section.css"
 
 // type SectionProps = { isFlipped: boolean, section: SectionType };
 
@@ -32,25 +32,26 @@ import SlantedOutlinedHeader from "../SlantedOutlinedHeader/SlantedOutlinedHeade
 // };
 
 type SectionProps = {
-    backgroundColor: string,
     outsideSectionColor: string,
     isFlipped: boolean
     section: SectionType
 }
 
-const Section   = ({backgroundColor, section: {description, header, images, skills}, outsideSectionColor, isFlipped}: SectionProps)=> {
+const Section   = ({section: {description, header, images, skills, backgroundColor}, outsideSectionColor, isFlipped}: SectionProps)=> {
 
-    return <div className="WrapperText">
+    return <div className="Section">
         <SlantedOutlinedHeader
             headerList={skills}
             outlineWidth="5px"
-            rotationAngle={-9}
+            rotationAngle={isFlipped ? 9 : -9}
             fontSize={80}
             backgroundColor={backgroundColor}
             outerBackgroundColor={outsideSectionColor}
         />
-        <div style={{backgroundColor}}>
-            <SectionBody header={header} description={description} isFlipped={isFlipped} hasAnimationRan={true} backgroundColor={backgroundColor}/>
+        <div style={{backgroundColor}} className={"SectionContent"}>
+            <ImageList imageList={images} isFlipped={isFlipped} hasAnimationRan={true}/>
+            <SectionBody header={header} description={description} isFlipped={isFlipped}
+                         hasAnimationRan={true} backgroundColor={backgroundColor}/>
         </div>
     </div>
 }

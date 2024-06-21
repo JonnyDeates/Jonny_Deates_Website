@@ -2,7 +2,7 @@ import {SectionType} from "../../data/HomeData";
 import React from "react";
 import "./SectionBody.css"
 
-type SectionBodyProps = Omit<SectionType, 'images'> & { isFlipped: boolean, hasAnimationRan: boolean, backgroundColor: string }
+type SectionBodyProps = Omit<SectionType, 'images' | "skills"> & { isFlipped: boolean, hasAnimationRan: boolean, backgroundColor: string }
 
 const SectionBody = ({header, description, hasAnimationRan, isFlipped }: SectionBodyProps) => {
   const animationDirection = isFlipped ? 'slideInRight' : 'slideInLeft';

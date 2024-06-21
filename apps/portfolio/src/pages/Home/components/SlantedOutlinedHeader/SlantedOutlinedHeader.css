@@ -18,6 +18,9 @@
     margin-bottom: -2.5rem;
 }
 
+.SlantedOutlinedHeader > p  > span{
+    opacity: 0;
+}
 
 
 

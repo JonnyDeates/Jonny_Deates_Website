@@ -1,8 +1,10 @@
 .SectionBody {
-
+    width: 50%;
+    padding: 1rem;
 }
 .SectionBody p {
     margin: 0;
+    text-align: justify;
 }
 .SectionBody h2 {
     margin: 0;

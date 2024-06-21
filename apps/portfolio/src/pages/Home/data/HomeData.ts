@@ -1,10 +1,9 @@
 import tsLogo from "../assets/typescript.png";
-import rLogo from "../assets/reactjs.png";
+import reactjsLogo from "../assets/reactjs.png";
 import jsLogo from "../assets/javascript.png";
-import pLogo from "../assets/python.png";
+import nextjsLogo from "../assets/nextjs.jpg";
 import mLogo from "../assets/minimalism.png";
 import tLogo from "../assets/thinkful.jpg";
-import gmLogo from "../assets/growthmindest.jpg";
 import {CSSProperties} from "react";
 import logo from "../../../assets/logos/yinyangyexin.png";
 
@@ -20,10 +19,11 @@ export type SectionType = {
   header: string,
   description: string,
   images: Image[]
-  skills: string[]
+  skills: string[],
+  backgroundColor: string
 }
 export type HomeDataType = {
-  introduction: Omit<SectionType, "images", "skills">,
+  introduction: Omit<SectionType, "images"| "skills" | "backgroundColor">,
   sectionList: SectionType[]
 }
 
@@ -49,7 +49,7 @@ const HOME_DATA:HomeDataType = {
       },
         {
           link: 'https://reactjs.org/',
-          src: rLogo,
+          src: reactjsLogo,
           name: "Reactjs",
           style: {display: 'block'},
           hasAnimationPlayed: false,
@@ -64,9 +64,9 @@ const HOME_DATA:HomeDataType = {
           newAnimation: ''
         },
         {
-          link: 'https://www.python.org/',
-          src: pLogo,
-          name: "Python",
+          link: 'https://nextjs.org/',
+          src: nextjsLogo,
+          name: "Nextjs",
           style: {display: 'block'},
           hasAnimationPlayed: false,
           newAnimation: ''
@@ -78,7 +78,8 @@ const HOME_DATA:HomeDataType = {
           "ReactJs",
           "NextJs",
           "CSS"
-      ]
+      ],
+      backgroundColor: "#7BC9FF"
     },
     {
       images: [{
@@ -91,7 +92,8 @@ const HOME_DATA:HomeDataType = {
       }],
       header: "Passion For Teaching",
       description: "Thanks to my time teaching the Army, I have found that I have a deep rooted passion in teaching. Personally, I have found that the joy generated from teaching, doesn't match much else for me. With much excitement and enthusiasm. I attend work upskilling and empowering my piers, as much as they do to me.",
-      skills: [ ]
+      skills: [ "Spring" , "Java", "ExpressJs" ],
+      backgroundColor:  "#87FF7B"
     }, {
     images: [{
       link: 'https://koifoundation.com',
@@ -105,7 +107,8 @@ const HOME_DATA:HomeDataType = {
       description: "We strive to show a path that gives foundational knowledge and teachings as well as \n" +
   "to expand the world's access too needed informed, factual information. Currently with three webservices \n" +
   "available and more on the way, it will be the goto place for resources and self-improvement for all.",
-skills: []
+skills: ["Docker", "K8s", "Helm"],
+      backgroundColor: "#FFB17B"
     },
 {
       images: [{
@@ -118,20 +121,13 @@ skills: []
       description: "I went through a fast-tracked, full time program of online classes, mentorship, \n" +
         "and career coaching. This Data Science Bootcamp I believe was my fast track to really understand \n" +
         "the intricacies of a work environment and the importance of team building. I am very glad that I had enrolled.",
-  skills: []
-    }, {
-      images: [{
-        link: 'https://www.youtube.com/watch?v=M1CHPnZfFmU', src: gmLogo, name: "Growth Mindset",
-        style: {display: 'block'},
-        hasAnimationPlayed: false,
-        newAnimation: ''
-      }],
-      header: "Livelihood",
-      description: "I am proud to say that I try to do a lot of different activities rather consistently like yoga, \n " +
-        "self-reflection, reading, and at-home workouts. A few nights a week, I see friends and try to \n" +
-        "volunteer and canvass. Also in my free time, I like to program and work on my own individual projects.",
-      skills: []
-  }
+  skills: [
+    "Senior",
+    "Teacher",
+    "Coach"
+  ],
+      backgroundColor: "#7BC9FF"
+  },
   ]
 };
 export default HOME_DATA

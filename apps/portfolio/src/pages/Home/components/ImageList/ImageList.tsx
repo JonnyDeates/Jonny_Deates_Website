@@ -1,6 +1,7 @@
 import {Image} from "../../data/HomeData";
 import React from "react";
 import openNewTabWindow from "../../../../utils/openNewTabWindow";
+import "./ImageList.css"
 
 type ImageListProps = {
   imageList: Image[],
@@ -10,15 +11,17 @@ type ImageListProps = {
 
 const ImageList = ({imageList, isFlipped, hasAnimationRan}: ImageListProps) => {
 
-  const animationDirection = isFlipped ? "slideInRight" : "slideInLeft";
 
-  return <div className='logos'>
+  const animationSquare = (index: number) => imageList.length === 4
+    ? `6s slideInCircle${index} linear infinite`
+    : ''
+
+  return <div className='ImageList'>
     {imageList.map((image, i) => (
       <img key={image.name + i} src={image.src} alt={image.name}
            style={{
              ...image.style,
-             animation: hasAnimationRan ? `1s ${i * .25 + (.25)}s ${animationDirection} forwards`
-               : '',
+             animation: animationSquare(i),
            }}
            onClick={() => image.link && openNewTabWindow(image.link)}/>
     ))}
