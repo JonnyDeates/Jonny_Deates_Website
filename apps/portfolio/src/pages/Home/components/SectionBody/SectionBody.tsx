@@ -5,7 +5,7 @@ import "./SectionBody.css"
 type SectionBodyProps = Omit<SectionType, 'images' | "skills"> & { isFlipped: boolean, hasAnimationRan: boolean, backgroundColor: string }
 
 const SectionBody = ({header, description, hasAnimationRan, isFlipped }: SectionBodyProps) => {
-  const animationDirection = isFlipped ? 'slideInRight' : 'slideInLeft';
+  const animationDirection = isFlipped ? 'slideInLeft' : 'slideInRight';
   return <div
       className={'SectionBody'}
     style={{animation: (hasAnimationRan) ? `2s ${animationDirection} forwards` : '' }}>

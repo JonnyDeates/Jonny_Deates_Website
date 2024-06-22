@@ -1,6 +1,7 @@
 .ImageList {
     text-align: center;
     width: 232px;
+    height: fit-content;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;

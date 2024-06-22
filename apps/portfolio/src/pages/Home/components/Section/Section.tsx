@@ -37,21 +37,36 @@ type SectionProps = {
     section: SectionType
 }
 
-const Section   = ({section: {description, header, images, skills, backgroundColor}, outsideSectionColor, isFlipped}: SectionProps)=> {
+const Section = ({
+                     section: {description, header, images, skills, backgroundColor},
+                     outsideSectionColor,
+                     isFlipped
+                 }: SectionProps) => {
 
     return <div className="Section">
         <SlantedOutlinedHeader
             headerList={skills}
             outlineWidth="5px"
-            rotationAngle={isFlipped ? 9 : -9}
+            rotationAngle={isFlipped ? 6 : -6}
             fontSize={80}
             backgroundColor={backgroundColor}
             outerBackgroundColor={outsideSectionColor}
         />
-        <div style={{backgroundColor}} className={"SectionContent"}>
-            <ImageList imageList={images} isFlipped={isFlipped} hasAnimationRan={true}/>
-            <SectionBody header={header} description={description} isFlipped={isFlipped}
-                         hasAnimationRan={true} backgroundColor={backgroundColor}/>
+        <div style={{
+            backgroundColor,
+            color: backgroundColor === 'black' ? 'white': 'black'}}
+             className={"SectionContent"}>
+            {isFlipped
+                ? <>
+                    <SectionBody header={header} description={description} isFlipped={isFlipped}
+                                 hasAnimationRan={true} backgroundColor={backgroundColor}/>
+                    <ImageList imageList={images} isFlipped={isFlipped} hasAnimationRan={true}/>
+                </>
+                : <>
+                    <ImageList imageList={images} isFlipped={isFlipped} hasAnimationRan={true}/>
+                    <SectionBody header={header} description={description} isFlipped={isFlipped}
+                                 hasAnimationRan={true} backgroundColor={backgroundColor}/>
+                </>}
         </div>
     </div>
 }

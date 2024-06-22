@@ -10,7 +10,6 @@ const Home = () => {
 
     return (
         <>
-
             {sectionList.map((section, i) =>
               <Section key={'section-type-' + i} section={section}
                        outsideSectionColor={i === 0 ? "transparent" : sectionList[i-1].backgroundColor}
