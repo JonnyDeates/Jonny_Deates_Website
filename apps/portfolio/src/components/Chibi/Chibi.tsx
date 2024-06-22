@@ -1,39 +1,38 @@
 import React, {useEffect, useState} from 'react';
 import './Chibi.css';
 import {Link, useLocation} from "react-router-dom";
-import chibiFlora1G from "./assets/gif/chibi-floral-1.gif"
-import chibiFlora2G from "./assets/gif/chibi-floral-2.gif"
-import chibiFlora3G from "./assets/gif/chibi-floral-3.gif"
-import chibiPattern1G from "./assets/gif/chibi-pattern-1.gif"
-import chibiPattern2G from "./assets/gif/chibi-pattern-2.gif"
-import chibiPattern3G from "./assets/gif/chibi-pattern-3.gif"
-import chibiFlora1 from "./assets/jpg/chibi-floral-1.jpg"
-import chibiFlora2 from "./assets/jpg/chibi-floral-2.jpg"
-import chibiFlora3 from "./assets/jpg/chibi-floral-3.jpg"
-import chibiPattern1 from "./assets/jpg/chibi-pattern-1.jpg"
-import chibiPattern2 from "./assets/jpg/chibi-pattern-2.jpg"
-import chibiPattern3 from "./assets/jpg/chibi-pattern-3.jpg"
+
+import blazer from "./assets/webp/blazer.webp"
+import blueWhiteGingham from "./assets/webp/blue_white_gingham.webp"
+import darkGrayPolo from "./assets/webp/dark_gray_polo.webp"
+import dressShirtSweater from "./assets/webp/dress_shirt_with_sweater.webp"
+import floralPolo from "./assets/webp/flora_polo.webp"
+import floralPolo2 from "./assets/webp/flora_polo_2.webp"
+import grayGingham from "./assets/webp/gray_gingham.webp"
+import grayPolo from "./assets/webp/gray_polo.webp"
+import graySuit from "./assets/webp/gray_suit.webp"
+import greenPolo from "./assets/webp/green_polo.webp"
+import redGingham from "./assets/webp/red_gingham.webp"
+import redPolo from "./assets/webp/red_polo.webp"
+import whitePolo from "./assets/webp/white_polo_with_tie.webp"
 
 
 const Chibi = () => {
-    const outfitsGif = [chibiFlora1G, chibiFlora2G, chibiFlora3G, chibiPattern1G, chibiPattern2G, chibiPattern3G];
-    const outfitsJpg = [chibiFlora1, chibiFlora2, chibiFlora3, chibiPattern1, chibiPattern2, chibiPattern3];
+    const outfitsWebp = [blazer, blueWhiteGingham, darkGrayPolo, dressShirtSweater, floralPolo, floralPolo2,
+        grayGingham, grayPolo, graySuit, greenPolo, redGingham, redPolo, whitePolo]
     const [outfit, setOutfit] = useState<string>('');
     const location = useLocation();
 
     useEffect(() => {
         const isWaving = sessionStorage.getItem("chibi-has-waved");
 
+        let randomIndex: number = Math.floor(Math.random() * outfitsWebp.length);
         if (isWaving === null) {
-            let randomIndex: number = Math.floor(Math.random() * outfitsGif.length);
 
-            setOutfit(outfitsGif[randomIndex]);
-            sessionStorage.setItem("chibi-has-waved", randomIndex.toString())
-        } else {
-            let randomIndex: number = parseInt(isWaving);
-
-            setOutfit(outfitsJpg[randomIndex])
+            sessionStorage.setItem("chibi-has-waved", "true")
         }
+
+        setOutfit(outfitsWebp[randomIndex])
     }, [location.pathname]);
 
     return (

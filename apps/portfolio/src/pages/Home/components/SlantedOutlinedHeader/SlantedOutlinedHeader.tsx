@@ -28,7 +28,7 @@ const SlantedOutlinedHeader = ({
   const slantedOutlineHeaderStyle = {
     ...style,
     transform: `rotate(${rotationAngle}deg) translate(0, 30px)`,
-    color: outerBackgroundColor,
+    color: outerBackgroundColor === "transparent" ? "#7BC9FF" : outerBackgroundColor ,
     textShadow: `${outlineWidth} 0 0 ${backgroundColor}, 
     0 ${outlineWidth} 0 ${backgroundColor}, 
     -${outlineWidth} 0 0 ${backgroundColor}, 

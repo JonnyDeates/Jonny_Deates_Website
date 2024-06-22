@@ -1,5 +1,7 @@
-.Section {
-
+.Section:nth-child(4) {
+    margin-top: -336px;
+    z-index: 12;
+    position: relative;
 }
 .SectionContent {
     display: flex;

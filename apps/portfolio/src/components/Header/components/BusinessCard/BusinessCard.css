@@ -1,0 +1,122 @@
+.BusinessCard{
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+    top: 35%;
+}
+
+.FrontSide h2 {
+    text-align: center;
+    font-size: 4rem;
+    margin-bottom: 0.5rem;
+}
+
+.FlippableImageWrapper {
+    width: 700px;
+    height: 400px;
+    margin: 0 auto;
+}
+.FlippableImage {
+    height:100%;
+    width:100%;
+    transform-style:preserve-3d;
+    transition:all 0.8s;
+}
+.FlippableImageWrapper:hover .FlippableImage{
+    transform:rotateX(180deg);
+}
+.FlippableImageWrapper:hover .FlippableImage .FrontSide {
+    box-shadow: unset;
+}
+.BackSide, .FrontSide{
+    position:absolute;
+    height:100%;
+    width:100%;
+    backface-visibility:hidden;
+    background-color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-shadow: 1px 1px 1px rgba(0,0,0, 0.3), 2px 2px 4px rgba(0,0,0, 0.2), 4px 4px 8px rgba(0,0,0,0.1), 1px 1px 1px rgba(0,0,0, 0.13) inset, 2px 2px 4px rgba(0,0,0, 0.13) inset;
+}
+.FrontSide {
+    margin: auto;
+    transition: box-shadow 1s;
+}
+.BackSide {
+    display: flex;
+    justify-content: space-evenly;
+    transform: rotateX(180deg);
+    box-sizing: border-box;
+    color: black;
+    text-align: left;
+    background-color: white;
+    padding: 0 0 0 1rem ;
+}
+.BackSide .Tab {
+    height: 40px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding-left: 40px;
+    border-radius: 1rem 0 0 1rem;
+    align-content: center;
+    padding-right: 20px;
+    font-size: 1.25rem;
+    text-wrap: nowrap;
+}
+.BackSide .Outlinks {
+    display: block;
+    width: 100%;
+}
+.BackSide .Outlinks span{
+font-weight: bolder;
+text-decoration: underline;
+margin: auto 0;
+    height: 100%;
+    font-size: 1.25rem;
+}
+.BackSide .Outlinks > div {
+    text-align: left;
+    margin: 10px 0.5rem;
+    cursor: pointer;
+    width: fit-content;
+    display: flex;
+}
+.BackSide .Outlinks .Block {
+    width: 40px;
+    height: 30%;
+    margin: 0 0.5rem;
+    background-color: black;
+}
+.BackSide img{
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    background-color: black;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.BackSide .Outlinks > div:last-child img {
+    border-radius: 0 0 1rem 1rem;
+}
+.BackSide  .Content p {
+    line-height: 1.5rem;
+}
+.BackSide .Content {
+    padding: 1rem;
+}
+/*@media (min-width: 480px) {*/
+/*    .introduction{*/
+/*        max-width: 66vw;*/
+/*    }*/
+/*}*/
+/*@media (min-width: 480px) {*/
+/*    .introduction{*/
+/*        max-width: 50vw;*/
+/*    }*/
+/*}*/
