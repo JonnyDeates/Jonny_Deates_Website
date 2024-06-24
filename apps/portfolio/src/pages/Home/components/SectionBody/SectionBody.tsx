@@ -11,13 +11,28 @@ type SectionBodyProps = Omit<SectionType, 'images' | "skills"> & {
 const SectionBody = ({header, description, subcomponent, hasAnimationRan, isFlipped}: SectionBodyProps) => {
     const animationDirection = isFlipped ? 'slideInLeft' : 'slideInRight';
 
-    return <div
-        className={'SectionBody'}>
-        <div className={'SectionText'} style={{animation: (hasAnimationRan) ? `2s ${animationDirection} forwards` : ''}}>
+
+    const SectionText = ()=> {
+        return <div className={'SectionText'}
+                    style={{animation: (hasAnimationRan) ? `2s ${animationDirection} forwards` : ''}}>
             <h2>{header}</h2>
             <p>{description}</p>
         </div>
+    }
+
+
+    return <div
+      className={'SectionBody'}>
+        {isFlipped
+          ? <>
+          <SectionText />
         {subcomponent}
+        </>
+          : <>
+          {subcomponent}
+              <SectionText/>
+          </>
+        }
     </div>
 
 };

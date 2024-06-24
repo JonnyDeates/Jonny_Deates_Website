@@ -56,7 +56,8 @@ const Section = ({
         } else {
             return {fontSize: 80, outlineWidth: "5px"}
         }
-    }
+    };
+
     return <div className="Section">
         <SlantedOutlinedHeader
             headerList={skills}
@@ -70,7 +71,7 @@ const Section = ({
             color: backgroundColor === 'black' ? 'white' : 'black'
         }}
              className={"SectionContent"}>
-            <SectionBody isFlipped={isFlipped} {...restOfSection}
+            <SectionBody isFlipped={isFlipped  || screenWidth <= SCREEN_WIDTH.tablet} {...restOfSection}
                          hasAnimationRan={true} backgroundColor={backgroundColor}/>
         </div>
     </div>

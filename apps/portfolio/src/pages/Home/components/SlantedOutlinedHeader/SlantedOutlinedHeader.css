@@ -13,6 +13,7 @@
     border-bottom-style: solid;
     position: relative;
     width: 102%;
+    left: -2%;
 }
 .SlantedOutlinedHeader > p {
     margin-bottom: -2.5rem;

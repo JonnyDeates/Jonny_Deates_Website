@@ -1,11 +1,12 @@
 .SectionBody  {
     padding: 1rem;
     justify-content: space-evenly;
-    display: flex;
+    display: block;
 }
 .SectionText {
-    width: 50%;
+    width: 100%;
     text-align: left;
+    max-width: 600px;
 }
 .SectionText h2 {
     margin: 0;
@@ -13,4 +14,13 @@
 }
 .SectionText p {
     line-height: 1.5rem;
+}
+@media (min-width: 720px) {
+    .SectionBody {
+        display: flex;
+    }
+    .SectionText {
+        width: 50%;
+        margin: 0 auto;
+    }
 }

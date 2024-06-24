@@ -1,5 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react';
 import './BackendNodes.css'
+import {useScreenWidth} from "../../../../utils/useScreenWidth";
 type BackendNodesProps = {
 
 };
@@ -11,23 +12,27 @@ type Point = {
     diameter: number
 }
 const BackendNodes = ({}: BackendNodesProps) => {
+    const screenWidth = useScreenWidth();
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const maxDistance = 100;
-    const pointCount = 122;
+    const pointCount = 40;
     const connectionStrength = 10;
-    const color = "30,255,50";
+    const color = "0,220,0";
 
     useEffect(() => {
-        let interval: number
+        let interval: number;
         if(canvasRef && canvasRef.current) {
             const context = canvasRef.current.getContext("2d") as CanvasRenderingContext2D;
             const points  = generatePoints(pointCount);
             handlePointInteractions(context, points);
-            interval = setInterval(() => handlePointInteractions(context, points),100);
+            interval = setInterval(() => handlePointInteractions(context, points),30);
         }
         return () => clearInterval(interval)
     }, [canvasRef]);
 
+    useEffect(()=>{
+
+    });
         // function init () {
             //Add on load scripts
             // resizeCanvas();
@@ -38,11 +43,11 @@ const BackendNodes = ({}: BackendNodesProps) => {
             return {
                 x: (Math.random() * (canvas.width + maxDistance)) - (maxDistance / 2),
                 y: (Math.random() * (canvas.height + maxDistance)) - (maxDistance / 2),
-                xVelocity: (Math.random()) - .5,
-                yVelocity: (Math.random()) - .5,
-                diameter: Math.random() * 4 + 2
+                xVelocity: (Math.random()),
+                yVelocity: (Math.random()),
+                diameter: Math.random() * 3 + 3
             }
-        }
+        };
         const generatePoints = (amount: number) => {
             const points = []
             for (let i = 0; i < amount; i++) {
@@ -105,12 +110,6 @@ const BackendNodes = ({}: BackendNodesProps) => {
                 }
             }
         };
-
-        // function resizeCanvas() {
-        //     canvas.width = window.innerWidth;
-        //     canvas.height = window.innerHeight;
-        //     handlePointInteractions();
-        // }
 
     return (
         <div className='BackendNodes'>

@@ -4,6 +4,6 @@
     position: relative;
 }
 .SectionContent {
-    display: flex;
-    height: 500px;
+    display: block;
+    min-height: 500px;
 }

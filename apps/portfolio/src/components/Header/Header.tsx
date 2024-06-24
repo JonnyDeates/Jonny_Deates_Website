@@ -39,13 +39,13 @@ const Header = () => {
         return (
             <ParallaxBanner className="header" style={{minHeight: "100vh", maxHeight: "100vh"}}>
                 <ParallaxBannerLayer image={yinLeft1} speed={-21}/>
-                {/*<ParallaxBannerLayer image={yinLeft2} speed={15}/>*/}
-                {/*<ParallaxBannerLayer image={yangLeft1} speed={-18}/>*/}
+                <ParallaxBannerLayer image={yinLeft2} speed={15}/>
+                <ParallaxBannerLayer image={yangLeft1} speed={-18}/>
                 <ParallaxBannerLayer image={yangLeft2} speed={21}/>
                 <ParallaxBannerLayer image={yinRight1} speed={30}/>
-                {/*<ParallaxBannerLayer image={yinRight2} speed={-15}/>*/}
+                <ParallaxBannerLayer image={yinRight2} speed={-15}/>
                 <ParallaxBannerLayer image={yangRight1} speed={-30}/>
-                {/*<ParallaxBannerLayer image={yangRight2} speed={-9}/>*/}
+                <ParallaxBannerLayer image={yangRight2} speed={-9}/>
                 <ParallaxBannerLayer speed={5}>
                     <HeaderBox>
                         <Chibi frameAttributes={{style: {position: "relative", top: 'unset', left: 'unset'}}}/>

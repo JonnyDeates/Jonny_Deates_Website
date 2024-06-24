@@ -23,7 +23,6 @@ const SlantedOutlinedHeader = ({
                                  fontSize = 40,
                                }: SlantedOutlinedHeaderType) => {
 
-  const isRotationNegative = rotationAngle < 0;
 
   const slantedOutlineHeaderStyle = {
     ...style,
@@ -38,7 +37,6 @@ const SlantedOutlinedHeader = ({
     fontSize,
     borderBottomWidth: `${fontSize * 5}px`,
     marginBottom: `-${fontSize * 2.5}px`,
-    left: isRotationNegative ? 'unset' : '-2%',
   };
 
   const slatedOutlineWrapperStyle = {
@@ -56,7 +54,7 @@ const SlantedOutlinedHeader = ({
         <p key={header + index} style={slantedOutlineTextStyle}>
           {
             header.split("").map((letter, letterIndex) =>
-              <span style={{animation: `1s ${(headerList.slice(0, index).join('').length * .10) + (letterIndex * .10)}s slideInRight forwards`}}>
+              <span key={header+letter+index+letterIndex} style={{animation: `1s ${(headerList.slice(0, index).join('').length * .10) + (letterIndex * .10)}s slideInRight forwards`}}>
                 {letter}
               </span>
             )
