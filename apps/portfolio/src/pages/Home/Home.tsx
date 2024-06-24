@@ -1,6 +1,5 @@
 import React from 'react';
 import './Home.css';
-import BusinessCard from "../../components/Header/components/BusinessCard/BusinessCard";
 import HOME_DATA from "./data/HomeData";
 import Section from "./components/Section/Section";
 

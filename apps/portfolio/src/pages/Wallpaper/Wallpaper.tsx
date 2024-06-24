@@ -16,7 +16,6 @@ const Wallpaper = ({children}: WallpaperProps)=> {
 
   return <div className='App'>
     <TopNav links={links}/>
-    <Chibi/>
     <Header/>
     <Outlet />
     {children}

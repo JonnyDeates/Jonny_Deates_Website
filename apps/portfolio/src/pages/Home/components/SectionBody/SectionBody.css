@@ -1,11 +1,16 @@
-.SectionBody {
-    width: 50%;
+.SectionBody  {
     padding: 1rem;
+    justify-content: space-evenly;
+    display: flex;
 }
-.SectionBody p {
-    margin: 0;
-    text-align: justify;
+.SectionText {
+    width: 50%;
+    text-align: left;
 }
-.SectionBody h2 {
+.SectionText h2 {
     margin: 0;
+    font-size: 2rem;
+}
+.SectionText p {
+    line-height: 1.5rem;
 }

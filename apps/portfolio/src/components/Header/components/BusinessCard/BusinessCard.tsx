@@ -4,9 +4,10 @@ import HOME_DATA from "../../../../pages/Home/data/HomeData";
 import backOfCard from "./assets/business_card_template_back.png"
 import frontOfCard from "./assets/business_card_template_front.png"
 import openNewTabWindow from "../../../../utils/openNewTabWindow";
+import ContactData from "../../../../pages/Contact/data/ContactData";
 
 const BusinessCard = () => {
-    const {introduction: {header, description, images}} = HOME_DATA;
+    const {header, description, images} = ContactData;
 
     const [isFlipped, setIsFlipped] = useState(false)
     return (
@@ -29,6 +30,7 @@ const BusinessCard = () => {
                         </div>
                         <p className={"Tab"}>Jon D.</p>
                     </div>
+                    <div className={'shadow'}/>
                 </div>
             </div>
         </div>

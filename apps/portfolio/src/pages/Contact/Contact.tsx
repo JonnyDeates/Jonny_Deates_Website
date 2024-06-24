@@ -6,6 +6,7 @@ import gLogo from '../../assets/logos/github.svg'
 import tLogo from '../../assets/logos/twitter.svg'
 import iLogo from '../../assets/logos/instagram.svg'
 import Card from "./Card/Card";
+import BusinessCard from "../../components/Header/components/BusinessCard/BusinessCard";
 
 class Contact extends React.Component<{}> {
     render() {
@@ -49,12 +50,13 @@ class Contact extends React.Component<{}> {
         ];
         return (
             <>
-                <h1 className="body-header">Programming Inquiries</h1>
-                {programming.map((obj, i) => <Card key={'programming' + i} name={obj.name} descr={obj.descr}
-                                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}
-                <h1 className="body-header">Social Media</h1>
-                {socialMedia.map((obj, i) => <Card key={'socialMedia' + i} name={obj.name} descr={obj.descr}
-                                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}
+                <BusinessCard/>
+                {/*<h1 className="body-header">Programming Inquiries</h1>*/}
+                {/*{programming.map((obj, i) => <Card key={'programming' + i} name={obj.name} descr={obj.descr}*/}
+                {/*                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}*/}
+                {/*<h1 className="body-header">Social Media</h1>*/}
+                {/*{socialMedia.map((obj, i) => <Card key={'socialMedia' + i} name={obj.name} descr={obj.descr}*/}
+                {/*                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}*/}
             </>
         );
     }

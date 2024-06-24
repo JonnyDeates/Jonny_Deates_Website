@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import TrackVisibility from "../../../../components/utils/TrackVisibility";
+import React from 'react';
 import {SectionType} from "../../data/HomeData";
 import SectionBody from "../SectionBody/SectionBody";
 import ImageList from "../ImageList/ImageList";
 import SlantedOutlinedHeader from "../SlantedOutlinedHeader/SlantedOutlinedHeader";
 import "./Section.css"
+import {SCREEN_WIDTH, useScreenWidth} from "../../../../utils/useScreenWidth";
 
 // type SectionProps = { isFlipped: boolean, section: SectionType };
 
@@ -38,35 +38,40 @@ type SectionProps = {
 }
 
 const Section = ({
-                     section: {description, header, images, skills, backgroundColor},
+                     section: { skills, backgroundColor, ...restOfSection},
                      outsideSectionColor,
                      isFlipped
                  }: SectionProps) => {
 
+    const screenWidth = useScreenWidth();
+
+    const getRotationAngle = () => (screenWidth <= SCREEN_WIDTH["720p"]) ? 9 : 6
+    const getFontStyle = () => {
+        if (screenWidth === SCREEN_WIDTH.mobile) {
+            return {fontSize: 30, outlineWidth: "2px"}
+        } else if (screenWidth === SCREEN_WIDTH.tablet) {
+            return {fontSize: 40, outlineWidth: "3px"}
+        } else if (screenWidth <= SCREEN_WIDTH["1080p"]) {
+            return {fontSize: 60, outlineWidth: "4px"}
+        } else {
+            return {fontSize: 80, outlineWidth: "5px"}
+        }
+    }
     return <div className="Section">
         <SlantedOutlinedHeader
             headerList={skills}
-            outlineWidth="5px"
-            rotationAngle={isFlipped ? 6 : -6}
-            fontSize={80}
+            rotationAngle={isFlipped ? getRotationAngle() : -1 * getRotationAngle()}
             backgroundColor={backgroundColor}
             outerBackgroundColor={outsideSectionColor}
+            {...getFontStyle()}
         />
         <div style={{
             backgroundColor,
-            color: backgroundColor === 'black' ? 'white': 'black'}}
+            color: backgroundColor === 'black' ? 'white' : 'black'
+        }}
              className={"SectionContent"}>
-            {isFlipped
-                ? <>
-                    <SectionBody header={header} description={description} isFlipped={isFlipped}
-                                 hasAnimationRan={true} backgroundColor={backgroundColor}/>
-                    <ImageList imageList={images} isFlipped={isFlipped} hasAnimationRan={true}/>
-                </>
-                : <>
-                    <ImageList imageList={images} isFlipped={isFlipped} hasAnimationRan={true}/>
-                    <SectionBody header={header} description={description} isFlipped={isFlipped}
-                                 hasAnimationRan={true} backgroundColor={backgroundColor}/>
-                </>}
+            <SectionBody isFlipped={isFlipped} {...restOfSection}
+                         hasAnimationRan={true} backgroundColor={backgroundColor}/>
         </div>
     </div>
 }

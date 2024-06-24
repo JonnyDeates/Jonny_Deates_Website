@@ -5,11 +5,9 @@ import "./ImageList.css"
 
 type ImageListProps = {
   imageList: Image[],
-  isFlipped: boolean,
-  hasAnimationRan: boolean
 }
 
-const ImageList = ({imageList, isFlipped, hasAnimationRan}: ImageListProps) => {
+const ImageList = ({imageList }: ImageListProps) => {
 
 
   const animationSquare = (index: number) => imageList.length === 4

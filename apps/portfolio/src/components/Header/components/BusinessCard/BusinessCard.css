@@ -5,9 +5,8 @@
     flex-wrap: nowrap;
     justify-content: space-evenly;
     text-align: center;
-    margin: auto;
+    margin: 10rem auto;
     width: fit-content;
-    top: 35%;
 }
 
 .FrontSide h2 {
@@ -26,10 +25,11 @@
     width:100%;
     transform-style:preserve-3d;
     transition:all 0.8s;
+    transform: rotate3d(0,1,0.3,0);
 }
 .FlippableImageWrapper:hover .FlippableImage{
-    transform:rotateX(180deg);
-}
+    transform: rotate3d(0,1,0.15,180deg) ;
+ }
 .FlippableImageWrapper:hover .FlippableImage .FrontSide {
     box-shadow: unset;
 }
@@ -50,7 +50,7 @@
 .BackSide {
     display: flex;
     justify-content: space-evenly;
-    transform: rotateX(180deg);
+    transform: rotate3d(0,1,0,180deg);
     box-sizing: border-box;
     color: black;
     text-align: left;

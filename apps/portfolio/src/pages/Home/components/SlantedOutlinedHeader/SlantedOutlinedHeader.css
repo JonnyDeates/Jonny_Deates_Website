@@ -3,7 +3,7 @@
     overflow-y: hidden;
     width: 100vw;
     padding: unset;
-    margin: 0;
+    margin: 0 0 -1px 0;
 }
 .SlantedOutlinedHeader {
     display: flex;
