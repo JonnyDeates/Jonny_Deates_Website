@@ -5,6 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    position: relative;
 }
 
 .ImageList img {
@@ -14,7 +15,22 @@
     height: 100px;
     margin: 8px;
 }
-
+.ImageList img:hover {
+    filter: brightness(1.2);
+}
+.ImageList .Button {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    display: block;
+    margin: 1rem auto 0 auto;
+    border-radius: 100%;
+}
+.ImageList .Button > img {
+    width: 30px;
+    height: 30px;
+    border-radius: unset;
+}
 @keyframes slideInCircle0 {
     0%, 3%, 97%, 100% {
         transform: translate(0, 0);

@@ -20,7 +20,7 @@
     "url": "git+https://github.com/JonnyDeates/Jonny_Deates_Website.git"
   },
   "devDependencies": {
-    "turbo": "^2.0.3"
+    "turbo": "^2.0.4"
   },
   "engines": {
     "node": ">=14.0.0"

@@ -10,9 +10,9 @@ type CircleSpinningTextProps = {
 
 const CircleSpinningText = ({text, diameter, rotationFlipped = false, style = {}}: CircleSpinningTextProps)=> {
   const textSplit = text.split('');
+  const circleSpinningTextStyle = {...style, width: diameter, height: diameter, animation:`rotateWithTransform 20s infinite linear ${rotationFlipped ? 'reverse': ""}` }
 
-  return <div className={'CircleSpinningText'} style={{width: diameter, height: diameter,
-    animation: `rotateWithTransform 20s infinite linear ${rotationFlipped ? 'reverse': ""}`, ...style}}>
+  return <div className={'CircleSpinningText'} style={circleSpinningTextStyle}>
     {textSplit
       .map((letter, index) =>
         <span key={text + letter + index}

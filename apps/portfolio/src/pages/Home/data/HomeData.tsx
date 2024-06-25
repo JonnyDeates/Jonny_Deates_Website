@@ -3,6 +3,7 @@ import reactjsLogo from "../assets/reactjs.png";
 import jsLogo from "../assets/javascript.png";
 import nextjsLogo from "../assets/nextjs.jpg";
 import ckadBadge from '../assets/ckad_badge.png';
+import aswfLogo from '../assets/ASWF.svg';
 import {CSSProperties, ReactNode} from "react";
 import ImageList from "../components/ImageList/ImageList";
 import BackendNodes from "../components/BackendNodes/BackendNodes";
@@ -13,6 +14,7 @@ export type Image = {
   src: string,
   name: string,
   style?: CSSProperties,
+  hasOpenButton?: boolean
 }
 export type SectionType = {
   header: string,
@@ -92,10 +94,11 @@ const HOME_DATA: HomeDataType = {
           link: "https://ti-user-certificates.s3.amazonaws.com/e0df7fbf-a057-42af-8a1f-590912be5460/9ea045c5-6368-4e4e-83ae-6cf2af7e4ed2-jonathan-deates-19cc77ce-bec5-4d22-a622-9c9b761a96e5-certificate.pdf",
           src: ckadBadge,
           name: "CKAD",
-          style: {width: '300px', height: '300px'}
+          style: {width: '300px', height: '300px'},
+          hasOpenButton: true
         }]
       }
-      wrapperStyle={{width: "fit-content", animation: 'rotate 1s'}}
+      wrapperStyle={{width: "fit-content", animation: 'rotate 1s', display: 'block'}}
       />
     },
     {
@@ -125,7 +128,17 @@ const HOME_DATA: HomeDataType = {
       ],
       header: "Teaching & Consulting",
       description: "As a consultant for the army, I have had the privilege of teaching and enabling soldiers in programming and software development. I am deeply grateful for the opportunity to work on a variety of products that are utilized by the greater army, imparting my knowledge and expertise to enhance their technical skills. By providing tailored instruction and hands-on guidance, I have helped soldiers develop robust applications that meet the unique needs of military operations. This role has been an honor and has allowed me to contribute to the advancement of technology within the army, ensuring that our military personnel are equipped with the tools and knowledge necessary to excel in their duties.",
-      subcomponent: <></>
+      subcomponent: <ImageList imageList={
+        [
+          {
+            link: 'https://soldiersolutions.swf.army.mil/',
+            src: aswfLogo,
+            name: 'ASWF Logo',
+            hasOpenButton: true,
+            style: {width: "250px", height: '250px'}
+          }
+      ]
+      }/>
     },
   ]
 };
