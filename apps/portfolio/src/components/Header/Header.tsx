@@ -14,6 +14,7 @@ import yinRight1 from './assets/yin_right_1.png'
 import yinRight2 from './assets/yin_right_2.png'
 import {useLocation} from "react-router-dom";
 import Chibi from "../Chibi/Chibi";
+import BusinessCard from "./components/BusinessCard/BusinessCard";
 
 type HeaderBoxProps = { children: ReactNode }
 
@@ -53,6 +54,16 @@ const Header = () => {
                 </ParallaxBannerLayer>
             </ParallaxBanner>
         )
+    } else if(location.pathname === '/contact'){
+     return <ParallaxBanner className="header" style={{minHeight: "80vh", maxHeight: "80vh"}}>
+       <ParallaxBannerLayer image={bg} speed={30}/>
+       <ParallaxBannerLayer image={bg2} speed={-30}/>
+       {
+         <ParallaxBannerLayer speed={5}>
+           <BusinessCard />
+         </ParallaxBannerLayer>
+       }
+     </ParallaxBanner>
     } else {
         return (
             <ParallaxBanner className="header" style={{minHeight: "30vh", maxHeight: "30vh"}}>

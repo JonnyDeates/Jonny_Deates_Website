@@ -11,12 +11,11 @@ type ImageListProps = {
 
 const ImageList = ({imageList, wrapperStyle = {}}: ImageListProps) => {
 
-
   const animationSquare = (index: number) => imageList.length === 4
     ? `6s slideInCircle${index} linear infinite`
     : '';
 
-  return <div className='ImageList' style={...wrapperStyle}>
+  return <div className='ImageList' style={{...wrapperStyle}}>
     {imageList.map((image, i) => {
       const linkTitle = `Goto ${image.link}`;
 

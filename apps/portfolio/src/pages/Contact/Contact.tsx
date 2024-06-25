@@ -50,7 +50,7 @@ class Contact extends React.Component<{}> {
         ];
         return (
             <>
-                <BusinessCard/>
+                {/*<BusinessCard/>*/}
                 {/*<h1 className="body-header">Programming Inquiries</h1>*/}
                 {/*{programming.map((obj, i) => <Card key={'programming' + i} name={obj.name} descr={obj.descr}*/}
                 {/*                                   image={obj.image} link={obj.link} flipped={(i % 2 === 0 || minWidth)}/>)}*/}

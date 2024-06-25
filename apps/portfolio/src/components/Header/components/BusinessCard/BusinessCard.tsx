@@ -5,6 +5,7 @@ import backOfCard from "./assets/business_card_template_back.png"
 import frontOfCard from "./assets/business_card_template_front.png"
 import openNewTabWindow from "../../../../utils/openNewTabWindow";
 import ContactData from "../../../../pages/Contact/data/ContactData";
+import Chibi from "../../../Chibi/Chibi";
 
 const BusinessCard = () => {
     const {header, description, images} = ContactData;
@@ -15,8 +16,13 @@ const BusinessCard = () => {
             <div className="FlippableImageWrapper" onClick={() => setIsFlipped(!isFlipped)}>
                 <div className="FlippableImage">
                     <div className='FrontSide' style={{backgroundImage: `url(${frontOfCard})`}}>
-                        <h2>{header}</h2>
-                        <h3>{description}</h3>
+                        <Chibi frameAttributes={{style: {position: "relative", top: 'unset', left: 'unset',
+                                filter: "grayscale(100%) opacity(80%)", margin: 0}}} />
+                        <div className='FrontSideText'>
+                            <h2>{header}</h2>
+                            <h3>{description}</h3>
+                        </div>
+
                     </div>
                     <div className='BackSide' style={{backgroundImage: `url(${backOfCard})`}}>
                         <div className={"Outlinks"}>
