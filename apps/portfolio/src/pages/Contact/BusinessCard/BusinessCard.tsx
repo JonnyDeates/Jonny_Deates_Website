@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './BusinessCard.css';
-import HOME_DATA from "../../../../pages/Home/data/HomeData";
+import HOME_DATA from "../../Home/data/HomeData";
 import backOfCard from "./assets/business_card_template_back.png"
 import frontOfCard from "./assets/business_card_template_front.png"
-import openNewTabWindow from "../../../../utils/openNewTabWindow";
-import ContactData from "../../../../pages/Contact/data/ContactData";
-import Chibi from "../../../Chibi/Chibi";
+import openNewTabWindow from "../../../utils/openNewTabWindow";
+import ContactData from "../data/ContactData";
+import Chibi from "../../../components/Chibi/Chibi";
 
 const BusinessCard = () => {
     const {header, description, images} = ContactData;
