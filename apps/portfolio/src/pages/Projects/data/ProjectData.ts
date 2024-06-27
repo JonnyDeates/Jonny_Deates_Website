@@ -2,7 +2,7 @@ import applianceremedy from '../assets/applianceremedy.webp'
 import galacticthreads from '../assets/galacticthreads.png'
 import koitimer from '../assets/koitimer.webp'
 import koicoin from '../assets/koicoin.png'
-
+import baldRidgeLodge from '../assets/bald-ridge-lodge.webp'
 export type ProjectType = {
     image: string,
     title: string,
@@ -24,6 +24,13 @@ const ProjectsData: ProjectType[] = [{
         "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
         "praesentium nisi. Id laboriosam ipsam enim.",
     link: 'https://galacticthreads.com'
+} , {
+    image: baldRidgeLodge,
+    title: "Bald Ridge Lodge",
+    description: "Lorem ipsum, dolor sit amet consectetur\n" +
+      "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
+      "praesentium nisi. Id laboriosam ipsam enim.",
+    link: 'https://baldridgelodge.org/'
 }, {
     image: koitimer,
     title: "Koi Timer",
@@ -41,14 +48,7 @@ const ProjectsData: ProjectType[] = [{
         link: 'https://koicoin.com'
 
     }
-    , {
-        image:"",
-        title: "",
-        description: "Lorem ipsum, dolor sit amet consectetur\n" +
-            "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-            "praesentium nisi. Id laboriosam ipsam enim.",
-        link: ''
-    }, {
+   , {
         image: "",
         title: "",
         description: "Lorem ipsum, dolor sit amet consectetur\n" +
