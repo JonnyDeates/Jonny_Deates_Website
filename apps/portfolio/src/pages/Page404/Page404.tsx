@@ -2,8 +2,8 @@ import './Page404.css'
 import React from "react";
 import {Link} from "react-router-dom";
 import {ParallaxBanner, ParallaxBannerLayer} from "react-scroll-parallax";
-import bg from "../../assets/backgrounds/Yin.png";
-import bg2 from "../../assets/backgrounds/Yang.png";
+import bg from "../../components/Header/assets/Yin.png";
+import bg2 from "../../components/Header/assets/Yang.png";
 import Chibi from "../../components/Chibi/Chibi";
 
 

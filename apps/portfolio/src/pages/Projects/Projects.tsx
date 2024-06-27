@@ -3,6 +3,11 @@ import './Projects.css'
 import {Button} from "koi-pool";
 import ProjectsData from "./data/ProjectData";
 import Project from "./Project/Project";
+import Header from "../../components/Header/Header";
+import Chibi from "../../components/Chibi/Chibi";
+import handleDelayedToggle from "../../utils/handleDelayedToggle";
+
+
 
 const Projects = () => {
 
@@ -10,15 +15,9 @@ const Projects = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(false)
   const projects = ProjectsData;
 
-  const handleDisabled = () => {
-    setIsDisabled(true);
-    setTimeout(() => {
-      setIsDisabled(false);
-    }, 600);
-  };
 
   const handleIncrementCurrentProjectIndex = () => {
-    handleDisabled();
+    handleDelayedToggle(setIsDisabled, 600);
     if(currentProjectIndex + 1 >= projects.length) {
       setCurrentProjectIndex(0)
     } else {
@@ -26,7 +25,7 @@ const Projects = () => {
     }
   }
   const handleDecrementCurrentProjectIndex = () => {
-    handleDisabled();
+    handleDelayedToggle(setIsDisabled, 600);
     if(currentProjectIndex - 1 < 0) {
       setCurrentProjectIndex(projects.length-1)
     } else {
@@ -34,21 +33,25 @@ const Projects = () => {
     }
   }
   return (
-    <div>
-      <div>{
+    <>
+    <Header isSplitBackground={false} height={'20vh'}>
+      <Chibi frameAttributes={{style: {top: "100px"}}}/>
+    </Header>
+      <div className={"ProjectList"} style={{position: 'relative'}}>{
         projects.map((project, index) =>
           <Project {...project}
                    currentActiveIndex={currentProjectIndex}
+                   setCurrentActiveIndex={setCurrentProjectIndex}
                    index={index}/>
         )}
-      </div>
       <div className={'ProjectsButtonGroup'}>
       <Button disabled={isDisabled}
               onClick={handleDecrementCurrentProjectIndex}>{"<"}</Button>
       <Button disabled={isDisabled}
               onClick={handleIncrementCurrentProjectIndex}>{">"}</Button>
       </div>
-  </div>
+      </div>
+      </>
   );
 };
 

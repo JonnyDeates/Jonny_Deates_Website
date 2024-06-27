@@ -1,3 +1,9 @@
+.ProjectList {
+    position: relative;
+    height: 80vh;
+
+}
+
 .ProjectsButtonGroup {
     position: absolute;
     width: 100vw;
@@ -7,13 +13,3 @@
     display: flex;
 }
 
-@keyframes show {
-    0% {
-        filter: blur(5px);
-        transform: translateY(calc(-50% + 75px));
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-    }
-}
