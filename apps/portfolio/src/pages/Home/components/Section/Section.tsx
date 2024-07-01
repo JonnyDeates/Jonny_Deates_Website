@@ -1,7 +1,6 @@
 import React from 'react';
 import {SectionType} from "../../data/HomeData";
 import SectionBody from "../SectionBody/SectionBody";
-import ImageList from "../ImageList/ImageList";
 import SlantedOutlinedHeader from "../SlantedOutlinedHeader/SlantedOutlinedHeader";
 import "./Section.css"
 import {SCREEN_WIDTH, useScreenWidth} from "../../../../utils/useScreenWidth";
@@ -50,11 +49,11 @@ const Section = ({
         if (screenWidth === SCREEN_WIDTH.mobile) {
             return {fontSize: 30, outlineWidth: "2px"}
         } else if (screenWidth === SCREEN_WIDTH.tablet) {
-            return {fontSize: 40, outlineWidth: "3px"}
+            return {fontSize: 50, outlineWidth: "3px"}
         } else if (screenWidth <= SCREEN_WIDTH["1080p"]) {
-            return {fontSize: 60, outlineWidth: "4px"}
+            return {fontSize: 70, outlineWidth: "4px"}
         } else {
-            return {fontSize: 80, outlineWidth: "5px"}
+            return {fontSize: 90, outlineWidth: "5px"}
         }
     };
 

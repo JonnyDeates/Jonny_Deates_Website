@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './BusinessCard.css';
-import HOME_DATA from "../../Home/data/HomeData";
 import backOfCard from "./assets/business_card_template_back.png"
 import frontOfCard from "./assets/business_card_template_front.png"
 import openNewTabWindow from "../../../utils/openNewTabWindow";
@@ -16,8 +15,7 @@ const BusinessCard = () => {
             <div className="FlippableImageWrapper" onClick={() => setIsFlipped(!isFlipped)}>
                 <div className="FlippableImage">
                     <div className='FrontSide' style={{backgroundImage: `url(${frontOfCard})`}}>
-                        <Chibi frameAttributes={{style: {position: "relative", top: 'unset', left: 'unset',
-                                filter: "grayscale(100%) opacity(80%)", margin: 0}}} />
+                        <Chibi />
                         <div className='FrontSideText'>
                             <h2>{header}</h2>
                             <h3>{description}</h3>

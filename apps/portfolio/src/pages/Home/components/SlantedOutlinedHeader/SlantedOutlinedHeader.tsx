@@ -28,10 +28,15 @@ const SlantedOutlinedHeader = ({
     ...style,
     transform: `rotate(${rotationAngle}deg) translate(0, 30px)`,
     color: outerBackgroundColor === "transparent" ? "#7BC9FF" : outerBackgroundColor ,
-    textShadow: `${outlineWidth} 0 0 ${backgroundColor}, 
+    textShadow: `
+    ${outlineWidth} 0 0 ${backgroundColor}, 
     0 ${outlineWidth} 0 ${backgroundColor}, 
     -${outlineWidth} 0 0 ${backgroundColor}, 
-    0 -${outlineWidth} 0 ${backgroundColor}
+    0 -${outlineWidth} 0 ${backgroundColor},
+       ${outlineWidth} ${outlineWidth} 0 ${backgroundColor}, 
+    -${outlineWidth} ${outlineWidth} 0 ${backgroundColor}, 
+    -${outlineWidth} -${outlineWidth} 0 ${backgroundColor}, 
+    ${outlineWidth} -${outlineWidth} 0 ${backgroundColor}
     `,
     borderBottomColor: backgroundColor,
     fontSize,
@@ -45,7 +50,7 @@ const SlantedOutlinedHeader = ({
   };
 
   const slantedOutlineTextStyle = {
-   marginBottom: `-${fontSize * .5}px`
+   marginBottom: `-${fontSize * .75}px`
   };
 
   return <div className='SlantedOutlinedHeaderWrapper' style={slatedOutlineWrapperStyle}>

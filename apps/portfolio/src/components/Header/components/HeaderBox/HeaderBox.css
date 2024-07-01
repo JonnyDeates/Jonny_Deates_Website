@@ -1,0 +1,48 @@
+.HeaderBox {
+    position: relative;
+    display: block;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+    top: 10%;
+}
+.HeaderBox .ChibiFrame {
+    margin-left: unset;
+}
+.HeaderBox .Chibi{
+    width: 200px;
+}
+.HeaderBox  h1{
+    font-size: 5rem;
+    margin: 0;
+    font-family: "Super Sunday", serif;
+}
+.HeaderBox h2 {
+    margin-top: 0;
+    color: white;
+    font-family: "Gently", serif;
+}
+@media (min-width: 720px) {
+    .HeaderBox {
+        position: relative;
+        display: flex;
+        align-items: center;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        text-align: center;
+        margin: auto;
+        width: fit-content;
+        top: 25%;
+    }
+    .HeaderBox  h1{
+        font-size: 5rem;
+        margin-left: 2rem;
+        margin-bottom: 0;
+    }
+    .HeaderBox .Chibi{
+        width: 300px;
+    }
+}

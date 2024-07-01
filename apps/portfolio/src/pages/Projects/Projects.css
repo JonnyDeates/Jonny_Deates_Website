@@ -1,15 +1,37 @@
+.ProjectListInitial {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    top: 55%;
+}
+.ProjectListInitial .ProjectCard:hover {
+    filter: brightness(1.2);
+}
 .ProjectList {
     position: relative;
-    height: 80vh;
-
+    height: 100vh;
+    top: 50px;
+    padding-bottom: 20px;
 }
-
 .ProjectsButtonGroup {
     position: absolute;
     width: 100vw;
-    bottom: 0;
+    bottom: 1rem;
     z-index: 5;
     justify-content: space-between;
     display: flex;
 }
+@keyframes rotatingCarousel {
+    0%{
+        left: -250px;
+    }
+    100% {
+        left: calc(250px + 100vw);
+    }
 
+}
+@media (min-width: 720px){
+    .ProjectListInitial {
+        top: 50vh;
+    }
+}

@@ -22,7 +22,6 @@
     left: 50%;
     top: 0;
     transform-origin: bottom center;
-    text-shadow: 2px 2px black;
 }
 
 @keyframes rotateWithTransform {

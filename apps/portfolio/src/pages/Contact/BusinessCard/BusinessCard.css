@@ -9,8 +9,6 @@
     width: fit-content;
 }
 
-
-
 .FlippableImageWrapper {
     width: 700px;
     height: 400px;
@@ -26,6 +24,7 @@
 .FlippableImageWrapper:hover .FlippableImage{
     transform: rotate3d(0,1,0.15,180deg) ;
  }
+
 .FlippableImageWrapper:hover .FlippableImage .FrontSide {
     box-shadow: unset;
 }
@@ -47,6 +46,20 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+.FlippableImageWrapper .ChibiFrame{
+    position: relative;
+    top: unset;
+    left: unset;
+    filter: grayscale(100%);
+    margin: 0 1rem 0 0;
+}
+.FlippableImageWrapper .Chibi {
+    transition: opacity 0.4s ease-in-out;
+    opacity: 0.8;
+}
+.FlippableImageWrapper:hover .Chibi {
+    opacity: 0;
+}
 .FrontSide > div {
      width: fit-content;
      height: fit-content;
@@ -56,7 +69,12 @@
     text-align: center;
     font-size: 3.5rem;
     margin: 0.5rem;
-    margin-bottom: 0.5rem;
+    font-family: "Super Sunday", serif;
+    opacity: 0.8;
+}
+.FrontSide h3 {
+    opacity: 0.8;
+    font-family: "Gently", serif;
 }
 .BackSide {
     display: flex;
@@ -79,6 +97,7 @@
     padding-right: 20px;
     font-size: 1.25rem;
     text-wrap: nowrap;
+    font-family: "Super Sunday", serif;
 }
 .BackSide .Outlinks {
     display: block;

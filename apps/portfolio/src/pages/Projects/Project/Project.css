@@ -1,29 +1,20 @@
-
-.Project {
-    width: 200px;
-    height: 300px;
-    list-style-type: none;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 0;
-    background-position: top;
-    background-size: cover;
-    border-radius: 20px;
-    box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.6) inset, 4px 4px 2px rgba(255, 255, 255, 0.3) inset, 8px 8px 8px rgba(255, 255, 255, 0.1) inset, 2px 2px 1px rgba(0,0,0,0.4), 4px 4px 2px rgba(0,0,0,0.2), 8px 8px 4px rgba(0,0,0,0.1);
-    transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
-    overflow: hidden;
-}
-.Project.next {
+.ProjectCard.next {
     left: 50%;
     z-index: 3;
 }
-.Project.next2 {
+
+.ProjectCard.next2 {
     left: calc(50% + 220px);
     z-index: 3;
 }
+.ProjectCard.next:hover, .ProjectCard.next2:hover {
+    filter: brightness(1.2);
+}
+.ProjectCard.active {
+    transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
+}
 
-.Project.active, .Project.previous{
+.ProjectCard.active, .ProjectCard.previous {
     left: 0;
     top: 0;
     width: 100%;
@@ -33,10 +24,13 @@
     box-shadow: none;
     z-index: 2;
 }
-.Project.active {
+
+.ProjectCard.active, .ProjectCard.previous {
     animation: scrolling 120s infinite linear;
 }
-.Project.previous {
+
+.ProjectCard.previous {
+    transition: transform 0.1s, left 1.75s, top 1.75s, width 1.75s, height 1.75s;
     z-index: 1;
 }
 
@@ -45,14 +39,21 @@
     height: 350px;
     position: absolute;
     top: 50%;
-    left: 3rem;
+    left: 2rem;
+    padding: 0.5rem;
     transform: translateY(-50%);
     color: black;
     background-color: white;
     border-radius: 1rem;
     opacity: 0;
     display: none;
-    box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.6) inset, 4px 4px 2px rgba(255, 255, 255, 0.3) inset, 8px 8px 8px rgba(255, 255, 255, 0.1) inset, 2px 2px 1px rgba(0,0,0,0.4), 4px 4px 2px rgba(0,0,0,0.2), 8px 8px 4px rgba(0,0,0,0.1);
+    box-shadow: 2px 2px 1px rgba(255, 255, 255, 0.6) inset, 4px 4px 2px rgba(255, 255, 255, 0.3) inset, 8px 8px 8px rgba(255, 255, 255, 0.1) inset, 2px 2px 1px rgba(0, 0, 0, 0.4), 4px 4px 2px rgba(0, 0, 0, 0.2), 8px 8px 4px rgba(0, 0, 0, 0.1);
+}
+.ProjectCard .Button {
+    position: absolute;
+    bottom: 0;
+    border-radius: 100%;
+    right: 0;
 }
 .ProjectContent p {
     line-height: 1.8;
@@ -60,12 +61,13 @@
     font-size: 0.8rem;
 }
 
-.Project.active .ProjectContent {
+.ProjectCard.active .ProjectContent {
     opacity: 0;
     animation: show 0.75s ease-in-out 0.4s forwards;
 }
+
 @keyframes scrolling {
-    0%, 10%, 100%{
+    0%, 100% {
         background-position: top;
     }
     55% {
@@ -73,6 +75,7 @@
     }
 
 }
+
 @keyframes show {
     0% {
         opacity: 0;

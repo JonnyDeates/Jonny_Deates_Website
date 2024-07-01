@@ -10,7 +10,7 @@
     animation: 1s 0.5s slideInTop forwards;
 }
 
-.nav > div > a {
+.nav  a {
     font-size: x-large;
     padding: 8px 10px;
     margin: 0 4px;
@@ -20,7 +20,7 @@
     background-color: #ffffffaa;
 }
 
-.active {
+.nav a.active {
     background-color: #00000011 !important;
 
 }

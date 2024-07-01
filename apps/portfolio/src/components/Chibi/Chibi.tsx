@@ -1,6 +1,6 @@
-import React, {CSSProperties, useEffect, useState} from 'react';
+import React, { HTMLAttributes, useEffect, useState} from 'react';
 import './Chibi.css';
-import {Link, useLocation} from "react-router-dom";
+import { useLocation} from "react-router-dom";
 
 import blazer from "./assets/blazer.webp"
 import blueWhiteGingham from "./assets/blue_white_gingham.webp"
@@ -17,9 +17,12 @@ import redGingham from "./assets/red_gingham.webp"
 import redPolo from "./assets/red_polo.webp"
 import whitePolo from "./assets/white_polo_with_tie.webp"
 
-type ChibiProps = { frameAttributes?: { style?: CSSProperties } }
+type ChibiProps = {
+    frameAttributes?: HTMLAttributes<HTMLDivElement>,
+    chibiAttributes?: HTMLAttributes<HTMLImageElement>
+}
 
-const Chibi = ({frameAttributes = {}}: ChibiProps) => {
+const Chibi = ({frameAttributes = {}, chibiAttributes = {}}: ChibiProps) => {
     const outfitsWebp = [blazer, blueWhiteGingham, cowboy, darkGrayPolo, dressShirtSweater, floralPolo, floralPolo2,
         grayGingham, grayPolo, graySuit, greenPolo, redGingham, redPolo, whitePolo]
     const [outfit, setOutfit] = useState<string>('');
@@ -46,9 +49,7 @@ const Chibi = ({frameAttributes = {}}: ChibiProps) => {
 
     return (
         <div className='ChibiFrame' {...frameAttributes}>
-            <Link to={'/'}>
-                <img className='Chibi' alt='Jonnys Chibi' src={outfit}/>
-            </Link>
+            <img className='Chibi' alt='Jonnys Chibi' src={outfit} {...chibiAttributes}/>
         </div>
     );
 };
