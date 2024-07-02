@@ -3,6 +3,7 @@ import galacticthreads from '../assets/galacticthreads-4x3.webp'
 import koitimer from '../assets/koitimer-4x3.webp'
 import koicoin from '../assets/koicoin-4x3.webp'
 import baldRidgeLodge from '../assets/baldridgelodge-4x3.webp'
+import dearBeer from '../assets/dearbeer-4x3.webp'
 import army from '../assets/army-4x3.webp'
 
 export type ProjectType = {
@@ -63,13 +64,13 @@ const ProjectsData: ProjectType[] = [{
         description: "",
         link: 'https://soldiersolutions.swf.army.mil/'
     }   , {
-        image: "",
-        title: "",
-        role: '',
+        image: dearBeer,
+        title: "Dear Beer",
+        role: 'Software Developer',
         description: "Lorem ipsum, dolor sit amet consectetur\n" +
             "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
             "praesentium nisi. Id laboriosam ipsam enim.",
-        link: ''
+        link: 'https://dearbeer.vercel.app/'
     }   , {
         image: "",
         title: "",

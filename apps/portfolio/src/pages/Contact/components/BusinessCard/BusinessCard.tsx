@@ -2,30 +2,32 @@ import React, {useState} from 'react';
 import './BusinessCard.css';
 import backOfCard from "./assets/business_card_template_back.png"
 import frontOfCard from "./assets/business_card_template_front.png"
-import openNewTabWindow from "../../../utils/openNewTabWindow";
-import ContactData from "../data/ContactData";
-import Chibi from "../../../components/Chibi/Chibi";
+import openNewTabWindow from "../../../../utils/openNewTabWindow";
+import Chibi from "../../../../components/Chibi/Chibi";
+import HOME_DATA from "../../../Home/data/HomeData";
+import CONTACT_DATA from "../../data/ContactData";
 
 const BusinessCard = () => {
-    const {header, description, images} = ContactData;
+    const {introduction: {header, subHeader}} = HOME_DATA;
+    const contactdata = CONTACT_DATA;
 
     const [isFlipped, setIsFlipped] = useState(false)
     return (
-        <div className='BusinessCard'>
-            <div className="FlippableImageWrapper" onClick={() => setIsFlipped(!isFlipped)}>
+        <div className='BusinessCard' onClick={() => setIsFlipped(!isFlipped)}>
+            <div className="FlippableImageWrapper" >
                 <div className="FlippableImage">
                     <div className='FrontSide' style={{backgroundImage: `url(${frontOfCard})`}}>
                         <Chibi />
                         <div className='FrontSideText'>
                             <h2>{header}</h2>
-                            <h3>{description}</h3>
+                            <h3>{subHeader}</h3>
                         </div>
 
                     </div>
                     <div className='BackSide' style={{backgroundImage: `url(${backOfCard})`}}>
                         <div className={"Outlinks"}>
                             <div className={"Block"}/>
-                            {images.map(({link, name, src}) =>
+                            {contactdata.map(({link, name, src}) =>
                                 <div key={name} onClick={() => openNewTabWindow(link)}>
                                     <img src={src} alt={name}/>
                                     <span>{name}</span>

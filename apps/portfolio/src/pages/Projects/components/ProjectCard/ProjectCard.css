@@ -54,7 +54,7 @@
 .ProjectCardContent .Back {
     transform: rotateY(180deg);
     background: linear-gradient(-45deg, #912300, #830034, #0060a3, #00ae85);
-    animation: gradient 30s infinite;
+    animation: gradient 20s infinite;
     background-size: 400% 400%;
     border-radius: 10px;
     text-align: left;

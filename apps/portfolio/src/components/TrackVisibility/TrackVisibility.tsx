@@ -8,7 +8,7 @@ type TrackVisibilityProps = {
 
 // Received from https://hackernoon.com/tracking-element-visibility-with-react-and-the-intersection-observer-api-7dfaf3a47218
 const TrackVisibility = ({onVisible, children}: TrackVisibilityProps) => {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {

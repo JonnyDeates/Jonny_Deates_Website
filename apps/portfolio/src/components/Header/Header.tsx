@@ -1,7 +1,6 @@
 import React, {ReactNode} from 'react';
 import {ParallaxBanner, ParallaxBannerLayer} from "react-scroll-parallax";
-import bg from "./assets/Yin.png";
-import bg2 from "./assets/Yang.png";
+import bg from "./assets/YinYangBg.png";
 import yinLeft1 from "./assets/yin_left_1.png";
 import yinLeft2 from "./assets/yin_left_2.png";
 import yangLeft1 from "./assets/yang_left_1.png";
@@ -20,7 +19,7 @@ type HeaderProps = {
 
 const Header = ({children, isSplitBackground = false, height = "80vh"}:HeaderProps) => {
   if(isSplitBackground){
-    return             <ParallaxBanner className="header" style={{minHeight: height, maxHeight: height}}>
+    return             <ParallaxBanner className="Header" style={{minHeight: height, maxHeight: height}}>
       <ParallaxBannerLayer image={yinLeft1} speed={-21}/>
       <ParallaxBannerLayer image={yinLeft2} speed={15}/>
       <ParallaxBannerLayer image={yangLeft1} speed={-18}/>
@@ -35,13 +34,9 @@ const Header = ({children, isSplitBackground = false, height = "80vh"}:HeaderPro
     </ParallaxBanner>
   }
   return (
-    <ParallaxBanner className="header" style={{minHeight: height, maxHeight: height}}>
-      <ParallaxBannerLayer image={bg} speed={30}/>
-      <ParallaxBannerLayer image={bg2} speed={-30}/>
-        <ParallaxBannerLayer speed={5}>
+    <div className="Header" style={{minHeight: height, maxHeight: height, backgroundImage: `url(${bg})`, marginTop: 0}}>
           {children}
-        </ParallaxBannerLayer>
-    </ParallaxBanner>
+    </div>
   );
 };
 

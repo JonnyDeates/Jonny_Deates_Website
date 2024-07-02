@@ -11,7 +11,7 @@ const Projects = () => {
         <Header isSplitBackground={false} height={'100vh'}>
             <HeaderBox
                 header={'Projects'}
-                headerBoxStyle={{top: '12%',color:"white", textShadow: '0px 0px 4px black', position: "absolute", left: "50%", transform: 'translateX(-50%)' }}
+                headerBoxStyle={{top: '6%',color:"white", textShadow: '0px 0px 4px black', position: "absolute", left: "50%", transform: 'translateX(-50%)' }}
                 chibiStyle={{width: "150px"}}
             />
             <ProjectsCarousel />

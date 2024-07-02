@@ -1,13 +1,10 @@
-import githubLogo from "../../../assets/logos/github.svg";
-import linkedInLogo from "../../../assets/logos/linkedin.svg";
-import phoneLogo from "../../../assets/logos/phone.svg";
-import gmailLogo from "../../../assets/logos/gmail.svg";
-import locationLogo from "../../../assets/logos/location.svg";
+import githubLogo from "../assets/github.svg";
+import linkedInLogo from "../assets/linkedin.svg";
+import phoneLogo from "../assets/phone.svg";
+import gmailLogo from "../assets/gmail.svg";
+import locationLogo from "../assets/location.svg";
 
-const contactData=  {
-    header: "Jon Deates",
-    description: "Senior Software Developer",
-    images: [
+const CONTACT_DATA= [
         {
             src: githubLogo,
             name: "Github",
@@ -33,6 +30,5 @@ const contactData=  {
             name: "Georgetown (near Austin) Texas, USA",
             link: "https://www.google.com/maps/place/Austin,+TX/@30.3079541,-97.9205471,11z/data=!3m1!4b1!4m6!3m5!1s0x8644b599a0cc032f:0x5d9b464bd469d57a!8m2!3d30.267153!4d-97.7430608!16zL20vMHZ6bQ?entry=ttu"
         }
-    ]
-}
-export default contactData
+    ];
+export default CONTACT_DATA

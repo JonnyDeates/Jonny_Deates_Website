@@ -1,0 +1,28 @@
+.MobileContact {
+    height: 100vh;
+    background-color: rgb(123, 201, 255) ;
+    overflow-y: auto;
+}
+.MobileContactContent {
+    top: 20%;
+    position: relative;
+
+}
+.MobileContactContent > div {
+    text-align: left;
+    padding: 0.25rem 1rem;
+    align-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+.MobileContactContent > div:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.MobileContactContent span {
+    height: fit-content;
+    margin: auto 1rem;
+    text-decoration: underline;
+    font-size: large;
+}

@@ -1,11 +1,13 @@
 .BusinessCard{
-    position: relative;
+    position: absolute;
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     justify-content: space-evenly;
     text-align: center;
-    margin: 240px auto 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: fit-content;
 }
 

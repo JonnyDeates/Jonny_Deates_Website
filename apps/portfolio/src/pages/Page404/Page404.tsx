@@ -9,7 +9,7 @@ import Chibi from "../../components/Chibi/Chibi";
 
 const Page404 = () => {
     return <main className={'Page404'}>
-        <ParallaxBanner className="header" style={{minHeight: "30vh", maxHeight: "30vh"}}>
+        <ParallaxBanner className="Header" style={{minHeight: "30vh", maxHeight: "30vh"}}>
             <ParallaxBannerLayer image={bg} speed={30}/>
             <ParallaxBannerLayer image={bg2} speed={-30}/>
             {

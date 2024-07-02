@@ -13,7 +13,7 @@ const HeaderBox = ({header, subHeader, chibiFrame = {position: "relative", top: 
     return (
         <div className="HeaderBox" style={headerBoxStyle}>
             <Chibi frameAttributes={{style: chibiFrame }} chibiAttributes={{style: chibiStyle}}/>
-            <div>
+            <div className={'HeaderBoxText'}>
                 <h1>
                     {header}
                 </h1>
