@@ -1,0 +1,10 @@
+.OpenLinkButton {
+    position: absolute;
+    display: block;
+    border-radius: 100%;
+}
+.OpenLinkButton > img {
+    width: 30px;
+    height: 30px;
+    border-radius: unset;
+}

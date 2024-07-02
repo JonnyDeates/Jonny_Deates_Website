@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 const Contact = () => {
 
   return (
-    <Header isSplitBackground={false} height={"80vh"}>
+    <Header isSplitBackground={false} height={"100vh"}>
           <BusinessCard/>
     </Header>
   );

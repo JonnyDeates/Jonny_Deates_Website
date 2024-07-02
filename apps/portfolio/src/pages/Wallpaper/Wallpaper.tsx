@@ -16,7 +16,7 @@ const Wallpaper = ({children}: WallpaperProps)=> {
     <TopNav links={links}/>
     <Outlet />
     {children}
-    <Footer/>
+    {/*<Footer/>*/}
     </div>
 };
 export default Wallpaper;

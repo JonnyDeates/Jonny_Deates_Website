@@ -1,0 +1,131 @@
+
+.ProjectCard {
+    position: absolute;
+    border-radius: 10px;
+    top: 60%;
+    left: 50%;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: all;
+    min-width: 300px;
+    width: 30vw;
+    max-width: 450px;
+    min-height: 400px;
+    height: 40vw;
+    max-height: 600px;
+    transition: transform .8s cubic-bezier(0, 0.02, 0, 1), opacity .8s;
+}
+
+
+.ProjectCard .ProjectCardContent {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity .8s cubic-bezier(0, 0.02, 0, 1), transform .6s;
+    border-radius: 10px;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .4), 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.ProjectCard .ProjectCardContent:before {
+    border-radius: 10px;
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .2), rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, .5));
+}
+
+.ProjectCardContent .Front,
+.ProjectCardContent .Back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.ProjectCardContent .Back {
+    transform: rotateY(180deg);
+    background: linear-gradient(-45deg, #912300, #830034, #0060a3, #00ae85);
+    animation: gradient 30s infinite;
+    background-size: 400% 400%;
+    border-radius: 10px;
+    text-align: left;
+    color: white;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, .3), 2px 2px 4px rgba(0, 0, 0, 0.3), 4px 4px 8px rgba(0, 0, 0, 0.15);
+}
+.ProjectCardContent .Back .OpenLinkButton {
+    bottom: 0;
+    right: 0;
+    padding: 16px;
+
+}
+.ProjectCardContent .Back h2, .ProjectCardContent .Back h3, .ProjectCardContent .Back p {
+    padding: 1rem 0 0 1rem;
+    margin: 0;
+}
+.ProjectCardContent .Back h2 {
+    padding: 1.5rem 0 0 1rem;
+    font-size: xx-large;
+    font-family: "Super Sunday", serif;
+}
+.ProjectCardContent .Back h3 {
+    font-family: "Gently", serif;
+    font-size: x-large;
+}
+.ProjectCardContent .Front h2 {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    bottom: 0;
+    margin: 0;
+    padding: 8px 16px;
+    font-size: large;
+    text-shadow: 0 4px 4px rgba(0, 0, 0, .4);
+    font-family: "Super Sunday", serif;
+}
+
+.ProjectCardContent .Front img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    background-position: top center;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+@keyframes gradient {
+    0%, 100% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+@media (min-width: 480px){
+    .ProjectCard {
+        left: 50%;
+    }
+}
+@media (min-width: 720px) {
+    .ProjectCardContent .Front h2 {
+        padding: 8px;
+        font-size: x-large;
+    }
+
+}
+
+@media (min-width: 1080px) {
+    .ProjectCardContent .Front h2 {
+        padding: 8px 16px;
+        font-size: xx-large;
+    }
+
+}

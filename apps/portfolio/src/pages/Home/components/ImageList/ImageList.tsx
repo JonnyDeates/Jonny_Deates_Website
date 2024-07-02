@@ -2,8 +2,7 @@ import {Image} from "../../data/HomeData";
 import React, {CSSProperties} from "react";
 import openNewTabWindow from "../../../../utils/openNewTabWindow";
 import "./ImageList.css"
-import {Button, IconButton} from "koi-pool";
-import openIcon from '../../assets/open.svg'
+import OpenLinkButton from "../../../../components/OpenLinkButton/OpenLinkButton";
 type ImageListProps = {
   imageList: Image[],
   wrapperStyle?: CSSProperties
@@ -27,8 +26,7 @@ const ImageList = ({imageList, wrapperStyle = {}}: ImageListProps) => {
              animation: animationSquare(i),
            }}
            onClick={() => image.link && openNewTabWindow(image.link)}/>
-        {image.hasOpenButton && image.link && <IconButton className={'Button'} variant={'accept'} onClick={()=> openNewTabWindow(image.link)}
-                                                   src={openIcon as string} title={linkTitle}/>}
+        {image.hasOpenButton && image.link && <OpenLinkButton link={image.link}/>}
       </>
     )
     })
