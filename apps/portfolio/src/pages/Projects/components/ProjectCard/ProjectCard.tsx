@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {ProjectType} from "../../data/ProjectData";
 import './ProjectCard.css'
-import OpenLinkButton from "../../../../components/OpenLinkButton/OpenLinkButton";
+import LanguageCarousel from "./components/LanguageCarousel";
+import {Button} from "koi-pool";
+import openNewTabWindow from "../../../../utils/openNewTabWindow";
 
 type CarouselItemProps = {
     project: ProjectType,
@@ -15,7 +17,7 @@ type CarouselItemProps = {
 const ProjectCard = ({
                          active,
                          index,
-                         project: {image, title, description, link, role},
+                         project: {image, title, description, link, role, languages},
                          zIndexLookUp,
                          setProgress
                      }: CarouselItemProps) => {
@@ -36,10 +38,12 @@ const ProjectCard = ({
 
     const handleDoubleClick = () => {
         setIsFlipped(!isFlipped)
-    }
+    };
     const handleProgress = () => {
         setProgress((index / projectsCount) * 100 + 10)
-    }
+    };
+
+    const formatedLink = link.replaceAll('https://', '')
 
     return (
         <div
@@ -51,17 +55,19 @@ const ProjectCard = ({
             }}
             onClick={()=> active === index ? handleDoubleClick() : handleProgress() }
         >
-            <div className="ProjectCardContent" style={{transform: `rotateY(${isFlipped ? 180 : 0}deg)`}}>
+            <div className="ProjectCardContent"  style={{transform: `rotateY(${isFlipped ? 180 : 0}deg)`}}>
                 <div className="Front">
                     <h2>{title}</h2>
                     <img src={image} alt={`${title} Image`}/>
+
                 </div>
-                <div className={'Back'} style={{animationDelay: `${index * -2}s`}}>
-                    <h2>{title}</h2>
-                    <h3>{role}</h3>
-                    <p>{description}</p>
-                    <OpenLinkButton link={link}/>
-                </div>
+              <div className={'Back'} style={{animationDelay: `${index * -2}s`}}>
+                <h2>{title}</h2>
+                <h3>{role}</h3>
+                <LanguageCarousel array={languages}/>
+                <p>{description}</p>
+                <Button variant={'active'} className={'Button'} onClick={()=> openNewTabWindow(link)}>Go to {formatedLink}</Button>
+              </div>
             </div>
         </div>
     );

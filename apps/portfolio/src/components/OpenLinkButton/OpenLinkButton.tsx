@@ -6,7 +6,7 @@ import './OpenLinkButton.css'
 type OpenLinkButtonProps = { link:string}
 
 const OpenLinkButton = ({link}: OpenLinkButtonProps) => {
-    const linkTitle = `Open ${link}`
+    const linkTitle = `Open ${link}`;
 
     return (
         <IconButton className={'OpenLinkButton'} variant={'accept'} onClick={()=> openNewTabWindow(link)}

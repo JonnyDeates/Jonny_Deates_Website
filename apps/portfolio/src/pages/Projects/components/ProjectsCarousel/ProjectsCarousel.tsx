@@ -2,6 +2,7 @@ import React, {MouseEventHandler, TouchEventHandler, useEffect, useRef, useState
 import './ProjectsCarousel.css';
 import ProjectsData from "../../data/ProjectData";
 import ProjectCard from "../ProjectCard/ProjectCard";
+import OpenLinkButton from "../../../../components/OpenLinkButton/OpenLinkButton";
 
 const getZIndexLookUpArray = (arrayLength: number, activeIndex: number): number[] => (
     Array.from({length: arrayLength}).map((_, currentIndex) => (
@@ -68,7 +69,9 @@ const ProjectsCarousel = () => {
     const zIndexLookup = getZIndexLookUpArray(projects.length, active);
 
     return (
-        <div
+      <>
+
+          <div
             className="ProjectCarousel"
             onWheel={handleWheel}
             onMouseDown={handleMouseDown}
@@ -77,13 +80,15 @@ const ProjectsCarousel = () => {
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchDrag}
             onTouchEnd={handleStopDragging}
-        >
-            {projects.map((project, index) => (
+          >
+              {projects.map((project, index) => (
                 <ProjectCard key={index} active={active} index={index} project={project}
                              setProgress={setProgress} zIndexLookUp={zIndexLookup}
                 />
-            ))}
-        </div>
+              ))}
+          </div>
+
+      </>
     );
 };
 
