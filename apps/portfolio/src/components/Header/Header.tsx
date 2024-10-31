@@ -17,7 +17,7 @@ type HeaderProps = {
   height: string
 }
 
-const Header = ({children, isSplitBackground = false, height = "80vh"}:HeaderProps) => {
+const Header = ({children, isSplitBackground = false, height = "100vh"}:HeaderProps) => {
   if(isSplitBackground){
     return             <ParallaxBanner className="Header" style={{minHeight: height, maxHeight: height}}>
       <ParallaxBannerLayer image={yinLeft1} speed={-21}/>

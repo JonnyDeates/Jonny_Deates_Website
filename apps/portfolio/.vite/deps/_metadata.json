@@ -1,0 +1,52 @@
+{
+  "hash": "e5b342fc",
+  "configHash": "8aa7307f",
+  "lockfileHash": "c9f1f68e",
+  "browserHash": "93cb270d",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../../../node_modules/.pnpm/react@18.3.1/node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "7bb3cb5c",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "d1dbd32b",
+      "needsInterop": true
+    },
+    "react-scroll-parallax": {
+      "src": "../../../../node_modules/.pnpm/react-scroll-parallax@3.4.5_react-dom@18.3.1_react@18.3.1/node_modules/react-scroll-parallax/dist/react-scroll-parallax.esm.js",
+      "file": "react-scroll-parallax.js",
+      "fileHash": "81c27ae0",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../../../node_modules/.pnpm/react-router-dom@6.24.0_react-dom@18.3.1_react@18.3.1/node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "cbd85ebc",
+      "needsInterop": false
+    },
+    "react": {
+      "src": "../../../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "60793b04",
+      "needsInterop": true
+    },
+    "koi-pool": {
+      "src": "../../../../node_modules/.pnpm/koi-pool@0.0.19_react-dom@18.3.1_react@18.3.1/node_modules/koi-pool/dist/main.js",
+      "file": "koi-pool.js",
+      "fileHash": "bf056775",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-JIO4XB7J": {
+      "file": "chunk-JIO4XB7J.js"
+    },
+    "chunk-MI5ATYCP": {
+      "file": "chunk-MI5ATYCP.js"
+    }
+  }
+}

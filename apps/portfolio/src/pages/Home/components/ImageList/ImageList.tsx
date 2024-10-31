@@ -19,15 +19,15 @@ const ImageList = ({imageList, wrapperStyle = {}}: ImageListProps) => {
       const linkTitle = `Goto ${image.link}`;
 
       return (
-      <>
-        <img key={image.name + i} src={image.src} alt={image.name} title={linkTitle}
+      <React.Fragment key={image.name + i}>
+        <img  src={image.src} alt={image.name} title={linkTitle}
            style={{
              ...image.style,
              animation: animationSquare(i),
            }}
            onClick={() => image.link && openNewTabWindow(image.link)}/>
         {image.hasOpenButton && image.link && <OpenLinkButton link={image.link}/>}
-      </>
+      </React.Fragment>
     )
     })
     }

@@ -32,35 +32,48 @@ const ProjectsData: ProjectType[] = [{
   image: galacticthreads,
   title: "Galactic Threads",
   role: 'Senior Software Dev.',
-  languages: [],
-  description: "Lorem ipsum, dolor sit amet consectetur\n" +
-    "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-    "praesentium nisi. Id laboriosam ipsam enim.",
+  languages: ['Git', 'Kubernetes', 'Helm', 'Docker', 'React.js', 'Next.js'],
+  description: "I led the development of an e-commerce application for a new clothing brand, guiding a team from project start " +
+      "to final product. I implemented testing, facilitated team meetings, and developed a CI/CD pipeline. Additionally," +
+      " I managed multiple developers, promoting best practices and introducing new technologies to optimize the workflow.",
   link: 'https://galacticthreads.com'
 }, {
   image: army,
   title: "A.S.W.F.",
   role: 'Consultant / Software Dev.',
-  languages: [],
-  description: "",
+  languages: ['Reactjs', 'Kubernetes', 'Docker', 'Spring', 'Java', 'Helm', 'Cypress', 'K6', 'Grafana', 'Prometheus', 'AWS'],
+  description: "I mentored Army personnel to build modern software skills, focusing on agile and lean methodologies, XP " +
+      "principles, and essential design patterns. I led comprehensive workshops, facilitated stakeholder discussions to " +
+      "align on project goals, and conducted team rituals to foster collaboration and continuous improvement. Through " +
+      "in-depth presentations, I introduced new technologies and taught foundational software engineering principles, " +
+      "including Test-Driven Development (TDD), SOLID design principles, the 12-Factor App methodology, and XP " +
+      "practices. I provided hands-on training in technical stacks such as Spring, Java, React.js, Jest, and Cypress, " +
+      "empowering the team with practical skills to handle real-world scenarios. Additionally, I designed and set up " +
+      "robust CI/CD pipelines to streamline deployments, ensuring efficient and repeatable releases. Over the course " +
+      "of this mentorship, I led the development of multiple applications tailored to Army needs, advancing their " +
+      "technical capabilities to support the Army’s 2030 initiative. This experience not only accelerated the " +
+      "team's ability to deliver quality software but also reinforced a culture of innovation and adaptability within " +
+      "the organization.",
   link: 'https://soldiersolutions.swf.army.mil/'
 }, {
   image: baldRidgeLodge,
   title: "Bald Ridge Lodge",
   role: "Volunteer Dev.",
-  languages: [],
-  description: "Lorem ipsum, dolor sit amet consectetur\n" +
-    "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-    "praesentium nisi. Id laboriosam ipsam enim.",
+  languages: ['Wordpress', "Javascript", "CSS"],
+  description: "I collaborated with a team to redesign the website for a non-profit boys' home, volunteering my time to " +
+      "support the organization’s mission. We worked within the client’s specified tools and technologies, ensuring " +
+      "compatibility while bringing the nonprofit's vision to life. This involved careful coordination to translate " +
+      "their goals and requirements into an accessible, user-friendly design that effectively conveyed their mission. " +
+      "Throughout the project, I engaged closely with stakeholders to gather feedback, iteratively refining the site " +
+      "to meet the organization’s needs and values. This experience deepened my commitment to using technical skills " +
+      "to support meaningful causes in the community.",
   link: 'https://baldridgelodge.org/'
 }, {
   image: koicoin,
   title: "Koi Coin",
   role: "Senior Developer",
-  languages: [],
-  description: "Lorem ipsum, dolor sit amet consectetur\n" +
-    "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-    "praesentium nisi. Id laboriosam ipsam enim.",
+  languages: ['Reactjs', 'Javascript ES6', 'CSS', 'Typescript',  'Docker', 'Kubernetes', 'Nodejs', 'PNPM', 'Turbo-repo', 'PostgreSQL'],
+  description: "",
   link: 'https://koicoin.app'
 
 },
@@ -68,7 +81,7 @@ const ProjectsData: ProjectType[] = [{
     image: koigoalkeeper,
     title: "Koi Goal Keeper",
     role: "Senior Developer",
-    languages: [],
+    languages: ['Reactjs', 'Javascript ES6', 'CSS', 'Typescript',  'Docker', 'Kubernetes', 'Nodejs', 'PNPM', 'Turbo-repo', 'PostgreSQL'],
     description: "Lorem ipsum, dolor sit amet consectetur\n" +
       "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
       "praesentium nisi. Id laboriosam ipsam enim.",
@@ -95,7 +108,7 @@ const ProjectsData: ProjectType[] = [{
     link: 'https://dearbeer.vercel.app/'
   }, {
     image: "",
-    title: "",
+    title: "LD Schott LLC",
     role: '',
     languages: [],
     description: "Lorem ipsum, dolor sit amet consectetur\n" +

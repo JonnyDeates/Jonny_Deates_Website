@@ -1,24 +1,27 @@
 .Page404 {
-    min-height: 80vh;
-    background-color: seashell;
     text-align: center;
 }
 .Page404 h1 {
+    margin-top: 0;
+    padding-top: 2rem;
     font-size: 10rem;
     margin-bottom: 1rem;
-    color: #af0104;
+    text-shadow: white 0 0 8px,  white 0 0 4px;
 }
 .Page404 h2 {
     font-size: xx-large;
     margin-bottom: 3rem;
-    color: #af0104;
+    text-shadow: white 0 0 4px,  white 0 0 2px;
 
 }
 .Page404 .NavButton {
-    color: seashell;
-    background-color: #af0104;
+    color: white;
+    width: 200px;
+    background-color: #000000;
+    transition: .3s background-color, .3s color;
+    border: 1px white solid;
 }
 .Page404 .NavButton:hover {
-    color: seashell;
-    background-color: #ffabae !important;
+    color: black;
+    background-color: white;
 }

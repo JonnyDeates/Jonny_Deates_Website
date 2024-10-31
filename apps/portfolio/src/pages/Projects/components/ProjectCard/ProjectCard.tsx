@@ -4,6 +4,7 @@ import './ProjectCard.css'
 import LanguageCarousel from "./components/LanguageCarousel";
 import {Button} from "koi-pool";
 import openNewTabWindow from "../../../../utils/openNewTabWindow";
+import {VariantsType} from "koi-pool/dist/types/VariantsType";
 
 type CarouselItemProps = {
     project: ProjectType,
@@ -66,7 +67,7 @@ const ProjectCard = ({
                 <h3>{role}</h3>
                 <LanguageCarousel array={languages}/>
                 <p>{description}</p>
-                <Button variant={'active'} className={'Button'} onClick={()=> openNewTabWindow(link)}>Go to {formatedLink}</Button>
+                <Button variant={'accept'} className={'Button'} onClick={()=> openNewTabWindow(link)}>Go to {formatedLink}</Button>
               </div>
             </div>
         </div>

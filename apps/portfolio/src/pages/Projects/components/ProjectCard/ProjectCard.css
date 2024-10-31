@@ -7,7 +7,7 @@
     user-select: none;
     pointer-events: all;
     min-width: 300px;
-    width: 30vw;
+    width: 35vw;
     max-width: 450px;
     min-height: 400px;
     height: 40vw;
@@ -83,7 +83,7 @@
 }
 .ProjectCardContent .Back h2 {
     padding: 1.5rem 0 0 1rem;
-    font-size: xx-large;
+    font-size: 28px;
     font-family: "Super Sunday", serif;
 }
 .ProjectCardContent .Back h3 {
@@ -92,7 +92,6 @@
 }
 .ProjectCardContent .Front h2 {
     position: absolute;
-    z-index: 1;
     color: #fff;
     bottom: 0;
     margin: 0;

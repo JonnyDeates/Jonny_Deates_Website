@@ -10,9 +10,9 @@ const LanguageCarousel = ({array}: LanguageCarouselProps) => {
   useEffect(() => {
     const keyframes = [];
     const step = 100 / (array.length);
-    const heightOfText = 30;
+    const heightOfText = 34;
 
-    for (const index in array) {
+    for (let index = 0; index < array.length; index++) {
       const position = index * heightOfText;
       const start = index * step;
       const end = Math.round(start + step / 3); // You can adjust this range for overlap
