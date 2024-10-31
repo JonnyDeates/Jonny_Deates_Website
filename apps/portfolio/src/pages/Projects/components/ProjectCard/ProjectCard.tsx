@@ -4,7 +4,6 @@ import './ProjectCard.css'
 import LanguageCarousel from "./components/LanguageCarousel";
 import {Button} from "koi-pool";
 import openNewTabWindow from "../../../../utils/openNewTabWindow";
-import {VariantsType} from "koi-pool/dist/types/VariantsType";
 
 type CarouselItemProps = {
     project: ProjectType,
