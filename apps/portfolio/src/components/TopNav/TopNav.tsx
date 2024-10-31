@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import './TopNav.css';
 
 type TopNavProps = {
@@ -12,7 +12,7 @@ const TopNav = ({links}: TopNavProps) => {
         <div className='nav'>
             {links.map((link, index) =>
                 <div key={index} onClick={() => window.scrollTo(0, 0)}>
-                    <NavLink to={link.to} className={({isActive}) => isActive ? 'active' : ''}>
+                    <NavLink to={link.to} className={({isActive}: any) => isActive ? 'active' : ''}>
                         {link.name}
                     </NavLink>
                 </div>)

@@ -54,7 +54,7 @@ const ProjectsData: ProjectType[] = [{
       "technical capabilities to support the Army’s 2030 initiative. This experience not only accelerated the " +
       "team's ability to deliver quality software but also reinforced a culture of innovation and adaptability within " +
       "the organization.",
-  link: 'https://soldiersolutions.swf.army.mil/'
+  link: 'https://soldiersolutions.swf.army.mil'
 }, {
   image: baldRidgeLodge,
   title: "Bald Ridge Lodge",
@@ -67,13 +67,20 @@ const ProjectsData: ProjectType[] = [{
       "Throughout the project, I engaged closely with stakeholders to gather feedback, iteratively refining the site " +
       "to meet the organization’s needs and values. This experience deepened my commitment to using technical skills " +
       "to support meaningful causes in the community.",
-  link: 'https://baldridgelodge.org/'
+  link: 'https://baldridgelodge.org'
 }, {
   image: koicoin,
   title: "Koi Coin",
   role: "Senior Developer",
   languages: ['Reactjs', 'Javascript ES6', 'CSS', 'Typescript',  'Docker', 'Kubernetes', 'Nodejs', 'PNPM', 'Turbo-repo', 'PostgreSQL'],
-  description: "",
+  description: "I developed a powerful budgeting application to help users easily manage and track various types of " +
+    "income streams, making it simple to create and follow a budget. Designing this app required a strong focus on " +
+    "modularity and maintainability, so I set up a monorepo structure using pnpm and Turborepo, which allowed me to" +
+    " organize code cleanly and scale functionality with ease as new features were added. Security and ease of use were " +
+    "essential to the application’s success. I designed a secure OAuth2 authentication flow, which provided users with" +
+    " a seamless and protected login experience. Deploying on bare-metal infrastructure required careful configuration" +
+    " for both scalability and reliability, which I achieved through Kubernetes and Helm. This setup gave the" +
+    " application a solid foundation to handle high availability needs, ensuring users had a consistently reliable experience.",
   link: 'https://koicoin.app'
 
 },
@@ -82,9 +89,14 @@ const ProjectsData: ProjectType[] = [{
     title: "Koi Goal Keeper",
     role: "Senior Developer",
     languages: ['Reactjs', 'Javascript ES6', 'CSS', 'Typescript',  'Docker', 'Kubernetes', 'Nodejs', 'PNPM', 'Turbo-repo', 'PostgreSQL'],
-    description: "Lorem ipsum, dolor sit amet consectetur\n" +
-      "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-      "praesentium nisi. Id laboriosam ipsam enim.",
+    description: "I built a goal-tracking application designed to help users set, monitor, and achieve their objectives" +
+      " with a clear focus on deadlines. The app simplifies the process of setting and adjusting due dates, giving users" +
+      " a seamless way to stay on track and hit their targets. Using a pnpm and Turborepo monorepo structure, I organized" +
+      " the project for maximum modularity, making it easy to maintain and extend as new features were needed. Security " +
+      "and ease of use were essential, so I implemented an OAuth2 authentication flow for a secure and hassle-free login " +
+      "experience. The application is deployed on bare-metal infrastructure, managed through Kubernetes and Helm, which " +
+      "allows it to scale efficiently and reliably support a growing user base. This setup provided a solid foundation, " +
+      "ensuring that users could confidently rely on the app to track their goals and stay on top of due dates.",
     link: 'https://koigoalkeeper.com'
 
   },
@@ -92,29 +104,42 @@ const ProjectsData: ProjectType[] = [{
     image: koitimer,
     title: "Koi Timer",
     role: 'Senior Developer',
-    languages: [],
-    description: "Lorem ipsum, dolor sit amet consectetur\n" +
-      "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-      "praesentium nisi. Id laboriosam ipsam enim.",
+    languages: ['Reactjs', 'Javascript ES6', 'CSS', 'Typescript',  'Docker', 'Kubernetes', 'Nodejs', 'PNPM', 'Turbo-repo', 'PostgreSQL'],
+    description: "I developed a Pomodoro timer application focused on productivity and ease of use, helping users manage" +
+      " their time effectively with minimal setup. This application supports customizable timer settings, allowing users" +
+      " to adjust work and break intervals based on their preferences. To ensure efficient development and maintainability," +
+      " I structured the project as a monorepo using pnpm and Turborepo, enabling clean modularity and streamlined " +
+      "dependency management. Since user accounts weren’t necessary, the app is refreshingly simple, with no login or authentication " +
+      "required—just open it and start your sessions. Deployed on bare-metal infrastructure with Kubernetes and Helm, " +
+      "the application is both highly scalable and resilient, providing a reliable experience for users without " +
+      "requiring account management. This setup allowed me to focus on delivering a smooth, distraction-free timer " +
+      "tool that users can rely on to stay productive throughout the day.",
     link: 'https://koitimer.com'
   }, {
     image: dearBeer,
     title: "Dear Beer",
     role: 'Software Developer',
-    languages: [],
-    description: "Lorem ipsum, dolor sit amet consectetur\n" +
-      "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-      "praesentium nisi. Id laboriosam ipsam enim.",
-    link: 'https://dearbeer.vercel.app/'
-  }, {
-    image: "",
-    title: "LD Schott LLC",
-    role: '',
-    languages: [],
-    description: "Lorem ipsum, dolor sit amet consectetur\n" +
-      "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
-      "praesentium nisi. Id laboriosam ipsam enim.",
-    link: ''
+    languages: ['Reactjs', 'Javascript ES6', 'CSS', 'Typescript', "Heroku", "Vercel"],
+    description: "I collaborated with a team to create an app that helps users discover bars and keep track of their " +
+      "favorite drinks at each location. Designed to enhance the bar-hopping experience, the app integrates the Google" +
+      " Maps API to provide an interactive map of bars users have visited, complete with options to explore new spots" +
+      " and save tasting notes on different drinks. We hosted the frontend using Vercel for fast, optimized loading, " +
+      "while the backend was deployed on Heroku to handle server-side logic and data storage. This setup allowed us to " +
+      "manage the project’s frontend and backend effectively while ensuring quick load times and reliable performance." +
+      " Working within a team, I led the implementation of the Google Maps API, which became a core feature of the app, " +
+      "letting users track and visually map out their bar-hopping experiences effortlessly. This project combined" +
+      " technical and collaborative skills to create a polished, engaging tool for exploring local nightlife.",
+    link: 'https://dearbeer.vercel.app'
   },
+  // {
+  //   image: "",
+  //   title: "LD Schott LLC",
+  //   role: '',
+  //   languages: [],
+  //   description: "Lorem ipsum, dolor sit amet consectetur\n" +
+  //     "adipisicing elit. Tempore fuga voluptatum, iure corporis inventore\n" +
+  //     "praesentium nisi. Id laboriosam ipsam enim.",
+  //   link: ''
+  // },
 ];
 export default ProjectsData;

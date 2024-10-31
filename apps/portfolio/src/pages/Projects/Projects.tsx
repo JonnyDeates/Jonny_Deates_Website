@@ -4,7 +4,6 @@ import Header from "../../components/Header/Header";
 import HeaderBox from "../../components/Header/components/HeaderBox/HeaderBox";
 import ProjectsCarousel from "./components/ProjectsCarousel/ProjectsCarousel";
 
-
 const Projects = () => {
 
     return (

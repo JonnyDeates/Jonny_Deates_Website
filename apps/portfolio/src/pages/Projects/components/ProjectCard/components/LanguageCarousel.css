@@ -10,7 +10,7 @@
     /*animation: scroll 5s ease-in-out infinite;*/
 }
 .LanguageCarousel .Content > div {
-    font-size: 1.3rem;
-    margin: 0 0 0 2px;
+    font-size: 23px;
+    margin: 0 2px 0 2px;
     font-family: "Gently", serif;
 }
