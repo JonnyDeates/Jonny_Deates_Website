@@ -1,3 +1,6 @@
+.Section{
+    transition: opacity 1s;
+}
 .Section:nth-child(3) {
     margin-top: -336px;
     z-index: 12;
@@ -6,4 +9,5 @@
 .SectionContent {
     display: block;
     min-height: 500px;
+
 }

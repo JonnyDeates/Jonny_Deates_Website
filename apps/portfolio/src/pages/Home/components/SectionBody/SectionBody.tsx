@@ -1,6 +1,7 @@
 import {SectionType} from "../../data/HomeData";
 import React from "react";
 import "./SectionBody.css"
+import TrackVisibility from "../../../../components/TrackVisibility/TrackVisibility";
 
 type SectionBodyProps = Omit<SectionType, 'images' | "skills"> & {
     isFlipped: boolean,
@@ -21,7 +22,7 @@ const SectionBody = ({header, description, subcomponent, hasAnimationRan, isFlip
     }
 
 
-    return <div
+    return <TrackVisibility
       className={'SectionBody'}>
         {isFlipped
           ? <>
@@ -33,7 +34,7 @@ const SectionBody = ({header, description, subcomponent, hasAnimationRan, isFlip
               <SectionText/>
           </>
         }
-    </div>
+    </TrackVisibility>
 
 };
 

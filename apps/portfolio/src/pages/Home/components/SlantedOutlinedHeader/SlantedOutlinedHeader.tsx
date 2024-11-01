@@ -1,5 +1,6 @@
 import React, {CSSProperties} from "react";
 import './SlantedOutlinedHeader.css';
+import TrackVisibility from "../../../../components/TrackVisibility/TrackVisibility";
 
 type SlantedOutlinedHeaderType = {
   headerList: string[],
@@ -40,6 +41,7 @@ const SlantedOutlinedHeader = ({
     `,
     borderBottomColor: backgroundColor,
     fontSize,
+    minHeight: `${fontSize}px`,
     borderBottomWidth: `${fontSize * 5}px`,
     marginBottom: `-${fontSize * 2.5}px`,
   };
@@ -56,7 +58,8 @@ const SlantedOutlinedHeader = ({
   return <div className='SlantedOutlinedHeaderWrapper' style={slatedOutlineWrapperStyle}>
     <div className='SlantedOutlinedHeader' style={slantedOutlineHeaderStyle}>
       {headerList.map((header, index) =>
-        <p key={header + index} style={slantedOutlineTextStyle}>
+        <TrackVisibility key={header + index}>
+        <p style={slantedOutlineTextStyle}>
           {
             header.split("").map((letter, letterIndex) =>
               <span key={header+letter+index+letterIndex} style={{animation: `1s ${(headerList.slice(0, index).join('').length * .10) + (letterIndex * .10)}s slideInRight forwards`}}>
@@ -64,7 +67,8 @@ const SlantedOutlinedHeader = ({
               </span>
             )
           }
-        </p>)
+        </p>
+        </TrackVisibility>)
       }
     </div>
   </div>

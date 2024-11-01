@@ -15,12 +15,12 @@
     width: 104%;
     left: -2%;
 }
-.SlantedOutlinedHeader > p {
+.SlantedOutlinedHeader p {
     margin-bottom: -4.5rem;
     font-family: "Gently", serif;
 }
 
-.SlantedOutlinedHeader > p  > span{
+.SlantedOutlinedHeader p  > span{
     opacity: 0;
     margin: 0 2px;
 }
